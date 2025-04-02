@@ -299,11 +299,6 @@ footer {
     .profile .name {
         font-size: 1.2rem; /* Еще больше уменьшаем текст */
     }
-
-    .logo {
-        width: 25px; /* Еще больше уменьшаем логотип */
-        height: 25px;
-    }
 }
 
     nav#menu ul li a {
