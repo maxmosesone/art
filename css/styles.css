@@ -99,12 +99,16 @@ nav#menu {
     left: 0;
     width: 100%; /* Занимает всю ширину экрана */
     height: 100%; /* Занимает всю высоту экрана */
-    background-color: rgba(0, 0, 0, 0.9); /* Полупрозрачный фон */
+    background-color: #fff; /* Белый фон */
     display: flex; /* Используем Flexbox для центрирования */
     justify-content: center; /* Центрируем по горизонтали */
     align-items: center; /* Центрируем по вертикали */
     z-index: 999; /* Чтобы меню было поверх всего контента */
-    text-align: center; /* Выравниваем текст по центру */
+    overflow: auto; /* Добавляем прокрутку, если контент не помещается */
+}
+
+nav#menu.hidden {
+    display: none; /* Скрываем меню, если класс hidden добавлен */
 }
 
 nav#menu:not(.hidden) {
@@ -115,6 +119,7 @@ nav#menu ul {
     list-style: none; /* Убираем маркеры списка */
     padding: 0; /* Убираем внутренние отступы */
     margin: 0; /* Убираем внешние отступы */
+    text-align: center; /* Выравниваем текст по центру */
 }
 
 nav#menu ul li {
@@ -122,11 +127,13 @@ nav#menu ul li {
 }
 
 nav#menu ul li a {
-    font-family: 'Roboto Flex', sans-serif; /* Шрифт Roboto Flex */
+    font-family: 'Roboto Flex', sans-serif; /* Используем Roboto Flex */
     font-weight: 100; /* Thin */
-    color: #fff; /* Белый цвет текста */
+    color: #000; /* Черный цвет текста */
     text-decoration: none; /* Убираем подчеркивание */
     font-size: 1.4rem; /* Размер текста */
+    display: block; /* Делаем ссылку блочным элементом */
+    padding: 0.8rem 0; /* Добавляем внутренние отступы */
     transition: color 0.3s ease; /* Плавное изменение цвета при наведении */
 }
 
