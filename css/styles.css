@@ -42,7 +42,7 @@ body {
 /* Шапка */
 header {
     border: 1px solid red; /* Для отладки */
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 1000; /* Чтобы шапка была поверх контента */
     background-color: transparent; /* Полностью прозрачный фон */
