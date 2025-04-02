@@ -200,9 +200,9 @@ nav#menu ul li a:hover {
 
 footer {
     margin-top: auto;
-    text-align: center;
-    padding: 0.5rem 0;
+    text-align: left;
+     padding: 0.5rem 0 0.5rem 1rem; /* Отступ слева */
     background-color: transparent;
-    color: #fff;
+    color: #000;
     font-size: 0.7rem;
 }
