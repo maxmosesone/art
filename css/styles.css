@@ -43,22 +43,25 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background-color: transparent; /* Полностью прозрачная */
+    background-color: transparent; /* Полностью прозрачный фон */
     padding: 0.5rem 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: none; /* Убираем границы */
+    box-shadow: none; /* Убираем тень */
 }
 
 /* Текст в шапке */
 .profile .name {
     font-family: 'Roboto Flex', sans-serif;
     font-weight: 100;
-    color: var(--primary-color);
+    color: var(--primary-color); /* Цвет текста */
     text-transform: uppercase;
     margin: 0;
     line-height: 1;
     text-align: left;
+    background-color: transparent; /* Убедитесь, что текст без фона */
 }
 
 .profile .name .first-name,
@@ -88,6 +91,7 @@ header {
     outline: none;
     transition: transform 0.3s ease, opacity 0.3s ease;
     opacity: 0.8;
+    background-color: transparent; /* Прозрачный фон для логотипа */
 }
 
 .logo:hover {
