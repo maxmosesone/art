@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@200&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital - Max Moiseev</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Шапка профиля -->
+    <header>
+    <div class="profile">
+        <h1 class="name">
+            <a href="index.html">
+                <span class="first-name">MAX</span><br>
+                <span class="last-name">MOISEEV</span>
+            </a>
+        </h1>
+    </div>
+        <!-- Кнопка меню (логотип) -->
+        <img id="menu-toggle" src="images/logo.svg" alt="Menu" class="logo">
+    </header>
+
+    <!-- Выпадающее меню -->
+    <nav id="menu" class="hidden">
+        <ul>
+            <li><a href="paintings.html">Paintings</a></li>
+            <li><a href="digital.html">Digital</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Основное содержимое -->
+    <main class="gallery">
+        <section class="work-item">
+            <img src="images/art1.jpg" alt="Digital Art 1">
+            <div class="info">
+                <h3>Digital Art Title 1</h3>
+                <p>Size: 1920x1080 px</p>
+                <span class="status available">Available</span>
+            </div>
+        </section>
+        <section class="work-item">
+            <img src="images/art2.jpg" alt="Digital Art 2">
+            <div class="info">
+                <h3>Digital Art Title 2</h3>
+                <p>Size: 1280x720 px</p>
+                <span class="status sold">Sold</span>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Max Moiseev. All rights reserved.</p>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>

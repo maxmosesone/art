@@ -1,0 +1,291 @@
+/* Цветовая палитра */
+:root {
+    --primary-color: #000; /* Основной цвет текста */
+    --secondary-color: #333; /* Вторичный цвет текста */
+    --accent-color: #2ecc71; /* Акцентный цвет (например, для кнопок) */
+    --background-color: #fff; /* Белый фон */
+    --border-color: #ddd; /* Цвет границ */
+}
+
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    color: var(--primary-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: var(--background-color);
+    padding: 0.3rem 0.rem; /* Уменьшаем отступы сверху и снизу */
+    display: flex;
+    justify-content: space-between; /* Размещаем элементы по краям */
+    align-items: center; /* Выравниваем элементы по вертикали */
+    z-index: 1000; /* Шапка выше меню */
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */ /* Убираем тень */
+}
+.profile .name {
+    font-family: 'Roboto Flex', sans-serif;
+    font-weight: 100; /* Thin */
+    color: var(--primary-color);
+    text-transform: uppercase; /* Делаем текст заглавными буквами */
+    margin: 0; /* Убираем лишние отступы */
+    line-height: 0.6; /* Минимальный межстрочный интервал */
+    text-align: left; /* Выравниваем текст по левому краю */
+}
+
+.profile .name .first-name,
+.profile .name .last-name {
+    font-size: 1.6rem; /* Одинаковый размер текста для обеих строк */
+    letter-spacing: -0.05em; /* Минимальный межбуквенный интервал */
+}
+
+.profile .name a {
+    text-decoration: none; /* Убираем подчеркивание */
+    color: inherit; /* Наследуем цвет текста от родительского элемента */
+}
+
+.profile .name:hover {
+    color: var(--accent-color); /* Меняем цвет при наведении */
+}
+
+.logo {
+    width: 40px;
+    height: 40px; /* Высота логотипа */
+    background-image: url('images/logo.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: transform 0.3s ease;
+    vertical-align: middle; /* Выравниваем по центру относительно текста */
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.logo:active {
+    transform: scale(0.95);
+}
+
+.hidden {
+    display: none;
+}
+
+nav#menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 5rem 2rem 6rem;
+    text-align: center;
+    display: none;
+    z-index: 1000;position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff; /* Белый фон */
+    color: #000; /* Черный текст */
+    padding-top: 6rem; /* Отступ сверху, чтобы шапка профиля оставалась видимой */
+    text-align: center;
+    display: none; /* Меню скрыто по умолчанию */
+    z-index: 999; /* Чтобы меню было поверх всего контента, кроме шапки */
+}
+
+nav#menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav#menu ul li {
+    margin: 1.5rem 0;
+}
+
+nav#menu ul li a {
+    color: #000; /* Черный цвет текста */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+/* Показать меню */
+nav#menu:not(.hidden) {
+    display: block;
+}
+
+.gallery {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.work-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.work-item img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.work-item:hover img {
+    transform: scale(1.05);
+}
+
+.info {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.status {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.status.available {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.status.sold {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.about {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.bio {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.bio img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.description {
+    text-align: left;
+}
+
+.exhibitions {
+    text-align: left;
+}
+
+.contact {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.contact-info img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+form input,
+form textarea {
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: var(--accent-color);
+}
+
+form button {
+    padding: 0.8rem;
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: var(--secondary-color);
+}
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 1rem 0;
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .bio {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bio img {
+        width: 100px;
+        height: 100px;
+    }
+}
