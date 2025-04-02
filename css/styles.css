@@ -163,7 +163,7 @@ nav#menu ul li a:hover {
 
     .profile .name .first-name,
     .profile .name .last-name {
-        font-size: 1.8rem; /* Уменьшаем размер текста */
+        font-size: 2rem; /* Уменьшаем размер текста */
         line-height: 1; /* Уменьшаем межстрочный интервал */
     }
 
@@ -173,7 +173,7 @@ nav#menu ul li a:hover {
     }
 
     nav#menu ul li a {
-        font-size: 0.8rem; /* Уменьшаем размер текста в меню */
+        font-size: 1rem; /* Уменьшаем размер текста в меню */
     }
 }
 
