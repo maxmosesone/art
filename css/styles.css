@@ -31,27 +31,29 @@ body {
 header {
     position: sticky;
     top: 0;
-    background-color: var(--background-color);
+    background-color: transparent; /* Убираем фон */
     padding: 0.5rem 1rem; /* Отступы внутри шапки */
     display: flex;
-    justify-content: space-between; /* Размещаем текст и логотип по краям */
+    justify-content: space-between; /* Размещаем элементы по краям */
     align-items: center; /* Выравниваем элементы по вертикали */
-    z-index: 1000;
+    z-index: 1000; /* Чтобы шапка была поверх контента */
+    backdrop-filter: blur(10px); /* Добавляем размытие фона (опционально) */
 }
 
+/* Текст в шапке */
 .profile .name {
     font-family: 'Roboto Flex', sans-serif;
     font-weight: 100; /* Thin */
-    color: var(--primary-color);
-    text-transform: uppercase; /* Делаем текст заглавными буквами */
+    color: var(--primary-color); /* Цвет текста */
+    text-transform: uppercase; /* Заглавные буквы */
     margin: 0; /* Убираем лишние отступы */
-    line-height: 0.6; /* Минимальный межстрочный интервал */
-    text-align: left; /* Выравниваем текст по левому краю */
+    line-height: 1; /* Минимальный межстрочный интервал */
+    text-align: left; /* Выравнивание по левому краю */
 }
 
 .profile .name .first-name,
 .profile .name .last-name {
-    font-size: 2.5rem; /* Одинаковый размер текста для обеих строк */
+    font-size: 2rem; /* Размер текста */
     letter-spacing: -0.05em; /* Минимальный межбуквенный интервал */
 }
 
@@ -64,9 +66,10 @@ header {
     color: var(--accent-color); /* Меняем цвет при наведении */
 }
 
+/* Прозрачный логотип */
 .logo {
     width: 50px;
-    height: 50px; /* Высота логотипа */
+    height: 50px;
     background-image: url('images/logo.svg');
     background-size: contain;
     background-repeat: no-repeat;
@@ -74,11 +77,12 @@ header {
     border: none;
     outline: none;
     transition: transform 0.3s ease;
-    vertical-align: middle; /* Выравниваем по центру относительно текста */
+    opacity: 0.8; /* Делаем логотип полупрозрачным */
 }
 
 .logo:hover {
     transform: scale(1.1);
+    opacity: 1; /* Логотип становится полностью видимым при наведении */
 }
 
 .logo:active {
@@ -157,7 +161,8 @@ nav#menu ul li a:hover {
         padding: 0.5rem 0.5rem; /* Уменьшаем отступы на узких экранах */
     }
 
-    .profile .name {
+    .profile .name .first-name,
+    .profile .name .last-name {
         font-size: 0.3rem; /* Уменьшаем размер текста */
         line-height: 1; /* Уменьшаем межстрочный интервал */
     }
@@ -174,8 +179,9 @@ nav#menu ul li a:hover {
 
 /* Для очень маленьких экранов */
 @media (max-width: 480px) {
-    .profile .name {
-        font-size: 0.05rem; /* Еще больше уменьшаем текст */
+    .profile .name .first-name,
+    .profile .name .last-name {
+        font-size: 0.05rem; /* Уменьшаем размер текста */
     }
 }
 
