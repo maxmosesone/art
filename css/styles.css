@@ -288,4 +288,34 @@ footer {
         width: 100px;
         height: 100px;
     }
+
+    header {
+        padding: 0.5rem 1rem; /* Уменьшаем отступы */
+        flex-direction: column; /* Размещаем элементы вертикально */
+        align-items: flex-start; /* Выравниваем по левому краю */
+    }
+
+    .profile .name {
+        font-size: 1.4rem; /* Уменьшаем размер текста */
+        line-height: 1; /* Уменьшаем межстрочный интервал */
+        margin-bottom: 0.5rem; /* Добавляем отступ между текстом и логотипом */
+    }
+
+    .logo {
+        width: 30px; /* Уменьшаем размер логотипа */
+        height: 30px;
+    }
 }
+
+/* Для очень маленьких экранов (например, iPhone SE) */
+@media (max-width: 480px) {
+    .profile .name {
+        font-size: 1.2rem; /* Еще больше уменьшаем текст */
+    }
+
+    .logo {
+        width: 25px; /* Еще больше уменьшаем логотип */
+        height: 25px;
+    }
+}
+
