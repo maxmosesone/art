@@ -1,6 +1,13 @@
 /* Подключение шрифта Roboto Flex Thin */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@100&display=swap');
 
+/* Обнуление отступов для body и html */
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* Цветовая палитра */
 :root {
     --primary-color: #000; /* Основной цвет текста */
