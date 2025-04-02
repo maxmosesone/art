@@ -158,7 +158,7 @@ nav#menu ul li a:hover {
     }
 
     .profile .name {
-        font-size: 1rem; /* Уменьшаем размер текста */
+        font-size: 0.5rem; /* Уменьшаем размер текста */
         line-height: 1; /* Уменьшаем межстрочный интервал */
     }
 
@@ -168,14 +168,14 @@ nav#menu ul li a:hover {
     }
 
     nav#menu ul li a {
-        font-size: 0,8rem; /* Уменьшаем размер текста в меню */
+        font-size: 0.8rem; /* Уменьшаем размер текста в меню */
     }
 }
 
 /* Для очень маленьких экранов */
 @media (max-width: 480px) {
     .profile .name {
-        font-size: 0.5rem; /* Еще больше уменьшаем текст */
+        font-size: 0.2rem; /* Еще больше уменьшаем текст */
     }
 }
 
