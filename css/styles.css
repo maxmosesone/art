@@ -31,15 +31,13 @@ body {
 header {
     position: sticky;
     top: 0;
-    background-color: transparent; /* Убираем фон */
+    background-color: transparent; /* Полностью прозрачный фон */
     padding: 0.5rem 1rem; /* Отступы внутри шапки */
     display: flex;
     justify-content: space-between; /* Размещаем элементы по краям */
     align-items: center; /* Выравниваем элементы по вертикали */
     z-index: 1000; /* Чтобы шапка была поверх контента */
-    backdrop-filter: blur(10px); /* Добавляем размытие фона (опционально) */
 }
-
 /* Текст в шапке */
 .profile .name {
     font-family: 'Roboto Flex', sans-serif;
@@ -77,7 +75,7 @@ header {
     border: none;
     outline: none;
     transition: transform 0.3s ease;
-    opacity: 0.8; /* Делаем логотип полупрозрачным */
+    opacity: 0.8; /* Логотип полупрозрачный */
 }
 
 .logo:hover {
