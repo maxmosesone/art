@@ -51,7 +51,7 @@ header {
 
 .profile .name .first-name,
 .profile .name .last-name {
-    font-size: 1.6rem; /* Одинаковый размер текста для обеих строк */
+    font-size: 3rem; /* Одинаковый размер текста для обеих строк */
     letter-spacing: -0.05em; /* Минимальный межбуквенный интервал */
 }
 
