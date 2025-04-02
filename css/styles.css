@@ -132,13 +132,22 @@ nav#menu:not(.hidden) {
     display: block;
 }
 
+/* Стили для галереи */
 .gallery {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    display: flex;
+    flex-direction: column; /* Размещаем изображения вертикально */
+    align-items: center; /* Центрируем изображения по горизонтали */
+    gap: 1rem; /* Расстояние между изображениями */
+    overflow-y: auto; /* Добавляем вертикальную прокрутку */
+    max-height: 100vh; /* Ограничиваем высоту галереи */
+}
+
+.gallery img {
+    width: 90%; /* Ширина изображений */
+    max-width: 600px; /* Максимальная ширина для больших экранов */
+    height: auto; /* Сохраняем пропорции изображений */
+    border-radius: 8px; /* Добавляем скругление углов */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Добавляем тень */
 }
 
 .work-item {
