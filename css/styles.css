@@ -43,7 +43,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background-color: transparent;
+    background-color: transparent; /* Полностью прозрачная */
     padding: 0.5rem 1rem;
     display: flex;
     justify-content: space-between;
@@ -200,10 +200,15 @@ nav#menu ul li a:hover {
 
 /* Футер */
 footer {
-    margin-top: auto;
+    position: absolute; /* Позиционируем внизу страницы */
+    bottom: 0;
+    left: 0;
+    width: 100%;
     text-align: left;
     padding: 0.5rem 0 0.5rem 1rem;
     background-color: transparent;
     color: var(--primary-color);
     font-size: 0.7rem;
+    opacity: 0; /* Скрытый изначально */
+    transition: opacity 0.3s ease; /* Анимация появления */
 }
