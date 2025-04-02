@@ -11,6 +11,10 @@ html, body {
     background-color: var(--background-color); /* Белый фон только у body */
 }
 
+main {
+    margin-top: 6rem; /* Отступ равен высоте шапки */
+}
+
 /* Цветовая палитра */
 :root {
     --primary-color: #000; /* Основной цвет текста */
@@ -41,18 +45,18 @@ body {
 
 /* Шапка */
 header {
-    border: 1px solid red; /* Для отладки */
-    position: fixed;
+    position: fixed; /* Закрепляем шапку вверху */
     top: 0;
+    left: 0;
     z-index: 1000; /* Чтобы шапка была поверх контента */
     background-color: transparent; /* Полностью прозрачный фон */
     padding: 0.5rem 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: none; /* Убираем границы */
-    box-shadow: none; /* Убираем тень */
-    backdrop-filter: none; /* Отключаем эффект блюра */
+    border: none;
+    box-shadow: none;
+    width: 100%; /* Занимает всю ширину экрана */
 }
 
 /* Текст в шапке */
