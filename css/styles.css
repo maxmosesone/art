@@ -29,12 +29,11 @@ header {
     position: sticky;
     top: 0;
     background-color: var(--background-color);
-    padding: 0.3rem 0.rem; /* Уменьшаем отступы сверху и снизу */
+    padding: 0.5rem 1rem; /* Отступы внутри шапки */
     display: flex;
-    justify-content: space-between; /* Размещаем элементы по краям */
+    justify-content: space-between; /* Размещаем текст и логотип по краям */
     align-items: center; /* Выравниваем элементы по вертикали */
-    z-index: 1000; /* Шапка выше меню */
-    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */ /* Убираем тень */
+    z-index: 1000;
 }
 .profile .name {
     font-family: 'Roboto Flex', sans-serif;
@@ -278,18 +277,15 @@ footer {
     color: #fff;
 }
 
-/* Стили для мобильных устройств */
+/* Для мобильных устройств */
 @media (max-width: 768px) {
     header {
-        padding: 0.5rem 1rem; /* Уменьшаем отступы */
-        flex-direction: column; /* Размещаем элементы вертикально */
-        align-items: flex-start; /* Выравниваем по левому краю */
+        padding: 0.5rem 0.5rem; /* Уменьшаем отступы на узких экранах */
     }
 
     .profile .name {
         font-size: 1.4rem; /* Уменьшаем размер текста */
         line-height: 1; /* Уменьшаем межстрочный интервал */
-        margin-bottom: 0.5rem; /* Добавляем отступ между текстом и логотипом */
     }
 
     .logo {
@@ -298,7 +294,7 @@ footer {
     }
 }
 
-/* Для очень маленьких экранов (например, iPhone SE) */
+/* Для очень маленьких экранов */
 @media (max-width: 480px) {
     .profile .name {
         font-size: 1.2rem; /* Еще больше уменьшаем текст */
@@ -308,6 +304,7 @@ footer {
         width: 25px; /* Еще больше уменьшаем логотип */
         height: 25px;
     }
+}
 
     nav#menu ul li a {
         font-size: 1.2rem; /* Уменьшаем размер текста в меню */
