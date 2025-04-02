@@ -41,6 +41,7 @@ body {
 
 /* Шапка */
 header {
+    border: 1px solid red; /* Для отладки */
     position: sticky;
     top: 0;
     z-index: 1000; /* Чтобы шапка была поверх контента */
@@ -164,6 +165,7 @@ nav#menu ul li a:hover {
     gap: 1rem;
     overflow-y: auto;
     max-height: 100vh;
+    margin-top: 0; /* Убедитесь, что у gallery нет лишнего отступа сверху */
 }
 
 .gallery img {
