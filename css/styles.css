@@ -219,6 +219,8 @@ footer {
     background-color: transparent; /* Полностью прозрачный фон */
     color: #333; /* Темный цвет текста для видимости */
     font-size: 0.7rem;
+    opacity: 0; /* Скрытый изначально */
+    transition: opacity 0.3s ease; /* Анимация появления */
 }
 
 /* Основной контент */
