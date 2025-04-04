@@ -181,7 +181,6 @@ nav#menu ul li a:hover {
 .frame {
     background-color: #fff;
     padding: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
 
