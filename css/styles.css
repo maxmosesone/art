@@ -212,7 +212,7 @@ nav#menu ul li a:hover {
 
 /* Футер */
 footer {
-    position: absolute; /* Размещаем футер внизу контента */
+    position: fixed; /* Размещаем футер внизу контента */
     margin-top: auto; /* Футер всегда внизу */
     width: 100%;
     text-align: left;

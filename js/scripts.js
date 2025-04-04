@@ -19,7 +19,11 @@ window.addEventListener('scroll', () => {
         const scrollPosition = window.scrollY + window.innerHeight;
         const pageHeight = document.documentElement.scrollHeight;
 
-        if (scrollPosition >= pageHeight) {
+        console.log('Scroll Position:', scrollPosition);
+        console.log('Page Height:', pageHeight);
+
+        // Добавляем допуск (-5px) для точности
+        if (scrollPosition >= pageHeight - 5) {
             footer.style.opacity = '1'; // Показываем футер
         } else {
             footer.style.opacity = '0'; // Скрываем футер
