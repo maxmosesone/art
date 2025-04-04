@@ -218,7 +218,7 @@ footer {
     text-align: left;
     padding: 0.5rem 0 0.5rem 1rem;
     background-color: transparent;
-    color: #f0f0f0; /* Очень светлый серый цвет */
+    color: #333; /* Очень светлый серый цвет */
     font-size: 0.7rem;
     opacity: 0; /* Скрытый изначально */
     transition: opacity 0.3s ease; /* Анимация появления */
