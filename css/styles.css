@@ -6,22 +6,22 @@ html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow-x: hidden; /* Убираем горизонтальную прокрутку */
-    height: 100%; /* Гарантирует правильное поведение высоты */
-    background-color: var(--background-color); /* Белый фон только у body */
+    overflow-x: hidden;
+    height: 100%;
+    background-color: var(--background-color);
 }
 
 main {
-    margin-top: 6rem; /* Отступ равен высоте шапки */
+    margin-top: 6rem;
 }
 
 /* Цветовая палитра */
 :root {
-    --primary-color: #000; /* Основной цвет текста */
-    --secondary-color: #333; /* Вторичный цвет текста */
-    --accent-color: #2ecc71; /* Акцентный цвет (например, для кнопок) */
-    --background-color: #fff; /* Белый фон */
-    --border-color: #ddd; /* Цвет границ */
+    --primary-color: #000;
+    --secondary-color: #333;
+    --accent-color: #2ecc71;
+    --background-color: #fff;
+    --border-color: #ddd;
 }
 
 /* Наследование box-sizing для всех элементов */
@@ -40,35 +40,34 @@ body {
     line-height: 1.6;
     display: flex;
     flex-direction: column;
-    /* Убираем min-height: 100vh */
 }
 
 /* Шапка */
 header {
-    position: fixed; /* Закрепляем шапку вверху */
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000; /* Чтобы шапка была поверх контента */
-    background-color: transparent; /* Полностью прозрачный фон */
+    z-index: 1000;
+    background-color: transparent;
     padding: 0.5rem 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border: none;
     box-shadow: none;
-    width: 100%; /* Занимает всю ширину экрана */
+    width: 100%;
 }
 
 /* Текст в шапке */
 .profile .name {
     font-family: 'Roboto Flex', sans-serif;
     font-weight: 100;
-    color: var(--primary-color); /* Цвет текста */
+    color: var(--primary-color);
     text-transform: uppercase;
     margin: 0;
     line-height: 1;
     text-align: left;
-    background-color: transparent; /* Убедитесь, что текст без фона */
+    background-color: transparent;
 }
 
 .profile .name .first-name,
@@ -98,7 +97,7 @@ header {
     outline: none;
     transition: transform 0.3s ease, opacity 0.3s ease;
     opacity: 0.8;
-    background-color: transparent; /* Прозрачный фон для логотипа */
+    background-color: transparent;
 }
 
 .logo:hover {
@@ -166,24 +165,42 @@ nav#menu ul li a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
     overflow-y: auto;
-    margin-top: 0;
+    margin: 6rem 2rem 2rem 2rem;
 }
 
-.gallery img {
-    width: 90%;
+.work-item {
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.frame {
+    background-color: #fff;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.work-item img {
+    width: 100%;
     max-width: 600px;
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+.work-item .info {
+    text-align: center;
+    margin-top: 1rem;
 }
 
 /* Мобильные устройства */
 @media (max-width: 768px) {
     header {
         padding: 0.5rem;
-
     }
 
     footer {
@@ -191,9 +208,20 @@ nav#menu ul li a:hover {
         font-size: 0.6rem;
     }
 
-    .gallery img {
+    .gallery {
+        margin: 5rem 1rem 1rem 1rem;
+    }
+
+    .work-item {
+        max-width: 500px;
+    }
+
+    .frame {
+        padding: 1rem;
+    }
+
+    .work-item img {
         max-width: 100%;
-        width: 80%;
     }
 
     .gallery .info {
@@ -223,29 +251,41 @@ nav#menu ul li a:hover {
         font-size: 0.5rem;
     }
 
-    .profile .name .first-name,
-    .profile .name .last-name {
-        font-size: 1.5rem;
+    .gallery {
+        margin: 4rem 0.5rem 0.5rem 0.5rem;
     }
 
-    .gallery img {
-        width: 90%;
+    .work-item {
+        max-width: 100%;
+    }
+
+    .frame {
+        padding: 0.5rem;
+    }
+
+    .work-item img {
+        max-width: 100%;
     }
 
     .gallery .info {
         font-size: 0.8rem;
     }
+
+    .profile .name .first-name,
+    .profile .name .last-name {
+        font-size: 1.5rem;
+    }
 }
 
 /* Футер */
 footer {
-    margin-top: 10px; /* Меньший отступ сверху */
+    margin-top: 10px;
     width: 100%;
-    text-align: center; /* Текст по центру */
-    padding: 0.3rem 0 0.5rem 0.5rem; /* Уменьшенные внутренние отступы */
-    background-color: transparent; /* Прозрачный фон */
-    color: #d3d3d3; /* Более заметный светло-серый */
-    font-size: 0.6rem; /* Меньший размер текста */
-    font-weight: 300; /* Более тонкий шрифт */
-    line-height: 1.2; /* Уменьшаем межстрочный интервал */
+    text-align: center;
+    padding: 0.3rem 0 0.5rem 0.5rem;
+    background-color: transparent;
+    color: #d3d3d3;
+    font-size: 0.6rem;
+    font-weight: 300;
+    line-height: 1.2;
 }

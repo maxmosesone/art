@@ -4,24 +4,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@200&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Max Moiseev - Portfolio</title>
+    <title>Paintings - Max Moiseev</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Шапка профиля -->
-  <header>
-    <div class="profile">
-        <h1 class="name">
-            <a href="index.html">
-                <span class="first-name">MAX MOISEEV</span><br>
-            </a>
-        </h1>
-    </div>
-        <!-- Кнопка меню (логотип) -->
+    <header>
+        <div class="profile">
+            <h1 class="name">
+                <a href="index.html">
+                    <span class="first-name">MAX MOISEEV</span><br>
+                </a>
+            </h1>
+        </div>
         <img id="menu-toggle" src="images/logo.svg" alt="Menu" class="logo">
     </header>
 
-    <!-- Выпадающее меню -->
     <nav id="menu" class="hidden">
         <ul>
             <li><a href="paintings.html">PAINTINGS</a></li>
@@ -31,10 +28,11 @@
         </ul>
     </nav>
 
-    <!-- Основное содержимое -->
     <main class="gallery">
         <section class="work-item">
-            <img src="images/art1.jpg" alt="Painting 1">
+            <div class="frame">
+                <img src="images/art1.jpg" alt="Painting 1">
+            </div>
             <div class="info">
                 <h3>Wave II</h3>
                 <p>Size: 60x80x2.5 cm</p>
@@ -42,7 +40,9 @@
             </div>
         </section>
         <section class="work-item">
-            <img src="images/art2.jpg" alt="Painting 2">
+            <div class="frame">
+                <img src="images/art2.jpg" alt="Painting 2">
+            </div>
             <div class="info">
                 <h3>Flower</h3>
                 <p>Size: 100x70x2.5 cm</p>
@@ -51,11 +51,9 @@
         </section>
         
         <footer>
-        <p>&copy; All rights reserved.</p>
+            <p>© All rights reserved.</p>
         </footer>
     </main>
-
-    
 
     <script src="js/scripts.js"></script>
 </body>
