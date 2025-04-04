@@ -222,7 +222,7 @@ nav#menu ul li a:hover {
         padding: 0.5rem 0 0.5rem 0.3rem;
         font-size: 0.5rem;
     }
-    
+
     .profile .name .first-name,
     .profile .name .last-name {
         font-size: 1.5rem;
@@ -242,7 +242,7 @@ footer {
     margin-top: 10px; /* Меньший отступ сверху */
     width: 100%;
     text-align: center; /* Текст по центру */
-    padding: 0.3rem 0; /* Уменьшенные внутренние отступы */
+    padding: 0.3rem 0 0.5rem 0.5rem; /* Уменьшенные внутренние отступы */
     background-color: transparent; /* Прозрачный фон */
     color: #d3d3d3; /* Более заметный светло-серый */
     font-size: 0.6rem; /* Меньший размер текста */
