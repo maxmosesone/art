@@ -239,10 +239,10 @@ nav#menu ul li a:hover {
 
 /* Футер */
 footer {
-    margin-top: 20px; /* Отступ сверху */
+    margin-top: 10px; /* Меньший отступ сверху */
     width: 100%;
-    text-align: left;
-    padding: 0.5rem 0 0.5rem 1rem;
+    text-align: center; /* Текст по центру */
+    padding: 0.3rem 0; /* Уменьшенные внутренние отступы */
     background-color: transparent; /* Прозрачный фон */
     color: #d3d3d3; /* Более заметный светло-серый */
     font-size: 0.6rem; /* Меньший размер текста */
