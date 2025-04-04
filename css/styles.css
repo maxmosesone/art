@@ -9,41 +9,47 @@ html, body {
     overflow-x: hidden;
     height: 100%;
     background-color: var(--background-color);
-    /* Убираем отступ скроллбара */
     margin-right: 0 !important;
     padding-right: 0 !important;
-    /* Для Webkit: скроллбар накладывается на контент */
-    overflow-y: overlay;
 }
 
 /* Webkit (Chrome, Safari) */
+html {
+    scrollbar-gutter: auto; /* Убираем отступ */
+}
+
+body {
+    overflow-y: auto; /* Заменяем overlay на auto */
+}
+
+/* Стили для скроллбара в Webkit */
 ::-webkit-scrollbar {
-    width: 6px;
+    width: 4px; /* Ещё тоньше */
 }
 
 ::-webkit-scrollbar-track {
     background: transparent;
+    margin-right: 0; /* Убираем отступ */
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.1); /* Ещё более прозрачный */
+    border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.3);
 }
 
 /* Firefox */
 html {
     scrollbar-width: thin;
-    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
-    /* Убираем отступ в Firefox */
-    scrollbar-gutter: stable;
+    scrollbar-color: rgba(0, 0, 0, 0.1) transparent;
+    scrollbar-gutter: auto; /* Убираем отступ */
 }
 
 main {
-    margin-top: 6rem;
+    margin-top: 6rem; /* Возвращаем исходный отступ */
 }
 
 /* Цветовая палитра */
@@ -79,7 +85,7 @@ header {
     top: 0;
     left: 0;
     z-index: 1000;
-    background-color: transparent;
+    background-color: transparent !important;
     padding: 0.5rem 1rem;
     display: flex;
     justify-content: space-between;
@@ -87,6 +93,7 @@ header {
     border: none;
     box-shadow: none;
     width: 100%;
+    backdrop-filter: none; /* Убираем возможные эффекты размытия */
 }
 
 /* Текст в шапке */
@@ -98,7 +105,7 @@ header {
     margin: 0;
     line-height: 1;
     text-align: left;
-    background-color: transparent;
+    background-color: transparent !important;
 }
 
 .profile .name .first-name,
@@ -128,7 +135,7 @@ header {
     outline: none;
     transition: transform 0.3s ease, opacity 0.3s ease;
     opacity: 0.8;
-    background-color: transparent;
+    background-color: transparent !important;
 }
 
 .logo:hover {
