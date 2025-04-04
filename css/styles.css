@@ -224,5 +224,4 @@ footer {
 /* Основной контент */
 main.gallery {
     margin-bottom: 2rem; /* Отступ снизу для контента */
-    border: 1px solid blue; /* Для отладки */
 }
