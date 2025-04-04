@@ -10,18 +10,18 @@
 <body>
     <!-- Шапка профиля -->
     <header>
-    <div class="profile">
-        <h1 class="name">
-            <a href="index.html">
-                <span class="first-name">MAX MOISEEV</span><br>
-            </a>
-        </h1>
-    </div>
+        <div class="profile">
+            <h1 class="name">
+                <a href="index.html">
+                    <span class="first-name">MAX MOISEEV</span><br>
+                </a>
+            </h1>
+        </div>
         <!-- Кнопка меню (логотип) -->
         <img id="menu-toggle" src="images/logo.svg" alt="Menu" class="logo">
     </header>
 
-     <!-- Выпадающее меню -->
+    <!-- Выпадающее меню -->
     <nav id="menu" class="hidden">
         <ul>
             <li><a href="paintings.html">PAINTINGS</a></li>
@@ -34,7 +34,9 @@
     <!-- Основное содержимое -->
     <main class="gallery">
         <section class="work-item">
-            <img src="images/art01.jpg" alt="Digital Art 1">
+            <div class="frame">
+                <img src="images/art01.jpg" alt="Digital Art 1">
+            </div>
             <div class="info">
                 <h3>Digital Art Title 1</h3>
                 <p>Size: 1920x1080 px</p>
@@ -42,7 +44,9 @@
             </div>
         </section>
         <section class="work-item">
-            <img src="images/art02.jpg" alt="Digital Art 2">
+            <div class="frame">
+                <img src="images/art02.jpg" alt="Digital Art 2">
+            </div>
             <div class="info">
                 <h3>Digital Art Title 2</h3>
                 <p>Size: 1280x720 px</p>
@@ -50,11 +54,9 @@
             </div>
         </section>
         <footer>
-        <p>&copy; All rights reserved.</p>
+            <p>© All rights reserved.</p>
         </footer>
     </main>
-
-    
 
     <script src="js/scripts.js"></script>
 </body>

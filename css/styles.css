@@ -12,30 +12,34 @@ html, body {
     /* Убираем отступ скроллбара */
     margin-right: 0 !important;
     padding-right: 0 !important;
+    /* Для Webkit: скроллбар накладывается на контент */
+    overflow-y: overlay;
 }
 
 /* Webkit (Chrome, Safari) */
 ::-webkit-scrollbar {
-    width: 6px; /* Тонкий скроллбар */
+    width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent; /* Прозрачный фон */
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.2); /* Полупрозрачный серый */
+    background: rgba(0, 0, 0, 0.2);
     border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.4); /* Чуть темнее при наведении */
+    background: rgba(0, 0, 0, 0.4);
 }
 
 /* Firefox */
 html {
-    scrollbar-width: thin; /* Тонкий скроллбар */
-    scrollbar-color: rgba(0, 0, 0, 0.2) transparent; /* Полупрозрачный серый на прозрачном фоне */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+    /* Убираем отступ в Firefox */
+    scrollbar-gutter: stable;
 }
 
 main {
