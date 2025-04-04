@@ -9,6 +9,33 @@ html, body {
     overflow-x: hidden;
     height: 100%;
     background-color: var(--background-color);
+    /* Убираем отступ скроллбара */
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* Webkit (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 6px; /* Тонкий скроллбар */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; /* Прозрачный фон */
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2); /* Полупрозрачный серый */
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.4); /* Чуть темнее при наведении */
+}
+
+/* Firefox */
+html {
+    scrollbar-width: thin; /* Тонкий скроллбар */
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent; /* Полупрозрачный серый на прозрачном фоне */
 }
 
 main {
