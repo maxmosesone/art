@@ -162,11 +162,11 @@ nav#menu {
     background-color: var(--background-color);
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     z-index: 999;
     overflow: auto;
     margin: 0;
-    padding: 0;
+    padding: 10rem 0 0 0; /* Отступ сверху */
 }
 
 nav#menu.hidden {
