@@ -17,39 +17,46 @@ html, body {
 
 /* Webkit (Chrome, Safari) */
 html {
-    overflow-y: auto;
-    -webkit-appearance: none;
-    -ms-overflow-style: none; /* Отключаем системный скроллбар */
+    overflow-y: auto !important;
+    -webkit-appearance: none !important;
+    -ms-overflow-style: none !important; /* Отключаем системный скроллбар */
 }
 
 body {
-    overflow-y: auto;
+    overflow-y: auto !important;
 }
 
 /* Стили для скроллбара в Webkit */
-::-webkit-scrollbar {
-    width: 4px;
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 4px !important;
+    background: transparent !important;
 }
 
-::-webkit-scrollbar-track {
-    background: transparent;
-    margin-right: 0;
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
 }
 
-::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.02); /* Ещё бледнее */
-    border-radius: 2px;
-    border: 0;
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.02) !important; /* Очень бледный */
+    border-radius: 2px !important;
+    border: 0 !important;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.1); /* Чуть темнее при наведении */
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.1) !important; /* Чуть темнее при наведении */
 }
 
 /* Firefox */
 html {
     scrollbar-width: thin;
-    scrollbar-color: rgba(0, 0, 0, 0.02) transparent; /* Ещё бледнее */
+    scrollbar-color: rgba(0, 0, 0, 0.02) transparent; /* Очень бледный */
     scrollbar-gutter: stable;
 }
 
