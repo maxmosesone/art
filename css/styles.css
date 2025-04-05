@@ -55,7 +55,7 @@ body::-webkit-scrollbar-thumb:hover {
 /* Firefox */
 html {
     scrollbar-width: thin;
-    scrollbar-color: rgba(0, 0, 0, 0.1) transparent; /* Скорректирован цвет */
+    scrollbar-color: rgba(0, 0, 0, 0.5) #f1f1f1; /* Скорректирован цвет */
     scrollbar-gutter: stable;
 }
 
