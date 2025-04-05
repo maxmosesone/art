@@ -46,6 +46,7 @@ html::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.7); /* Более заметный цвет */
     border-radius: 10px; /* Более плавные углы */
+    border: 2px solid rgba(0, 0, 0, 0.3); /* Добавляем границу для контраста */
 }
 
 html::-webkit-scrollbar-thumb:hover,
