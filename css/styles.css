@@ -9,33 +9,36 @@ html, body {
     overflow-x: hidden;
     height: 100%;
     background-color: var(--background-color);
-    margin-right: 0;
-    padding-right: 0;
-    scrollbar-gutter: stable; /* Фиксируем положение скроллбара */
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+    border: 0 !important;
+    outline: 0 !important;
 }
 
 /* Webkit (Chrome, Safari) */
 html {
-    scrollbar-gutter: auto; /* Убираем отступ */
+    overflow-y: auto;
+    -webkit-appearance: none; /* Отключаем системный скроллбар */
 }
 
 body {
-    overflow-y: auto; /* Заменяем overlay на auto */
+    overflow-y: auto;
 }
 
 /* Стили для скроллбара в Webkit */
 ::-webkit-scrollbar {
-    width: 4px; /* Ещё тоньше */
+    width: 4px;
 }
 
 ::-webkit-scrollbar-track {
     background: transparent;
-    margin-right: 0; /* Убираем отступ */
+    margin-right: 0;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.1); /* Ещё более прозрачный */
+    background: rgba(0, 0, 0, 0.1);
     border-radius: 2px;
+    border: 0; /* Убираем возможные границы */
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -46,11 +49,11 @@ body {
 html {
     scrollbar-width: thin;
     scrollbar-color: rgba(0, 0, 0, 0.1) transparent;
-    scrollbar-gutter: auto; /* Убираем отступ */
+    scrollbar-gutter: stable; /* Прижимаем к краю */
 }
 
 main {
-    margin-top: 6rem; /* Возвращаем исходный отступ */
+    margin-top: 6rem;
 }
 
 /* Цветовая палитра */
@@ -94,7 +97,7 @@ header {
     border: none;
     box-shadow: none;
     width: 100%;
-    backdrop-filter: none; /* Убираем возможные эффекты размытия */
+    backdrop-filter: none;
 }
 
 /* Текст в шапке */
@@ -166,7 +169,7 @@ nav#menu {
     z-index: 999;
     overflow: auto;
     margin: 0;
-    padding: 13rem 0 0 0; /* Отступ сверху */
+    padding: 13rem 0 0 0;
 }
 
 nav#menu.hidden {
