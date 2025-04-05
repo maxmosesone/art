@@ -19,7 +19,7 @@ html, body {
 html {
     overflow-y: auto;
     -webkit-appearance: none;
-    -ms-overflow-style: none; /* Отключаем системный скроллбар в Edge/Chrome на Windows */
+    -ms-overflow-style: none; /* Отключаем системный скроллбар */
 }
 
 body {
@@ -29,46 +29,31 @@ body {
 /* Стили для скроллбара в Webkit */
 ::-webkit-scrollbar {
     width: 4px;
+    background: transparent;
 }
 
 ::-webkit-scrollbar-track {
     background: transparent;
-    margin-right: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.03); /* Очень бледный */
     border-radius: 2px;
     border: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.15); /* Чуть темнее при наведении */
 }
 
 /* Firefox */
 html {
-    scrollbar-width: none; /* Отключаем стандартный скроллбар */
-}
-
-/* Кастомный скроллбар для Firefox */
-body {
-    position: relative;
-}
-
-body::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 4px;
-    height: 100%;
-    background: transparent;
-    z-index: 1000;
-}
-
-body:hover::after {
-    background: rgba(0, 0, 0, 0.1);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.03) transparent; /* Очень бледный */
+    scrollbar-gutter: stable;
 }
 
 main {
