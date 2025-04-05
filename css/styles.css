@@ -44,13 +44,13 @@ body::-webkit-scrollbar-track {
 
 html::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.5); /* Более заметный цвет */
-    border-radius: 4px; /* Более плавные углы */
+    background: rgba(0, 0, 0, 0.7); /* Более заметный цвет */
+    border-radius: 10px; /* Более плавные углы */
 }
 
 html::-webkit-scrollbar-thumb:hover,
 body::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.7); /* Цвет при наведении */
+    background: rgba(0, 0, 0, 0.9); /* Цвет при наведении */
 }
 
 /* Firefox */
