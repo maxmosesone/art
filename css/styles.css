@@ -24,12 +24,12 @@ html {
 
 body {
     overflow-y: auto;
+    position: relative;
 }
 
 /* Стили для скроллбара в Webkit */
 ::-webkit-scrollbar {
     width: 4px;
-    background: transparent;
 }
 
 ::-webkit-scrollbar-track {
@@ -40,20 +40,34 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.05); /* Очень бледный */
+    background: rgba(0, 0, 0, 0.1);
     border-radius: 2px;
     border: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.2); /* Чуть темнее при наведении */
+    background: rgba(0, 0, 0, 0.3);
 }
 
 /* Firefox */
 html {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(0, 0, 0, 0.05) transparent; /* Очень бледный */
-    scrollbar-gutter: stable;
+    scrollbar-width: none;
+}
+
+/* Кастомный скроллбар для Firefox и Chrome */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0; /* Прижимаем к правому краю */
+    width: 4px;
+    height: 100%;
+    background: transparent;
+    z-index: 1000;
+}
+
+body:hover::after {
+    background: rgba(0, 0, 0, 0.1);
 }
 
 main {
