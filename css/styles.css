@@ -19,12 +19,11 @@ html, body {
 html {
     overflow-y: auto;
     -webkit-appearance: none;
-    -ms-overflow-style: none;
+    -ms-overflow-style: none; /* Отключаем системный скроллбар в Edge/Chrome на Windows */
 }
 
 body {
     overflow-y: auto;
-    position: relative;
 }
 
 /* Стили для скроллбара в Webkit */
@@ -34,32 +33,34 @@ body {
 
 ::-webkit-scrollbar-track {
     background: transparent;
-    margin: 0 !important;
-    padding: 0 !important;
-    border: 0 !important;
+    margin-right: 0;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.03);
+    background: rgba(0, 0, 0, 0.1);
     border-radius: 2px;
     border: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.15);
+    background: rgba(0, 0, 0, 0.3);
 }
 
 /* Firefox */
 html {
-    scrollbar-width: none;
+    scrollbar-width: none; /* Отключаем стандартный скроллбар */
 }
 
-/* Кастомный скроллбар для Firefox и Chrome */
+/* Кастомный скроллбар для Firefox */
+body {
+    position: relative;
+}
+
 body::after {
     content: '';
     position: fixed;
     top: 0;
-    right: 0; /* Прижимаем к правому краю */
+    right: 0;
     width: 4px;
     height: 100%;
     background: transparent;
