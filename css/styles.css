@@ -17,46 +17,46 @@ html, body {
 
 /* Webkit (Chrome, Safari) */
 html {
-    overflow-y: auto !important;
-    -webkit-appearance: none !important;
-    -ms-overflow-style: none !important; /* Отключаем системный скроллбар */
+    overflow-y: auto;
+    -webkit-appearance: none;
+    -ms-overflow-style: none;
 }
 
 body {
-    overflow-y: auto !important;
+    overflow-y: auto;
 }
 
 /* Стили для скроллбара в Webkit */
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
-    width: 4px !important;
-    background: transparent !important;
+    width: 4px;
+    background: transparent;
 }
 
 html::-webkit-scrollbar-track,
 body::-webkit-scrollbar-track {
-    background: transparent !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    border: 0 !important;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
 
 html::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.02) !important; /* Очень бледный */
-    border-radius: 2px !important;
-    border: 0 !important;
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 2px;
+    border: 0;
 }
 
 html::-webkit-scrollbar-thumb:hover,
 body::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.1) !important; /* Чуть темнее при наведении */
+    background: rgba(0, 0, 0, 0.1);
 }
 
 /* Firefox */
 html {
     scrollbar-width: thin;
-    scrollbar-color: rgba(0, 0, 0, 0.02) transparent; /* Очень бледный */
+    scrollbar-color: rgba(0, 0, 0, 0.02) transparent;
     scrollbar-gutter: stable;
 }
 
