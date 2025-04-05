@@ -17,7 +17,7 @@ html, body {
 
 /* Webkit (Chrome, Safari) */
 html {
-    overflow-y: auto;
+    overflow-y: scroll; /* Обеспечивает всегда видимый скроллбар */
     -webkit-appearance: none;
     -ms-overflow-style: none;
 }
@@ -217,7 +217,7 @@ nav#menu ul li a:hover {
     gap: 2rem;
     overflow-y: auto;
     margin: 6rem 2rem 2rem 2rem;
-    width: 100%; /* Убраны лишние отступы */
+    width: 100%;
 }
 
 .work-item {
