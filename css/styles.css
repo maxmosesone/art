@@ -29,30 +29,27 @@ body {
 /* Стили для скроллбара в Webkit */
 ::-webkit-scrollbar {
     width: 4px;
-    background: transparent;
 }
 
 ::-webkit-scrollbar-track {
     background: transparent;
-    margin: 0 !important;
-    padding: 0 !important;
-    border: 0 !important;
+    margin-right: 0;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.03); /* Очень бледный */
+    background: rgba(0, 0, 0, 0.02); /* Ещё бледнее */
     border-radius: 2px;
     border: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.15); /* Чуть темнее при наведении */
+    background: rgba(0, 0, 0, 0.1); /* Чуть темнее при наведении */
 }
 
 /* Firefox */
 html {
     scrollbar-width: thin;
-    scrollbar-color: rgba(0, 0, 0, 0.03) transparent; /* Очень бледный */
+    scrollbar-color: rgba(0, 0, 0, 0.02) transparent; /* Ещё бледнее */
     scrollbar-gutter: stable;
 }
 
