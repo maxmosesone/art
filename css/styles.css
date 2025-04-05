@@ -166,7 +166,7 @@ nav#menu {
     z-index: 999;
     overflow: auto;
     margin: 0;
-    padding: 10rem 0 0 0; /* Отступ сверху */
+    padding: 15rem 0 0 0; /* Отступ сверху */
 }
 
 nav#menu.hidden {
