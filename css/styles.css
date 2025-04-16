@@ -216,9 +216,9 @@ nav#menu ul li a:hover {
     }
 
     .gallery {
-        margin: 5rem 0 1rem 0; /* Убираем боковые margin */
-        padding: 0 1rem; /* Добавляем padding для равных отступов */
-        box-sizing: border-box; /* Учитываем padding в ширине */
+        margin: 5rem 0 1rem 0;
+        padding: 0 1rem;
+        box-sizing: border-box;
         width: 100%;
     }
 
@@ -242,7 +242,7 @@ nav#menu ul li a:hover {
 
     .profile .name .first-name,
     .profile .name .last-name {
-        font-size: 2.5rem;
+        font-size: 2rem;
         line-height: 1;
     }
 
@@ -282,7 +282,7 @@ nav#menu ul li a:hover {
 
     .profile .name .first-name,
     .profile .name .last-name {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 }
 
@@ -297,4 +297,38 @@ footer {
     font-size: 0.6rem;
     font-weight: 300;
     line-height: 1.2;
+}
+
+/* Стили для скроллбара */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 4px; /* Тонкий скроллбар */
+    background: transparent;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.05); /* Очень бледный */
+    border-radius: 2px;
+    border: 0;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.1); /* Чуть темнее при наведении */
+}
+
+/* Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.05) transparent;
+    scrollbar-gutter: stable;
 }
