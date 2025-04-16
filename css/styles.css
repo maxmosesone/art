@@ -203,7 +203,10 @@ nav#menu ul li a:hover {
 
 /* Стили для подписей под картинами */
 .work-item .info {
-    text-align: center;
+    width: 100%;
+    max-width: 600px; /* Соответствует max-width изображения */
+    padding-right: 1.5rem; /* Компенсируем padding рамки справа */
+    text-align: right; /* Выравнивание текста по правому краю */
     margin-top: 1rem;
 }
 
@@ -282,6 +285,10 @@ nav#menu ul li a:hover {
         width: 100%;
     }
 
+    .work-item .info {
+    padding-right: 1rem; /* Компенсируем padding рамки на мобильных */
+}
+
     .work-item img {
         max-width: 100%;
     }
@@ -321,6 +328,10 @@ nav#menu ul li a:hover {
     .frame {
         padding: 0.5rem;
     }
+
+    .work-item .info {
+    padding-right: 0.5rem; /* Компенсируем padding рамки на очень маленьких экранах */
+}
 
     .work-item img {
         max-width: 100%;
