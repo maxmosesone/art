@@ -1,6 +1,3 @@
-/* Подключение шрифта Roboto Flex Thin */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@100&display=swap');
-
 /* Обнуление отступов и глобальные настройки */
 html {
     margin: 0;
@@ -183,7 +180,7 @@ nav#menu ul li a:hover {
 }
 
 .work-item {
-    width: 100%;
+    width:  httpd://localhost:3000/contact.html100%;
     max-width: 700px;
     display: flex;
     flex-direction: column;
@@ -223,6 +220,43 @@ nav#menu ul li a:hover {
     font-weight: 100; /* Thin */
     font-size: 1rem;
     margin: 0.2rem 0;
+}
+
+/* Стили для страницы Contact */
+.contact h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200; /* ExtraLight */
+    font-size: 1.8rem;
+    margin: 0.5rem 0;
+}
+
+.contact p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100; /* Thin */
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
+/* Стили для страницы About */
+.about h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200; /* ExtraLight */
+    font-size: 1.8rem;
+    margin: 0.5rem 0;
+}
+
+.about p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100; /* Thin */
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
+.about ul {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100; /* Thin */
+    font-size: 1rem;
+    margin: 0.5rem 0;
 }
 
 /* Мобильные устройства */
@@ -310,9 +344,15 @@ footer {
     padding: 0.3rem 0 0.5rem 0.5rem;
     background-color: transparent;
     color: #d3d3d3;
-    font-size: 0.6rem;
-    font-weight: 300;
     line-height: 1.2;
+}
+
+footer small {
+    font-family: 'Roboto Flex', sans-serif;
+    font-weight: 100; /* Thin, как в шапке */
+    font-size: 0.6rem; /* Как на странице paintings */
+    margin: 0;
+    display: block; /* Для корректного отображения */
 }
 
 /* Стили для скроллбара */
