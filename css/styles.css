@@ -204,9 +204,25 @@ nav#menu ul li a:hover {
     border-radius: 4px;
 }
 
+/* Стили для подписей под картинами */
 .work-item .info {
     text-align: center;
     margin-top: 1rem;
+}
+
+.work-item .info h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200; /* ExtraLight */
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+}
+
+.work-item .info p,
+.work-item .info span {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100; /* Thin */
+    font-size: 1rem;
+    margin: 0.2rem 0;
 }
 
 /* Мобильные устройства */
@@ -302,7 +318,7 @@ footer {
 /* Стили для скроллбара */
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
-    width: 4px; /* Тонкий скроллбар */
+    width: 4px;
     background: transparent;
 }
 
@@ -316,14 +332,14 @@ body::-webkit-scrollbar-track {
 
 html::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.05); /* Очень бледный */
+    background: rgba(0, 0, 0, 0.05);
     border-radius: 2px;
     border: 0;
 }
 
 html::-webkit-scrollbar-thumb:hover,
 body::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.1); /* Чуть темнее при наведении */
+    background: rgba(0, 0, 0, 0.1);
 }
 
 /* Firefox */
