@@ -204,16 +204,15 @@ nav#menu ul li a:hover {
 /* Стили для подписей под картинами */
 .work-item .info {
     width: 100%;
-    max-width: 600px; /* Соответствует max-width изображения */
-    padding-right: 1.5rem; /* Компенсируем padding рамки справа */
+    max-width: calc(600px - 1.5rem); /* Учитываем padding-right рамки */
     text-align: right; /* Выравнивание текста по правому краю */
-    margin-top: 1rem;
+    margin: 0 auto; /* Центрируем подпись внутри рамки */
 }
 
 .work-item .info h3 {
     font-family: 'Roboto', sans-serif;
     font-weight: 200; /* ExtraLight */
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin: 0.5rem 0;
 }
 
@@ -223,6 +222,28 @@ nav#menu ul li a:hover {
     font-weight: 100; /* Thin */
     font-size: 1rem;
     margin: 0.2rem 0;
+}
+
+.status {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%; /* Делаем круг */
+    margin-left: 0.5rem; /* Отступ от текста */
+    vertical-align: middle; /* Выравнивание по середине строки */
+}
+
+.status.available {
+    background-color: #2ecc71; /* Зелёный для доступных */
+}
+
+.status.sold {
+    background-color: #e74c3c; /* Красный для недоступных */
+}
+
+.status.reserved {
+    background-color: #f39c12; /* Оранжевый для зарезервированных */
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); /* Половина круга */
 }
 
 /* Стили для страницы Contact */
@@ -286,15 +307,21 @@ nav#menu ul li a:hover {
     }
 
     .work-item .info {
-    padding-right: 1rem; /* Компенсируем padding рамки на мобильных */
-}
+        max-width: calc(100% - 1rem); /* Учитываем padding-right рамки на мобильных */
+    }
+
+    .status {
+        width: 8px;
+        height: 8px;
+        margin-left: 0.3rem;
+    }
 
     .work-item img {
         max-width: 100%;
     }
 
     .gallery .info {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 
     .profile .name .first-name,
@@ -330,15 +357,21 @@ nav#menu ul li a:hover {
     }
 
     .work-item .info {
-    padding-right: 0.5rem; /* Компенсируем padding рамки на очень маленьких экранах */
-}
+        max-width: calc(100% - 0.5rem); /* Учитываем padding-right рамки на маленьких экранах */
+    }
+
+    .status {
+        width: 6px;
+        height: 6px;
+        margin-left: 0.2rem;
+    }
 
     .work-item img {
         max-width: 100%;
     }
 
     .gallery .info {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
 
     .profile .name .first-name,
