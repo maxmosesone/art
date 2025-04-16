@@ -2,67 +2,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@100&display=swap');
 
 /* Обнуление отступов и глобальные настройки */
-html, body {
+html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
-    height: 100%;
-    background-color: var(--background-color);
-    margin-right: 0 !important;
-    padding-right: 0 !important;
-    border: 0 !important;
-    outline: 0 !important;
-}
-
-/* Webkit (Chrome, Safari) */
-html {
-    overflow-y: scroll; /* Обеспечивает всегда видимый скроллбар */
-    -webkit-appearance: none;
-    -ms-overflow-style: none;
 }
 
 body {
-    overflow-y: auto;
-}
-
-/* Стили для скроллбара в Webkit */
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-    width: 6px; /* Увеличена ширина для лучшей видимости */
-    background: transparent;
-}
-
-html::-webkit-scrollbar-track,
-body::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
     margin: 0;
     padding: 0;
-    border: 0;
-}
-
-html::-webkit-scrollbar-thumb,
-body::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.7); /* Более заметный цвет */
-    border-radius: 10px; /* Более плавные углы */
-    border: 2px solid rgba(0, 0, 0, 0.3); /* Добавляем границу для контраста */
-}
-
-html::-webkit-scrollbar-thumb:hover,
-body::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.9); /* Цвет при наведении */
-}
-
-/* Firefox */
-html {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(0, 0, 0, 0.5) transparent; /* Скорректирован цвет */
-    scrollbar-gutter: stable;
-}
-
-main {
-    margin-top: 6rem;
+    box-sizing: border-box;
+    min-height: 100vh;
+    background-color: var(--background-color);
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 /* Цветовая палитра */
@@ -90,6 +44,12 @@ body {
     line-height: 1.6;
     display: flex;
     flex-direction: column;
+}
+
+main {
+    margin-top: 6rem;
+    min-height: calc(100vh - 6rem);
+    width: 100%;
 }
 
 /* Шапка */
@@ -217,9 +177,9 @@ nav#menu ul li a:hover {
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    overflow-y: auto;
     margin: 6rem 2rem 2rem 2rem;
     width: 100%;
+    max-width: 100%;
 }
 
 .work-item {
@@ -234,6 +194,7 @@ nav#menu ul li a:hover {
     background-color: #fff;
     padding: 1.5rem;
     border-radius: 8px;
+    width: 100%;
 }
 
 .work-item img {
@@ -254,21 +215,21 @@ nav#menu ul li a:hover {
         padding: 0.5rem;
     }
 
-    footer {
-        padding: 0.5rem 0 0.5rem 0.5rem;
-        font-size: 0.6rem;
-    }
-
     .gallery {
-        margin: 5rem 1rem 1rem 1rem;
+        margin: 5rem 0 1rem 0; /* Убираем боковые margin */
+        padding: 0 1rem; /* Добавляем padding для равных отступов */
+        box-sizing: border-box; /* Учитываем padding в ширине */
+        width: 100%;
     }
 
     .work-item {
         max-width: 500px;
+        width: 100%;
     }
 
     .frame {
         padding: 1rem;
+        width: 100%;
     }
 
     .work-item img {
@@ -281,7 +242,7 @@ nav#menu ul li a:hover {
 
     .profile .name .first-name,
     .profile .name .last-name {
-        font-size: 2rem;
+        font-size: 2.5rem;
         line-height: 1;
     }
 
@@ -297,13 +258,10 @@ nav#menu ul li a:hover {
 
 /* Очень маленькие экраны */
 @media (max-width: 480px) {
-    footer {
-        padding: 0.5rem 0 0.5rem 0.3rem;
-        font-size: 0.5rem;
-    }
-
     .gallery {
-        margin: 4rem 0.5rem 0.5rem 0.5rem;
+        margin: 4rem 0 0.5rem 0;
+        padding: 0 0.5rem;
+        width: 100%;
     }
 
     .work-item {
@@ -324,7 +282,7 @@ nav#menu ul li a:hover {
 
     .profile .name .first-name,
     .profile .name .last-name {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 }
 
