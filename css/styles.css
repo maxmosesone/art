@@ -196,13 +196,14 @@ main {
 /* Слайд-шоу на главной */
 .home-page .slideshow-wrapper {
     margin: 0;
-    margin-top: -30px; /* Поднимает слайд-шоу на 30px */
+    margin-top: -50px;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 550px;
-    height: auto;
+    max-width: 80vw; /* Шире на больших экранах (80% ширины экрана) */
+    height: 70vh; /* Высота 60% экрана */
+    overflow: hidden; /* Обрезает содержимое, выходящее за границы */
 }
 
 .home-page .slideshow-container {
@@ -322,7 +323,7 @@ main {
 .about h2 {
     font-family: 'Roboto', sans-serif;
     font-weight: 200;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     margin: 0.5rem 0;
 }
 
@@ -333,6 +334,86 @@ main {
     font-weight: 100;
     font-size: 1rem;
     margin: 0.5rem 0;
+}
+
+.about,
+.contact {
+    width: 100%;
+    max-width: 550px;
+    margin: 6rem auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.profile-image {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin: 0 auto 1rem;
+    border-radius: 8px;
+}
+
+.description,
+.contact-details,
+.form-section,
+.exhibitions {
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.description h2,
+.contact-details h2,
+.form-section h2,
+.exhibitions h2 {
+    text-align: center;
+}
+
+.description p,
+.contact-details p,
+.exhibitions ul {
+    text-align: center;
+}
+
+.form-section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-section input,
+.form-section textarea {
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+}
+
+.form-section textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.form-section button {
+    padding: 0.5rem 1rem;
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-section button:hover {
+    background-color: #27ae60;
 }
 
 /* Футер */
@@ -453,6 +534,20 @@ body::-webkit-scrollbar-thumb:hover {
     nav#menu ul li a {
         font-size: 1rem;
     }
+
+        .about,
+    .contact {
+        max-width: 450px;
+        padding: 0 1rem;
+    }
+
+    .profile-image {
+        max-width: 150px;
+    }
+
+    .form-section form {
+        max-width: 80%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -505,5 +600,19 @@ body::-webkit-scrollbar-thumb:hover {
     .profile .name .first-name,
     .profile .name .last-name {
         font-size: 1.5rem;
+    }
+
+        .about,
+    .contact {
+        max-width: 100%;
+        padding: 0 0.5rem;
+    }
+
+    .profile-image {
+        max-width: 120px;
+    }
+
+    .form-section form {
+        max-width: 70%;
     }
 }
