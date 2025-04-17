@@ -277,14 +277,14 @@ main {
 .work-item .info h3 {
     font-family: 'Roboto', sans-serif;
     font-weight: 200;
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin: 0.0005rem 0;
 }
 
 .work-item .info p {
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     margin: 0.0005rem 0;
 }
 

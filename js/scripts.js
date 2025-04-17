@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (menuToggle && menu) {
         menuToggle.addEventListener("click", function () {
-            menu.classList.toggle("hidden"); // Переключаем класс hidden
+            menu.classList.toggle("hidden");
         });
     } else {
         console.error("Menu or Menu Toggle button not found!");
@@ -18,20 +18,29 @@ document.addEventListener("DOMContentLoaded", function () {
         const images = [
             { src: "images/art1.jpg", page: "paintings.html" },
             { src: "images/art2.jpg", page: "paintings.html" },
+            { src: "images/WaveV.jpg", page: "paintings.html" },
             { src: "images/Wave_3.jpg", page: "paintings.html" },
             { src: "images/Simulation_III.jpg", page: "digital.html" },
             { src: "images/Simulation_II.jpg", page: "digital.html" }
         ];
 
-        let currentImageIndex = 0;
+        let currentIndexPosition = 0; // Позиция в массиве индексов
+        let imageIndices = []; // Массив индексов для текущего цикла
 
-        // Функция для выбора случайного изображения
-        function getRandomImageIndex(currentIndex) {
-            let newIndex;
-            do {
-                newIndex = Math.floor(Math.random() * images.length);
-            } while (newIndex === currentIndex); // Убедимся, что не выберем ту же картинку
-            return newIndex;
+        // Функция для перемешивания массива (алгоритм Фишера-Йетса)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // Функция для создания нового перемешанного массива индексов
+        function createShuffledIndices() {
+            imageIndices = Array.from({ length: images.length }, (_, index) => index);
+            shuffleArray(imageIndices);
+            currentIndexPosition = 0;
         }
 
         // Функция для смены изображения
@@ -41,23 +50,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Ждём завершения анимации исчезновения (1 секунда)
             setTimeout(() => {
-                currentImageIndex = getRandomImageIndex(currentImageIndex);
+                // Если достигли конца массива индексов, создаём новый
+                if (currentIndexPosition >= imageIndices.length) {
+                    createShuffledIndices();
+                }
+
+                // Получаем текущий индекс изображения
+                const currentImageIndex = imageIndices[currentIndexPosition];
                 slideshowImage.src = images[currentImageIndex].src;
-                slideshowImage.classList.add("active"); // Появление
+                slideshowImage.classList.add("active");
+
+                // Обновляем обработчик клика для текущего изображения
+                slideshowImage.onclick = function () {
+                    window.location.href = images[currentImageIndex].page;
+                };
+
+                // Переходим к следующему индексу
+                currentIndexPosition++;
             }, 1000);
         }
 
-        // Инициализация: показываем первую картинку
-        slideshowImage.src = images[currentImageIndex].src;
+        // Инициализация: создаём первый перемешанный массив индексов
+        createShuffledIndices();
+
+        // Показываем первое изображение
+        const initialImageIndex = imageIndices[currentIndexPosition];
+        slideshowImage.src = images[initialImageIndex].src;
         slideshowImage.classList.add("active");
 
-        // Добавляем обработчик клика
-        slideshowImage.addEventListener("click", function () {
-            const currentImage = images[currentImageIndex];
-            window.location.href = currentImage.page; // Перенаправляем на соответствующую страницу
-        });
+        // Устанавливаем обработчик клика для первого изображения
+        slideshowImage.onclick = function () {
+            window.location.href = images[initialImageIndex].page;
+        };
 
-        // Меняем картинку каждые 3 секунды (1 секунда на исчезновение + 2 секунды отображения)
+        // Увеличиваем currentIndexPosition сразу после инициализации
+        currentIndexPosition++;
+
+        // Меняем картинку каждые 5 секунд (1 секунда на исчезновение + 4 секунды отображения)
         setInterval(changeImage, 5000);
     }
 });
