@@ -89,9 +89,7 @@ header {
     color: inherit;
 }
 
-.profile .name:hover {
-    color: var(--accent-color);
-}
+
 
 /* Логотип */
 .logo {
@@ -180,8 +178,8 @@ nav#menu ul li a:hover {
 }
 
 .work-item {
-    width:  httpd://localhost:3000/contact.html100%;
-    max-width: 700px;
+    width: 100%;
+    max-width: 550px; /* Уменьшаем с 700px до 600px */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -204,19 +202,27 @@ nav#menu ul li a:hover {
 /* Стили для подписей под картинами */
 .work-item .info {
     width: 100%;
-    max-width: calc(600px - 1.5rem); /* Учитываем padding-right рамки */
+    max-width: 600px; /* Соответствует ширине изображения */
     text-align: right; /* Выравнивание текста по правому краю */
     margin: 0 auto; /* Центрируем подпись внутри рамки */
+    padding-right: 0rem; /* Оставляем твой выбор */
+    position: relative; /* Для позиционирования точки */
 }
 
 .work-item .info h3 {
     font-family: 'Roboto', sans-serif;
     font-weight: 200; /* ExtraLight */
     font-size: 1.3rem;
-    margin: 0.5rem 0;
+    margin: 0.0005rem 0;
 }
 
-.work-item .info p,
+.work-item .info p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100; /* Thin */
+    font-size: 1rem;
+    margin: 0.0005rem 0;
+}
+
 .work-item .info span {
     font-family: 'Roboto', sans-serif;
     font-weight: 100; /* Thin */
@@ -229,8 +235,9 @@ nav#menu ul li a:hover {
     width: 10px;
     height: 10px;
     border-radius: 50%; /* Делаем круг */
-    margin-left: 0.5rem; /* Отступ от текста */
-    vertical-align: middle; /* Выравнивание по середине строки */
+    position: absolute; /* Абсолютное позиционирование */
+    left: 0.5rem; /* Учитываем padding рамки слева */
+    top: 0.05rem; /* Выравниваем с h3 (margin-top: 0.5rem у h3) */
 }
 
 .status.available {
@@ -297,7 +304,7 @@ nav#menu ul li a:hover {
     }
 
     .work-item {
-        max-width: 500px;
+        max-width: 450px;
         width: 100%;
     }
 
@@ -307,14 +314,16 @@ nav#menu ul li a:hover {
     }
 
     .work-item .info {
-        max-width: calc(100% - 1rem); /* Учитываем padding-right рамки на мобильных */
-    }
+    max-width: 100%; /* Соответствует ширине изображения на мобильных */
+    padding-right: 0rem; /* Компенсируем padding рамки (1rem) */
+}
 
     .status {
-        width: 8px;
-        height: 8px;
-        margin-left: 0.3rem;
-    }
+    width: 8px;
+    height: 8px;
+    left: 0.5rem; /* Учитываем padding рамки (1rem) */
+    top: 0.2rem;
+}
 
     .work-item img {
         max-width: 100%;
@@ -323,6 +332,14 @@ nav#menu ul li a:hover {
     .gallery .info {
         font-size: 0.8rem;
     }
+
+    .work-item .info h3 {
+    margin: 0.0005rem 0; /* Оставляем минимальный отступ */
+}
+
+.work-item .info p {
+    margin: 0.0005rem 0; /* Оставляем минимальный отступ */
+}
 
     .profile .name .first-name,
     .profile .name .last-name {
@@ -357,15 +374,16 @@ nav#menu ul li a:hover {
     }
 
     .work-item .info {
-        max-width: calc(100% - 0.5rem); /* Учитываем padding-right рамки на маленьких экранах */
-    }
+    max-width: 100%; /* Соответствует ширине изображения на мобильных */
+    padding-right: 0rem; /* Компенсируем padding рамки (1rem) */
+}
 
-    .status {
-        width: 6px;
-        height: 6px;
-        margin-left: 0.2rem;
-    }
-
+.status {
+    width: 6px;
+    height: 6px;
+    left: 0.5rem; /* Учитываем padding рамки (0.5rem) */
+    top: 0.3rem;
+}
     .work-item img {
         max-width: 100%;
     }
@@ -373,6 +391,14 @@ nav#menu ul li a:hover {
     .gallery .info {
         font-size: 0.7rem;
     }
+
+    .work-item .info h3 {
+    margin: 0.0005rem 0; /* Оставляем минимальный отступ */
+}
+
+.work-item .info p {
+    margin: 0.0005rem 0; /* Оставляем минимальный отступ */
+}
 
     .profile .name .first-name,
     .profile .name .last-name {
