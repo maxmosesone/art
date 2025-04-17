@@ -52,8 +52,36 @@ main {
     align-items: center;
 }
 
+/* Главная страница: убрать прокрутку, центрировать */
+body.home-page {
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
 .home-page main {
-    padding-bottom: 2rem; /* Отступ снизу, чтобы контент не перекрывался футером */
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.home-page .slideshow-wrapper {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 550px;
+    height: auto;
 }
 
 /* Шапка */
@@ -95,8 +123,6 @@ header {
     text-decoration: none;
     color: inherit;
 }
-
-
 
 /* Логотип */
 .logo {
@@ -186,7 +212,7 @@ nav#menu ul li a:hover {
 
 .work-item {
     width: 100%;
-    max-width: 550px; /* Уменьшаем с 700px до 600px */
+    max-width: 550px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -209,30 +235,30 @@ nav#menu ul li a:hover {
 /* Стили для подписей под картинами */
 .work-item .info {
     width: 100%;
-    max-width: 500px; /* Уменьшаем с 600px до 500px, чтобы соответствовать изображению */
-    text-align: right; /* Выравнивание текста по правому краю */
-    margin: 0 auto; /* Центрируем подпись внутри рамки */
-    padding-right: 0rem; /* Оставляем твой выбор */
-    position: relative; /* Для позиционирования точки */
+    max-width: 500px;
+    text-align: right;
+    margin: 0 auto;
+    padding-right: 0rem;
+    position: relative;
 }
 
 .work-item .info h3 {
     font-family: 'Roboto', sans-serif;
-    font-weight: 200; /* ExtraLight */
+    font-weight: 200;
     font-size: 0.8rem;
     margin: 0.0005rem 0;
 }
 
 .work-item .info p {
     font-family: 'Roboto', sans-serif;
-    font-weight: 100; /* Thin */
+    font-weight: 100;
     font-size: 0.6rem;
     margin: 0.0005rem 0;
 }
 
 .work-item .info span {
     font-family: 'Roboto', sans-serif;
-    font-weight: 100; /* Thin */
+    font-weight: 100;
     font-size: 1rem;
     margin: 0.2rem 0;
 }
@@ -241,29 +267,29 @@ nav#menu ul li a:hover {
     display: inline-block;
     width: 10px;
     height: 10px;
-    border-radius: 50%; /* Делаем круг */
-    position: absolute; /* Абсолютное позиционирование */
-    left: 0.5rem; /* Учитываем padding рамки слева */
-    top: 0.05rem; /* Выравниваем с h3 (margin-top: 0.5rem у h3) */
+    border-radius: 50%;
+    position: absolute;
+    left: 0.5rem;
+    top: 0.05rem;
 }
 
 .status.available {
-    background-color: #2ecc71; /* Зелёный для доступных */
+    background-color: #2ecc71;
 }
 
 .status.sold {
-    background-color: #e74c3c; /* Красный для недоступных */
+    background-color: #e74c3c;
 }
 
 .status.reserved {
-    background-color: #f39c12; /* Оранжевый для зарезервированных */
-    clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); /* Половина круга */
+    background-color: #f39c12;
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
 }
 
 /* Слайд-шоу на главной странице */
 .slideshow-container {
     width: 100%;
-    max-width: 550px; /* Соответствует .work-item */
+    max-width: 550px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -275,44 +301,39 @@ nav#menu ul li a:hover {
     height: auto;
     border-radius: 4px;
     opacity: 0;
-    transition: opacity 1s ease-in-out, filter 0.3s ease; /* Добавляем переход для затемнения */
-    cursor: pointer; /* Курсор в виде указателя */
+    transition: opacity 1s ease-in-out, filter 0.3s ease;
+    cursor: pointer;
 }
 
 #slideshow-image.active {
-    opacity: 1; /* Полная видимость при активации */
+    opacity: 1;
 }
 
 #slideshow-image:hover {
-    filter: brightness(95%); /* Небольшое затемнение при наведении */
+    filter: brightness(95%);
 }
 
 .slideshow-wrapper {
     width: 100%;
-    max-width: 550px; /* Соответствует .slideshow-container */
-    height: 500px; /* Фиксированная высота для контейнера */
+    max-width: 550px;
+    height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Скрываем части изображения, которые выходят за пределы */
-}
-
-.home-page .slideshow-wrapper {
-    margin-top: 100px;
-    margin-bottom: 200px; /* Большой отступ снизу, чтобы футер ушёл вниз */
+    overflow: hidden;
 }
 
 /* Стили для страницы Contact */
 .contact h2 {
     font-family: 'Roboto', sans-serif;
-    font-weight: 200; /* ExtraLight */
+    font-weight: 200;
     font-size: 1.8rem;
     margin: 0.5rem 0;
 }
 
 .contact p {
     font-family: 'Roboto', sans-serif;
-    font-weight: 100; /* Thin */
+    font-weight: 100;
     font-size: 1rem;
     margin: 0.5rem 0;
 }
@@ -320,21 +341,21 @@ nav#menu ul li a:hover {
 /* Стили для страницы About */
 .about h2 {
     font-family: 'Roboto', sans-serif;
-    font-weight: 200; /* ExtraLight */
+    font-weight: 200;
     font-size: 1.8rem;
     margin: 0.5rem 0;
 }
 
 .about p {
     font-family: 'Roboto', sans-serif;
-    font-weight: 100; /* Thin */
+    font-weight: 100;
     font-size: 1rem;
     margin: 0.5rem 0;
 }
 
 .about ul {
     font-family: 'Roboto', sans-serif;
-    font-weight: 100; /* Thin */
+    font-weight: 100;
     font-size: 1rem;
     margin: 0.5rem 0;
 }
@@ -363,45 +384,45 @@ nav#menu ul li a:hover {
     }
 
     .work-item .info {
-    max-width: 100%; /* Соответствует ширине изображения на мобильных */
-    padding-right: 0rem; /* Компенсируем padding рамки (1rem) */
-}
+        max-width: 100%;
+        padding-right: 0rem;
+    }
 
     .status {
-    width: 8px;
-    height: 8px;
-    left: 0.5rem; /* Учитываем padding рамки (1rem) */
-    top: 0.2rem;
-}
+        width: 8px;
+        height: 8px;
+        left: 0.5rem;
+        top: 0.2rem;
+    }
 
     .work-item img {
         max-width: 100%;
     }
 
     .slideshow-container {
-    max-width: 450px; /* Соответствует .work-item */
-}
+        max-width: 450px;
+    }
 
     #slideshow-image {
-    max-width: 450px;
-}
+        max-width: 450px;
+    }
 
-.slideshow-wrapper {
-    max-width: 450px;
-    height: 400px;
-}
+    .slideshow-wrapper {
+        max-width: 450px;
+        height: 400px;
+    }
 
     .gallery .info {
         font-size: 0.8rem;
     }
 
     .work-item .info h3 {
-    margin: 0.0005rem 0; /* Оставляем минимальный отступ */
-}
+        margin: 0.0005rem 0;
+    }
 
     .work-item .info p {
-    margin: 0.0005rem 0; /* Оставляем минимальный отступ */
-}
+        margin: 0.0005rem 0;
+    }
 
     .profile .name .first-name,
     .profile .name .last-name {
@@ -436,44 +457,45 @@ nav#menu ul li a:hover {
     }
 
     .work-item .info {
-    max-width: 100%; /* Соответствует ширине изображения на мобильных */
-    padding-right: 0rem; /* Компенсируем padding рамки (1rem) */
-}
+        max-width: 100%;
+        padding-right: 0rem;
+    }
 
     .status {
-    width: 6px;
-    height: 6px;
-    left: 0.5rem; /* Учитываем padding рамки (0.5rem) */
-    top: 0.3rem;
-}
+        width: 6px;
+        height: 6px;
+        left: 0.5rem;
+        top: 0.3rem;
+    }
+
     .work-item img {
         max-width: 100%;
     }
 
     .slideshow-container {
-    max-width: 100%;
-}
+        max-width: 100%;
+    }
 
     #slideshow-image {
-    max-width: 100%;
-}
+        max-width: 100%;
+    }
 
-.slideshow-wrapper {
-    max-width: 100%;
-    height: 300px;
-}
+    .slideshow-wrapper {
+        max-width: 100%;
+        height: 300px;
+    }
 
     .gallery .info {
         font-size: 0.7rem;
     }
 
     .work-item .info h3 {
-    margin: 0.0005rem 0; /* Оставляем минимальный отступ */
-}
+        margin: 0.0005rem 0;
+    }
 
-.work-item .info p {
-    margin: 0.0005rem 0; /* Оставляем минимальный отступ */
-}
+    .work-item .info p {
+        margin: 0.0005rem 0;
+    }
 
     .profile .name .first-name,
     .profile .name .last-name {
@@ -494,10 +516,10 @@ footer {
 
 footer small {
     font-family: 'Roboto Flex', sans-serif;
-    font-weight: 100; /* Thin, как в шапке */
-    font-size: 0.6rem; /* Как на странице paintings */
+    font-weight: 100;
+    font-size: 0.6rem;
     margin: 0;
-    display: block; /* Для корректного отображения */
+    display: block;
 }
 
 .home-page footer {
@@ -505,8 +527,9 @@ footer small {
     bottom: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* Чтобы футер был поверх контента */
-    background-color: transparent; /* Уже есть в footer, но для ясности */
+    z-index: 1000;
+    background-color: transparent;
+    padding: 0.3rem 0 0.5rem 0.5rem;
 }
 
 /* Стили для скроллбара */
@@ -541,4 +564,54 @@ html {
     scrollbar-width: thin;
     scrollbar-color: rgba(0, 0, 0, 0.05) transparent;
     scrollbar-gutter: stable;
+}
+
+/* Убрать скроллбар на главной странице */
+html:has(body.home-page) {
+    overflow: hidden;
+    height: 100vh;
+    scrollbar-width: none;
+}
+
+html:has(body.home-page)::-webkit-scrollbar,
+body.home-page::-webkit-scrollbar {
+    display: none;
+}
+
+/* Слайд-шоу: размеры и центрирование */
+.home-page .slideshow-container {
+    width: 100%;
+    max-width: 550px;
+}
+
+.home-page #slideshow-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* Сохранить прокрутку на других страницах */
+body:not(.home-page) {
+    overflow-y: auto;
+}
+
+/* Медиа-запросы для главной страницы */
+@media (max-width: 768px) {
+    .home-page .slideshow-wrapper {
+        max-width: 450px;
+    }
+    .home-page #slideshow-image {
+        max-width: 450px;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-page .slideshow-wrapper {
+        max-width: 100%;
+        padding: 0 0.5rem;
+    }
+    .home-page #slideshow-image {
+        max-width: 100%;
+    }
 }
