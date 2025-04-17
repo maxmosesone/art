@@ -52,6 +52,10 @@ main {
     align-items: center;
 }
 
+.home-page main {
+    padding-bottom: 2rem; /* Отступ снизу, чтобы контент не перекрывался футером */
+}
+
 /* Шапка */
 header {
     position: fixed;
@@ -494,6 +498,15 @@ footer small {
     font-size: 0.6rem; /* Как на странице paintings */
     margin: 0;
     display: block; /* Для корректного отображения */
+}
+
+.home-page footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Чтобы футер был поверх контента */
+    background-color: transparent; /* Уже есть в footer, но для ясности */
 }
 
 /* Стили для скроллбара */
