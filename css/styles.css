@@ -215,14 +215,14 @@ nav#menu ul li a:hover {
 .work-item .info h3 {
     font-family: 'Roboto', sans-serif;
     font-weight: 200; /* ExtraLight */
-    font-size: 1.3rem;
+    font-size: 0.8rem;
     margin: 0.0005rem 0;
 }
 
 .work-item .info p {
     font-family: 'Roboto', sans-serif;
     font-weight: 100; /* Thin */
-    font-size: 1rem;
+    font-size: 0.6rem;
     margin: 0.0005rem 0;
 }
 
