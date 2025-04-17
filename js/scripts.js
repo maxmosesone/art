@@ -13,14 +13,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Логика слайд-шоу на главной странице
     const slideshowImage = document.getElementById("slideshow-image");
-    if (slideshowImage) { // Проверяем, что элемент существует (слайд-шоу есть только на главной странице)
-        // Массив с путями к картинкам
+    if (slideshowImage) {
+        // Массив объектов: путь к изображению и целевая страница
         const images = [
-            "images/art1.jpg",
-            "images/art2.jpg",
-            "images/Wave_3.jpg",
-            "images/Simulation_III.jpg",
-            "images/Simulation_II.jpg"
+            { src: "images/art1.jpg", page: "paintings.html" },
+            { src: "images/art2.jpg", page: "paintings.html" },
+            { src: "images/Wave_3.jpg", page: "paintings.html" },
+            { src: "images/Simulation_III.jpg", page: "digital.html" },
+            { src: "images/Simulation_II.jpg", page: "digital.html" }
         ];
 
         let currentImageIndex = 0;
@@ -42,14 +42,20 @@ document.addEventListener("DOMContentLoaded", function () {
             // Ждём завершения анимации исчезновения (1 секунда)
             setTimeout(() => {
                 currentImageIndex = getRandomImageIndex(currentImageIndex);
-                slideshowImage.src = images[currentImageIndex];
+                slideshowImage.src = images[currentImageIndex].src;
                 slideshowImage.classList.add("active"); // Появление
             }, 1000);
         }
 
         // Инициализация: показываем первую картинку
-        slideshowImage.src = images[currentImageIndex];
+        slideshowImage.src = images[currentImageIndex].src;
         slideshowImage.classList.add("active");
+
+        // Добавляем обработчик клика
+        slideshowImage.addEventListener("click", function () {
+            const currentImage = images[currentImageIndex];
+            window.location.href = currentImage.page; // Перенаправляем на соответствующую страницу
+        });
 
         // Меняем картинку каждые 3 секунды (1 секунда на исчезновение + 2 секунды отображения)
         setInterval(changeImage, 5000);

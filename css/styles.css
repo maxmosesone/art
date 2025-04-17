@@ -267,15 +267,20 @@ nav#menu ul li a:hover {
 
 #slideshow-image {
     width: 100%;
-    max-width: 500px; /* Соответствует текущему размеру картин */
+    max-width: 500px;
     height: auto;
     border-radius: 4px;
-    opacity: 0; /* Начальная прозрачность для анимации */
-    transition: opacity 1s ease-in-out; /* Плавное появление/исчезновение */
+    opacity: 0;
+    transition: opacity 1s ease-in-out, filter 0.3s ease; /* Добавляем переход для затемнения */
+    cursor: pointer; /* Курсор в виде указателя */
 }
 
 #slideshow-image.active {
     opacity: 1; /* Полная видимость при активации */
+}
+
+#slideshow-image:hover {
+    filter: brightness(95%); /* Небольшое затемнение при наведении */
 }
 
 .slideshow-wrapper {
