@@ -45,8 +45,11 @@ body {
 
 main {
     margin-top: 6rem;
-    min-height: calc(100vh - 6rem);
+    flex: 1; /* Позволяет main занимать всё доступное пространство */
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Шапка */
@@ -56,7 +59,7 @@ header {
     left: 0;
     z-index: 1000;
     background-color: transparent !important;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -194,7 +197,7 @@ nav#menu ul li a:hover {
 
 .work-item img {
     width: 100%;
-    max-width: 600px;
+    max-width: 500px;
     height: auto;
     border-radius: 4px;
 }
@@ -202,7 +205,7 @@ nav#menu ul li a:hover {
 /* Стили для подписей под картинами */
 .work-item .info {
     width: 100%;
-    max-width: 600px; /* Соответствует ширине изображения */
+    max-width: 500px; /* Уменьшаем с 600px до 500px, чтобы соответствовать изображению */
     text-align: right; /* Выравнивание текста по правому краю */
     margin: 0 auto; /* Центрируем подпись внутри рамки */
     padding-right: 0rem; /* Оставляем твой выбор */
@@ -251,6 +254,42 @@ nav#menu ul li a:hover {
 .status.reserved {
     background-color: #f39c12; /* Оранжевый для зарезервированных */
     clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); /* Половина круга */
+}
+
+/* Слайд-шоу на главной странице */
+.slideshow-container {
+    width: 100%;
+    max-width: 550px; /* Соответствует .work-item */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#slideshow-image {
+    width: 100%;
+    max-width: 500px; /* Соответствует текущему размеру картин */
+    height: auto;
+    border-radius: 4px;
+    opacity: 0; /* Начальная прозрачность для анимации */
+    transition: opacity 1s ease-in-out; /* Плавное появление/исчезновение */
+}
+
+#slideshow-image.active {
+    opacity: 1; /* Полная видимость при активации */
+}
+
+.slideshow-wrapper {
+    width: 100%;
+    max-width: 550px; /* Соответствует .slideshow-container */
+    height: 700px; /* Фиксированная высота для контейнера */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Скрываем части изображения, которые выходят за пределы */
+}
+
+.home-page .slideshow-wrapper {
+    margin-bottom: 200px; /* Большой отступ снизу, чтобы футер ушёл вниз */
 }
 
 /* Стили для страницы Contact */
@@ -309,7 +348,7 @@ nav#menu ul li a:hover {
     }
 
     .frame {
-        padding: 1rem;
+        padding: 0.8rem;
         width: 100%;
     }
 
@@ -329,6 +368,19 @@ nav#menu ul li a:hover {
         max-width: 100%;
     }
 
+    .slideshow-container {
+    max-width: 450px; /* Соответствует .work-item */
+}
+
+    #slideshow-image {
+    max-width: 450px;
+}
+
+.slideshow-wrapper {
+    max-width: 450px;
+    height: 400px;
+}
+
     .gallery .info {
         font-size: 0.8rem;
     }
@@ -337,7 +389,7 @@ nav#menu ul li a:hover {
     margin: 0.0005rem 0; /* Оставляем минимальный отступ */
 }
 
-.work-item .info p {
+    .work-item .info p {
     margin: 0.0005rem 0; /* Оставляем минимальный отступ */
 }
 
@@ -370,7 +422,7 @@ nav#menu ul li a:hover {
     }
 
     .frame {
-        padding: 0.5rem;
+        padding: 0.4rem;
     }
 
     .work-item .info {
@@ -378,7 +430,7 @@ nav#menu ul li a:hover {
     padding-right: 0rem; /* Компенсируем padding рамки (1rem) */
 }
 
-.status {
+    .status {
     width: 6px;
     height: 6px;
     left: 0.5rem; /* Учитываем padding рамки (0.5rem) */
@@ -387,6 +439,19 @@ nav#menu ul li a:hover {
     .work-item img {
         max-width: 100%;
     }
+
+    .slideshow-container {
+    max-width: 100%;
+}
+
+    #slideshow-image {
+    max-width: 100%;
+}
+
+.slideshow-wrapper {
+    max-width: 100%;
+    height: 300px;
+}
 
     .gallery .info {
         font-size: 0.7rem;
