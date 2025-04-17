@@ -294,6 +294,7 @@ nav#menu ul li a:hover {
 }
 
 .home-page .slideshow-wrapper {
+    margin-top: -55px;
     margin-bottom: 200px; /* Большой отступ снизу, чтобы футер ушёл вниз */
 }
 
