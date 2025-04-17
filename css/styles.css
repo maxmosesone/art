@@ -286,7 +286,7 @@ nav#menu ul li a:hover {
 .slideshow-wrapper {
     width: 100%;
     max-width: 550px; /* Соответствует .slideshow-container */
-    height: 700px; /* Фиксированная высота для контейнера */
+    height: 500px; /* Фиксированная высота для контейнера */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -294,7 +294,7 @@ nav#menu ul li a:hover {
 }
 
 .home-page .slideshow-wrapper {
-    margin-top: -55px;
+    margin-top: 100px;
     margin-bottom: 200px; /* Большой отступ снизу, чтобы футер ушёл вниз */
 }
 
