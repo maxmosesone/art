@@ -4,6 +4,9 @@ html {
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.05) transparent;
+    scrollbar-gutter: stable;
 }
 
 body {
@@ -14,6 +17,12 @@ body {
     background-color: var(--background-color);
     overflow-y: auto;
     overflow-x: hidden;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    color: var(--primary-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Цветовая палитра */
@@ -25,31 +34,9 @@ body {
     --border-color: #ddd;
 }
 
-/* Наследование box-sizing для всех элементов */
-*,
-*::before,
-*::after {
+/* Наследование box-sizing */
+*, *::before, *::after {
     box-sizing: inherit;
-}
-
-/* Общие стили */
-body {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1rem;
-    color: var(--primary-color);
-    background-color: var(--background-color);
-    line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-}
-
-main {
-    margin-top: 6rem;
-    flex: 1; /* Позволяет main занимать всё доступное пространство */
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 /* Главная страница: убрать прокрутку, центрировать */
@@ -64,24 +51,19 @@ body.home-page {
     padding: 0;
 }
 
-.home-page main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    width: 100%;
+html:has(body.home-page) {
+    overflow: hidden;
+    height: 100vh;
+    scrollbar-width: none;
 }
 
-.home-page .slideshow-wrapper {
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 550px;
-    height: auto;
+html:has(body.home-page)::-webkit-scrollbar,
+body.home-page::-webkit-scrollbar {
+    display: none;
+}
+
+body:not(.home-page) {
+    overflow-y: auto;
 }
 
 /* Шапка */
@@ -90,15 +72,14 @@ header {
     top: 0;
     left: 0;
     z-index: 1000;
-    background-color: transparent !important;
-    padding: 0.5rem 0.5rem;
+    background-color: transparent;
+    padding: 0.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border: none;
     box-shadow: none;
     width: 100%;
-    backdrop-filter: none;
 }
 
 /* Текст в шапке */
@@ -110,7 +91,6 @@ header {
     margin: 0;
     line-height: 1;
     text-align: left;
-    background-color: transparent !important;
 }
 
 .profile .name .first-name,
@@ -136,7 +116,6 @@ header {
     outline: none;
     transition: transform 0.3s ease, opacity 0.3s ease;
     opacity: 0.8;
-    background-color: transparent !important;
 }
 
 .logo:hover {
@@ -146,10 +125,6 @@ header {
 
 .logo:active {
     transform: scale(0.95);
-}
-
-.hidden {
-    display: none;
 }
 
 /* Выпадающее меню */
@@ -199,13 +174,70 @@ nav#menu ul li a:hover {
     color: var(--accent-color);
 }
 
+/* Основной контент */
+main {
+    margin-top: 6rem;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-page main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Слайд-шоу на главной */
+.home-page .slideshow-wrapper {
+    margin: 0;
+    margin-top: -30px; /* Поднимает слайд-шоу на 30px */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+}
+
+.home-page .slideshow-container {
+    width: 100%;
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-page #slideshow-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out, filter 0.3s ease;
+    cursor: pointer;
+}
+
+#slideshow-image.active {
+    opacity: 1;
+}
+
+#slideshow-image:hover {
+    filter: brightness(95%);
+}
+
 /* Галерея */
 .gallery {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    margin: 6rem 2rem 2rem 2rem;
+    margin: 6rem 2rem 2rem;
     width: 100%;
     max-width: 100%;
 }
@@ -232,13 +264,12 @@ nav#menu ul li a:hover {
     border-radius: 4px;
 }
 
-/* Стили для подписей под картинами */
+/* Подписи под картинами */
 .work-item .info {
     width: 100%;
     max-width: 500px;
     text-align: right;
     margin: 0 auto;
-    padding-right: 0rem;
     position: relative;
 }
 
@@ -286,59 +317,8 @@ nav#menu ul li a:hover {
     clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
 }
 
-/* Слайд-шоу на главной странице */
-.slideshow-container {
-    width: 100%;
-    max-width: 550px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#slideshow-image {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 4px;
-    opacity: 0;
-    transition: opacity 1s ease-in-out, filter 0.3s ease;
-    cursor: pointer;
-}
-
-#slideshow-image.active {
-    opacity: 1;
-}
-
-#slideshow-image:hover {
-    filter: brightness(95%);
-}
-
-.slideshow-wrapper {
-    width: 100%;
-    max-width: 550px;
-    height: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-/* Стили для страницы Contact */
-.contact h2 {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 200;
-    font-size: 1.8rem;
-    margin: 0.5rem 0;
-}
-
-.contact p {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100;
-    font-size: 1rem;
-    margin: 0.5rem 0;
-}
-
-/* Стили для страницы About */
+/* Страницы Contact и About */
+.contact h2,
 .about h2 {
     font-family: 'Roboto', sans-serif;
     font-weight: 200;
@@ -346,161 +326,13 @@ nav#menu ul li a:hover {
     margin: 0.5rem 0;
 }
 
-.about p {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100;
-    font-size: 1rem;
-    margin: 0.5rem 0;
-}
-
+.contact p,
+.about p,
 .about ul {
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
     font-size: 1rem;
     margin: 0.5rem 0;
-}
-
-/* Мобильные устройства */
-@media (max-width: 768px) {
-    header {
-        padding: 0.5rem;
-    }
-
-    .gallery {
-        margin: 5rem 0 1rem 0;
-        padding: 0 1rem;
-        box-sizing: border-box;
-        width: 100%;
-    }
-
-    .work-item {
-        max-width: 450px;
-        width: 100%;
-    }
-
-    .frame {
-        padding: 0.8rem;
-        width: 100%;
-    }
-
-    .work-item .info {
-        max-width: 100%;
-        padding-right: 0rem;
-    }
-
-    .status {
-        width: 8px;
-        height: 8px;
-        left: 0.5rem;
-        top: 0.2rem;
-    }
-
-    .work-item img {
-        max-width: 100%;
-    }
-
-    .slideshow-container {
-        max-width: 450px;
-    }
-
-    #slideshow-image {
-        max-width: 450px;
-    }
-
-    .slideshow-wrapper {
-        max-width: 450px;
-        height: 400px;
-    }
-
-    .gallery .info {
-        font-size: 0.8rem;
-    }
-
-    .work-item .info h3 {
-        margin: 0.0005rem 0;
-    }
-
-    .work-item .info p {
-        margin: 0.0005rem 0;
-    }
-
-    .profile .name .first-name,
-    .profile .name .last-name {
-        font-size: 2rem;
-        line-height: 1;
-    }
-
-    .logo {
-        width: 30px;
-        height: 30px;
-    }
-
-    nav#menu ul li a {
-        font-size: 1rem;
-    }
-}
-
-/* Очень маленькие экраны */
-@media (max-width: 480px) {
-    .gallery {
-        margin: 4rem 0 0.5rem 0;
-        padding: 0 0.5rem;
-        width: 100%;
-    }
-
-    .work-item {
-        max-width: 100%;
-    }
-
-    .frame {
-        padding: 0.4rem;
-    }
-
-    .work-item .info {
-        max-width: 100%;
-        padding-right: 0rem;
-    }
-
-    .status {
-        width: 6px;
-        height: 6px;
-        left: 0.5rem;
-        top: 0.3rem;
-    }
-
-    .work-item img {
-        max-width: 100%;
-    }
-
-    .slideshow-container {
-        max-width: 100%;
-    }
-
-    #slideshow-image {
-        max-width: 100%;
-    }
-
-    .slideshow-wrapper {
-        max-width: 100%;
-        height: 300px;
-    }
-
-    .gallery .info {
-        font-size: 0.7rem;
-    }
-
-    .work-item .info h3 {
-        margin: 0.0005rem 0;
-    }
-
-    .work-item .info p {
-        margin: 0.0005rem 0;
-    }
-
-    .profile .name .first-name,
-    .profile .name .last-name {
-        font-size: 1.5rem;
-    }
 }
 
 /* Футер */
@@ -529,7 +361,6 @@ footer small {
     width: 100%;
     z-index: 1000;
     background-color: transparent;
-    padding: 0.3rem 0 0.5rem 0.5rem;
 }
 
 /* Стили для скроллбара */
@@ -542,16 +373,12 @@ body::-webkit-scrollbar {
 html::-webkit-scrollbar-track,
 body::-webkit-scrollbar-track {
     background: transparent;
-    margin: 0;
-    padding: 0;
-    border: 0;
 }
 
 html::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.05);
     border-radius: 2px;
-    border: 0;
 }
 
 html::-webkit-scrollbar-thumb:hover,
@@ -559,59 +386,124 @@ body::-webkit-scrollbar-thumb:hover {
     background: rgba(0, 0, 0, 0.1);
 }
 
-/* Firefox */
-html {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(0, 0, 0, 0.05) transparent;
-    scrollbar-gutter: stable;
-}
-
-/* Убрать скроллбар на главной странице */
-html:has(body.home-page) {
-    overflow: hidden;
-    height: 100vh;
-    scrollbar-width: none;
-}
-
-html:has(body.home-page)::-webkit-scrollbar,
-body.home-page::-webkit-scrollbar {
-    display: none;
-}
-
-/* Слайд-шоу: размеры и центрирование */
-.home-page .slideshow-container {
-    width: 100%;
-    max-width: 550px;
-}
-
-.home-page #slideshow-image {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 4px;
-}
-
-/* Сохранить прокрутку на других страницах */
-body:not(.home-page) {
-    overflow-y: auto;
-}
-
-/* Медиа-запросы для главной страницы */
+/* Медиа-запросы */
 @media (max-width: 768px) {
-    .home-page .slideshow-wrapper {
+    header {
+        padding: 0.5rem;
+    }
+
+    .gallery {
+        margin: 5rem 0 1rem;
+        padding: 0 1rem;
+        width: 100%;
+    }
+
+    .work-item {
+        max-width: 450px;
+        width: 100%;
+    }
+
+    .frame {
+        padding: 0.8rem;
+    }
+
+    .work-item .info {
+        max-width: 100%;
+    }
+
+    .status {
+        width: 8px;
+        height: 8px;
+        left: 0.5rem;
+        top: 0.2rem;
+    }
+
+    .work-item img {
+        max-width: 100%;
+    }
+
+    .home-page .slideshow-wrapper,
+    .slideshow-container {
         max-width: 450px;
     }
+
     .home-page #slideshow-image {
         max-width: 450px;
+    }
+
+    .slideshow-wrapper {
+        height: 400px;
+    }
+
+    .gallery .info {
+        font-size: 0.8rem;
+    }
+
+    .profile .name .first-name,
+    .profile .name .last-name {
+        font-size: 2rem;
+        line-height: 1;
+    }
+
+    .logo {
+        width: 30px;
+        height: 30px;
+    }
+
+    nav#menu ul li a {
+        font-size: 1rem;
     }
 }
 
 @media (max-width: 480px) {
-    .home-page .slideshow-wrapper {
+    .gallery {
+        margin: 4rem 0 0.5rem;
+        padding: 0 0.5rem;
+    }
+
+    .work-item {
+        max-width: 100%;
+    }
+
+    .frame {
+        padding: 0.4rem;
+    }
+
+    .work-item .info {
+        max-width: 100%;
+    }
+
+    .status {
+        width: 6px;
+        height: 6px;
+        left: 0.5rem;
+        top: 0.3rem;
+    }
+
+    .work-item img {
+        max-width: 100%;
+    }
+
+    .home-page .slideshow-wrapper,
+    .slideshow-container {
         max-width: 100%;
         padding: 0 0.5rem;
     }
+
     .home-page #slideshow-image {
         max-width: 100%;
+    }
+
+    .slideshow-wrapper {
+        height: 300px;
+    }
+
+    .gallery .info {
+        font-size: 0.7rem;
+    }
+
+    .profile .name .first-name,
+    .profile .name .last-name {
+        font-size: 1.5rem;
     }
 }
