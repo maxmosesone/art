@@ -615,4 +615,33 @@ body::-webkit-scrollbar-thumb:hover {
     .form-section form {
         max-width: 70%;
     }
+
+}
+
+
+    /* Социальные ссылки */
+.social-links {
+    position: fixed;
+    bottom: 1rem; /* Отступ от низа */
+    left: 1rem; /* Отступ от правого края */
+    display: flex;
+    flex-direction: row; /* Иконки в ряд (горизонтально) */
+    gap: 0.5rem; /* Расстояние между иконками */
+    z-index: 3000; /* Увеличиваем z-index, чтобы быть выше футера */
+}
+
+.social-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #ccc; /* Устанавливаем цвет ссылки, чтобы иконка не была синей */
+}
+
+.social-links i {
+    font-size: 15px;
+    color: #ccc;
 }
