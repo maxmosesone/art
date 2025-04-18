@@ -732,11 +732,11 @@ body::-webkit-scrollbar-thumb:hover {
 
 @media (max-width: 480px) {
     .work-item.has-gallery .prev-arrow {
-        left: -8px; /* Максимально вплотную на телефонах */
+        left: -10px; /* Чуть дальше от изображения на смартфонах */
     }
 
     .work-item.has-gallery .next-arrow {
-        right: -8px;
+        right: -10px; /* Чуть дальше от изображения на смартфонах */
     }
 
     .work-item.has-gallery .prev-arrow,
