@@ -680,7 +680,7 @@ body::-webkit-scrollbar-thumb:hover {
     transform: translateY(-50%);
     background: none;
     border: none;
-    font-size: 1.2rem; /* Меньший размер стрелок */
+    font-size: 1.2rem; /* Размер стрелок */
     color: rgba(200, 200, 200, 0.7); /* Светло-серый с прозрачностью */
     cursor: pointer;
     z-index: 20; /* Поверх всех элементов */
@@ -688,11 +688,11 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .work-item.has-gallery .prev-arrow {
-    left: -40px; /* Выдвигаем за пределы изображения и рамки */
+    left: -15px; /* Ближе к изображению */
 }
 
 .work-item.has-gallery .next-arrow {
-    right: -40px; /* Выдвигаем за пределы изображения и рамки */
+    right: -15px; /* Ближе к изображению */
 }
 
 .work-item.has-gallery .prev-arrow:hover,
@@ -705,14 +705,23 @@ body::-webkit-scrollbar-thumb:hover {
     position: relative; /* Контейнер для позиционирования стрелок */
 }
 
+.work-item.has-gallery .frame {
+    position: relative; /* Делаем рамку контейнером для стрелок */
+}
+
+.work-item.has-gallery .prev-arrow,
+.work-item.has-gallery .next-arrow {
+    top: calc(50% - 1.5rem); /* Учитываем отступ рамки */
+}
+
 /* Адаптивность стрелок для галерей */
 @media (max-width: 768px) {
     .work-item.has-gallery .prev-arrow {
-        left: -30px; /* Меньший отступ на планшетах */
+        left: -10px; /* Ещё ближе на планшетах */
     }
 
     .work-item.has-gallery .next-arrow {
-        right: -30px;
+        right: -10px;
     }
 
     .work-item.has-gallery .prev-arrow,
@@ -723,11 +732,11 @@ body::-webkit-scrollbar-thumb:hover {
 
 @media (max-width: 480px) {
     .work-item.has-gallery .prev-arrow {
-        left: -20px; /* Ещё меньший отступ на телефонах */
+        left: -8px; /* Максимально вплотную на телефонах */
     }
 
     .work-item.has-gallery .next-arrow {
-        right: -20px;
+        right: -8px;
     }
 
     .work-item.has-gallery .prev-arrow,
