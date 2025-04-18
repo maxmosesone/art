@@ -11,6 +11,48 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Menu or Menu Toggle button not found!");
     }
 
+    // Pull-to-Refresh для мобильных устройств
+    let touchStartY = 0;
+    let touchCurrentY = 0;
+    let isPulling = false;
+
+    window.addEventListener("touchstart", function (e) {
+        // Проверяем, что свайп начался в верхней части страницы (первые 50px)
+        if (window.scrollY <= 50) {
+            touchStartY = e.touches[0].clientY;
+            isPulling = true;
+        }
+    });
+
+    window.addEventListener("touchmove", function (e) {
+        if (!isPulling) return;
+        touchCurrentY = e.touches[0].clientY;
+        const pullDistance = touchCurrentY - touchStartY;
+
+        // Если пользователь потянул вниз больше чем на 150px
+        if (pullDistance > 150) {
+            // Показываем визуальный индикатор (опционально)
+            document.body.style.transition = "transform 0.3s ease";
+            document.body.style.transform = `translateY(${pullDistance - 150}px)`;
+        }
+    });
+
+    window.addEventListener("touchend", function () {
+        if (!isPulling) return;
+        const pullDistance = touchCurrentY - touchStartY;
+
+        // Если потянули вниз больше чем на 150px, перезагружаем страницу
+        if (pullDistance > 150) {
+            window.location.reload();
+        }
+
+        // Сбрасываем состояние
+        document.body.style.transform = "translateY(0)";
+        isPulling = false;
+        touchStartY = 0;
+        touchCurrentY = 0;
+    });
+
     // Логика слайд-шоу на главной странице
     const slideshowImage = document.getElementById("slideshow-image");
     if (slideshowImage) {
@@ -33,11 +75,10 @@ document.addEventListener("DOMContentLoaded", function () {
             { src: "images/Simulation_II.jpg", page: "digital.html" }
         ];
 
-        let currentIndexPosition = 0; // Позиция в массиве индексов 
-        let imageIndices = []; // Массив индексов для текущего цикла
-        let preloadedImages = []; // Массив для предзагруженных изображений
+        let currentIndexPosition = 0;
+        let imageIndices = [];
+        let preloadedImages = [];
 
-        // Предзагрузка всех изображений
         function preloadImages() {
             images.forEach((imageObj, index) => {
                 const img = new Image();
@@ -46,7 +87,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
-        // Функция для перемешивания массива (алгоритм Фишера-Йетса)
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -55,72 +95,48 @@ document.addEventListener("DOMContentLoaded", function () {
             return array;
         }
 
-        // Функция для создания нового перемешанного массива индексов
         function createShuffledIndices() {
             imageIndices = Array.from({ length: images.length }, (_, index) => index);
             shuffleArray(imageIndices);
             currentIndexPosition = 0;
         }
 
-        // Функция для смены изображения
         function changeImage() {
-            // Убираем класс active (исчезновение)
             slideshowImage.classList.remove("active");
-
-            // Ждём завершения анимации исчезновения через событие transitionend
             slideshowImage.addEventListener(
                 "transitionend",
                 function handler() {
-                    // Удаляем обработчик после срабатывания
                     slideshowImage.removeEventListener("transitionend", handler);
-
-                    // Если достигли конца массива индексов, создаём новый
                     if (currentIndexPosition >= imageIndices.length) {
                         createShuffledIndices();
                     }
-
-                    // Получаем текущий индекс изображения
                     const currentImageIndex = imageIndices[currentIndexPosition];
                     slideshowImage.src = images[currentImageIndex].src;
                     slideshowImage.classList.add("active");
-
-                    // Обновляем обработчик клика для текущего изображения
                     slideshowImage.onclick = function () {
                         window.location.href = images[currentImageIndex].page;
                     };
-
-                    // Переходим к следующему индексу
                     currentIndexPosition++;
                 },
-                { once: true } // Событие сработает только один раз
+                { once: true }
             );
         }
 
-        // Инициализация
-        preloadImages(); // Предзагружаем изображения
-        createShuffledIndices(); // Создаём первый перемешанный массив индексов
-
-        // Показываем первое изображение
+        preloadImages();
+        createShuffledIndices();
         const initialImageIndex = imageIndices[currentIndexPosition];
         slideshowImage.src = images[initialImageIndex].src;
         slideshowImage.classList.add("active");
-
-        // Устанавливаем обработчик клика для первого изображения
         slideshowImage.onclick = function () {
             window.location.href = images[initialImageIndex].page;
         };
-
-        // Увеличиваем currentIndexPosition сразу после инициализации
         currentIndexPosition++;
-
-        // Меняем картинку каждые 5 секунд (1 секунда на исчезновение + 4 секунды отображения)
         setInterval(changeImage, 5000);
     }
 
-    // Логика для галерей на странице Digital
+    // Логика для галерей на странице Digital (с добавлением свайпов)
     const galleries = document.querySelectorAll(".work-item.has-gallery");
     galleries.forEach(function (gallery) {
-        // Получаем данные из атрибутов
         let images, captions;
         try {
             images = JSON.parse(gallery.getAttribute("data-images"));
@@ -130,7 +146,6 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // Проверяем корректность данных
         if (!images || !captions || images.length !== captions.length || images.length === 0) {
             console.error("Некорректные данные в галерее:", gallery);
             return;
@@ -140,17 +155,14 @@ document.addEventListener("DOMContentLoaded", function () {
         const captionElement = gallery.querySelector(".info h3");
         let currentIndex = 0;
 
-        // Функция обновления изображения и подписи
         function updateGallery() {
             imgElement.src = images[currentIndex];
             captionElement.textContent = captions[currentIndex];
         }
 
-        // Обработчики для стрелок
         const prevArrow = gallery.querySelector(".prev-arrow");
         const nextArrow = gallery.querySelector(".next-arrow");
 
-        // Скрываем стрелки, если только одно изображение
         if (images.length <= 1) {
             prevArrow.style.display = "none";
             nextArrow.style.display = "none";
@@ -164,6 +176,36 @@ document.addEventListener("DOMContentLoaded", function () {
         nextArrow.addEventListener("click", function () {
             currentIndex = (currentIndex + 1) % images.length;
             updateGallery();
+        });
+
+        // Добавляем поддержку свайпов (влево/вправо)
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const swipeThreshold = 50; // Минимальная дистанция для свайпа (в пикселях)
+
+        gallery.addEventListener("touchstart", function (e) {
+            touchStartX = e.touches[0].clientX;
+        });
+
+        gallery.addEventListener("touchmove", function (e) {
+            touchEndX = e.touches[0].clientX;
+        });
+
+        gallery.addEventListener("touchend", function () {
+            const swipeDistance = touchEndX - touchStartX;
+
+            // Если свайп влево (больше 50px) — переключаем на следующее изображение
+            if (swipeDistance < -swipeThreshold) {
+                nextArrow.click();
+            }
+            // Если свайп вправо (больше 50px) — переключаем на предыдущее изображение
+            else if (swipeDistance > swipeThreshold) {
+                prevArrow.click();
+            }
+
+            // Сбрасываем координаты
+            touchStartX = 0;
+            touchEndX = 0;
         });
 
         // Инициализация: показываем первое изображение
