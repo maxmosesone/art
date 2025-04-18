@@ -35,6 +35,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let currentIndexPosition = 0; // Позиция в массиве индексов 
         let imageIndices = []; // Массив индексов для текущего цикла
+        let preloadedImages = []; // Массив для предзагруженных изображений
+
+        // Предзагрузка всех изображений
+        function preloadImages() {
+            images.forEach((imageObj, index) => {
+                const img = new Image();
+                img.src = imageObj.src;
+                preloadedImages[index] = img;
+            });
+        }
 
         // Функция для перемешивания массива (алгоритм Фишера-Йетса)
         function shuffleArray(array) {
@@ -57,30 +67,38 @@ document.addEventListener("DOMContentLoaded", function () {
             // Убираем класс active (исчезновение)
             slideshowImage.classList.remove("active");
 
-            // Ждём завершения анимации исчезновения (1 секунда)
-            setTimeout(() => {
-                // Если достигли конца массива индексов, создаём новый
-                if (currentIndexPosition >= imageIndices.length) {
-                    createShuffledIndices();
-                }
+            // Ждём завершения анимации исчезновения через событие transitionend
+            slideshowImage.addEventListener(
+                "transitionend",
+                function handler() {
+                    // Удаляем обработчик после срабатывания
+                    slideshowImage.removeEventListener("transitionend", handler);
 
-                // Получаем текущий индекс изображения
-                const currentImageIndex = imageIndices[currentIndexPosition];
-                slideshowImage.src = images[currentImageIndex].src;
-                slideshowImage.classList.add("active");
+                    // Если достигли конца массива индексов, создаём новый
+                    if (currentIndexPosition >= imageIndices.length) {
+                        createShuffledIndices();
+                    }
 
-                // Обновляем обработчик клика для текущего изображения
-                slideshowImage.onclick = function () {
-                    window.location.href = images[currentImageIndex].page;
-                };
+                    // Получаем текущий индекс изображения
+                    const currentImageIndex = imageIndices[currentIndexPosition];
+                    slideshowImage.src = images[currentImageIndex].src;
+                    slideshowImage.classList.add("active");
 
-                // Переходим к следующему индексу
-                currentIndexPosition++;
-            }, 1000);
+                    // Обновляем обработчик клика для текущего изображения
+                    slideshowImage.onclick = function () {
+                        window.location.href = images[currentImageIndex].page;
+                    };
+
+                    // Переходим к следующему индексу
+                    currentIndexPosition++;
+                },
+                { once: true } // Событие сработает только один раз
+            );
         }
 
-        // Инициализация: создаём первый перемешанный массив индексов
-        createShuffledIndices();
+        // Инициализация
+        preloadImages(); // Предзагружаем изображения
+        createShuffledIndices(); // Создаём первый перемешанный массив индексов
 
         // Показываем первое изображение
         const initialImageIndex = imageIndices[currentIndexPosition];
