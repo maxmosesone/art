@@ -665,3 +665,73 @@ body::-webkit-scrollbar-thumb:hover {
     font-size: 20px;
     color: #ccc;
 }
+
+/* Стили для галерей с навигацией */
+.work-item .prev-arrow,
+.work-item .next-arrow {
+    display: none;
+}
+
+.work-item.has-gallery .prev-arrow,
+.work-item.has-gallery .next-arrow {
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 1.2rem; /* Меньший размер стрелок */
+    color: rgba(200, 200, 200, 0.7); /* Светло-серый с прозрачностью */
+    cursor: pointer;
+    z-index: 20; /* Поверх всех элементов */
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.work-item.has-gallery .prev-arrow {
+    left: -40px; /* Выдвигаем за пределы изображения и рамки */
+}
+
+.work-item.has-gallery .next-arrow {
+    right: -40px; /* Выдвигаем за пределы изображения и рамки */
+}
+
+.work-item.has-gallery .prev-arrow:hover,
+.work-item.has-gallery .next-arrow:hover {
+    color: rgba(200, 200, 200, 1); /* Полная непрозрачность при наведении */
+    opacity: 1;
+}
+
+.work-item.has-gallery {
+    position: relative; /* Контейнер для позиционирования стрелок */
+}
+
+/* Адаптивность стрелок для галерей */
+@media (max-width: 768px) {
+    .work-item.has-gallery .prev-arrow {
+        left: -30px; /* Меньший отступ на планшетах */
+    }
+
+    .work-item.has-gallery .next-arrow {
+        right: -30px;
+    }
+
+    .work-item.has-gallery .prev-arrow,
+    .work-item.has-gallery .next-arrow {
+        font-size: 1rem; /* Меньший размер стрелок */
+    }
+}
+
+@media (max-width: 480px) {
+    .work-item.has-gallery .prev-arrow {
+        left: -20px; /* Ещё меньший отступ на телефонах */
+    }
+
+    .work-item.has-gallery .next-arrow {
+        right: -20px;
+    }
+
+    .work-item.has-gallery .prev-arrow,
+    .work-item.has-gallery .next-arrow {
+        font-size: 0.8rem; /* Ещё меньший размер стрелок */
+    }
+}

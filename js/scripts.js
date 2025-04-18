@@ -94,4 +94,57 @@ document.addEventListener("DOMContentLoaded", function () {
         // Меняем картинку каждые 5 секунд (1 секунда на исчезновение + 4 секунды отображения)
         setInterval(changeImage, 5000);
     }
+
+    // Логика для галерей на странице Digital
+    const galleries = document.querySelectorAll(".work-item.has-gallery");
+    galleries.forEach(function (gallery) {
+        // Получаем данные из атрибутов
+        let images, captions;
+        try {
+            images = JSON.parse(gallery.getAttribute("data-images"));
+            captions = JSON.parse(gallery.getAttribute("data-captions"));
+        } catch (e) {
+            console.error("Ошибка в данных галереи:", gallery, e);
+            return;
+        }
+
+        // Проверяем корректность данных
+        if (!images || !captions || images.length !== captions.length || images.length === 0) {
+            console.error("Некорректные данные в галерее:", gallery);
+            return;
+        }
+
+        const imgElement = gallery.querySelector("img");
+        const captionElement = gallery.querySelector(".info h3");
+        let currentIndex = 0;
+
+        // Функция обновления изображения и подписи
+        function updateGallery() {
+            imgElement.src = images[currentIndex];
+            captionElement.textContent = captions[currentIndex];
+        }
+
+        // Обработчики для стрелок
+        const prevArrow = gallery.querySelector(".prev-arrow");
+        const nextArrow = gallery.querySelector(".next-arrow");
+
+        // Скрываем стрелки, если только одно изображение
+        if (images.length <= 1) {
+            prevArrow.style.display = "none";
+            nextArrow.style.display = "none";
+        }
+
+        prevArrow.addEventListener("click", function () {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateGallery();
+        });
+
+        nextArrow.addEventListener("click", function () {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateGallery();
+        });
+
+        // Инициализация: показываем первое изображение
+        updateGallery();
+    });
 });

@@ -34,42 +34,53 @@
 
     <!-- Основное содержимое -->
     <main class="gallery">
-
         <section class="work-item">
             <div class="frame">
                 <img src="images/Simulation_V.jpg" alt="Simulation_V">
                 <div class="info">
-                <h3>Simulation V, 2025</h3>
-            </div>
-            </div>
-         </section>
-
-        <section class="work-item">
-            <div class="frame">
-                <img src="images/Simulation_IV.jpg" alt="Simulation_IV">
-                <div class="info">
-                <h3>Simulation IV, 2025</h3>
-            </div>
-            </div>
-         </section>
-
-        <section class="work-item">
-            <div class="frame">
-                <img src="images/Simulation_III.jpg" alt="Digital Art 1">
-                <div class="info">
-                <h3>Simulation III, 2025</h3>
-            </div>
-            </div>
-         </section>
-
-        <section class="work-item">
-            <div class="frame">
-                <img src="images/Simulation_II.jpg" alt="Digital Art 2">
-                <div class="info">
-                    <h3>Simulation II, 2025</h3>
+                    <h3>Simulation V, 2025</h3>
                 </div>
             </div>
         </section>
+
+        <section class="work-item has-gallery" 
+                data-images='["images/Simulation_IV.jpg", "images/Simulation_IV.I.jpg", "images/Simulation_IV.II.jpg"]' 
+                data-captions='["Simulation IV, 2025", "Simulation IV.I, 2025", "Simulation IV.II, 2025"]'>
+            <div class="frame">
+                <img src="images/Simulation_IV.jpg" alt="Simulation_IV">
+                <div class="info">
+                    <h3>Simulation IV, 2025</h3>
+                </div>
+            </div>
+            <button class="prev-arrow" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+            <button class="next-arrow" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+        </section>
+
+        <section class="work-item has-gallery" 
+        data-images='["images/Simulation_III.jpg", "images/Simulation_III.I.jpg", "images/Simulation_III_WB.jpg", "images/Simulation_III.II.jpg"]' 
+        data-captions='["Simulation III, 2025", "Simulation III.I, 2025", "Simulation III, WB, 2025", "Simulation III.II, 2025"]'>
+    <div class="frame">
+        <img src="images/Simulation_III.jpg" alt="Simulation_III">
+        <div class="info">
+            <h3>Simulation III, 2025</h3>
+        </div>
+    </div>
+    <button class="prev-arrow" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+    <button class="next-arrow" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+</section>
+
+<section class="work-item has-gallery" 
+        data-images='["images/Simulation_II.jpg", "images/Simulation_II.I.jpg", "images/Simulation_II.II.jpg", "images/Simulation_II.III.jpg"]' 
+        data-captions='["Simulation II, 2025", "Simulation II.I, 2025", "Simulation II.II, 2025", "Simulation II.III, 2025"]'>
+    <div class="frame">
+        <img src="images/Simulation_II.jpg" alt="Simulation_II">
+        <div class="info">
+            <h3>Simulation II, 2025</h3>
+        </div>
+    </div>
+    <button class="prev-arrow" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+    <button class="next-arrow" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+</section>
 
         <section class="work-item">
             <div class="frame">
@@ -88,21 +99,20 @@
                 </div>
             </div>
         </section>
-        
     </main>
 
-<footer>
-            <small>© 2014-2025 MAX MOISEEV. All rights reserved.</small>
-        </footer>
+    <footer>
+        <small>© 2014-2025 MAX MOISEEV. All rights reserved.</small>
+    </footer>
 
-        <div class="social-links">
-    <a href="https://www.instagram.com/maxmosesone" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://linktr.ee/maxmosesone?fbclid=PAZXh0bgNhZW0CMTEAAad2bTQij4E7bJmJhkWW0l4M9xgKVTh91W9WlkZ6QBvSur4Ix9OWcSX6vDFsxw_aem_GtbD1BEmOCTVh9CmEd-nTA" target="_blank" rel="noopener noreferrer">
-        <i class="fas fa-link"></i>
-    </a>
-</div>
+    <div class="social-links">
+        <a href="https://www.instagram.com/maxmosesone" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://linktr.ee/maxmosesone?fbclid=PAZXh0bgNhZW0CMTEAAad2bTQij4E7bJmJhkWW0l4M9xgKVTh91W9WlkZ6QBvSur4Ix9OWcSX6vDFsxw_aem_GtbD1BEmOCTVh9CmEd-nTA" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-link"></i>
+        </a>
+    </div>
 
     <script src="js/scripts.js"></script>
 </body>
