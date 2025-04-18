@@ -676,7 +676,7 @@ body::-webkit-scrollbar-thumb:hover {
 .work-item.has-gallery .next-arrow {
     display: block;
     position: absolute;
-    top: 50%;
+    top: calc(50% - 15px);
     transform: translateY(-50%) scaleX(0.8); /* Сжимаем по горизонтали для большей тонкости */
     background: none;
     border: none;
