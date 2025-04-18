@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
             { src: "images/Simulation_III.II.jpg", page: "digital.html" },
             { src: "images/Simulation_IV.I.jpg", page: "digital.html" },
             { src: "images/Simulation.jpg", page: "digital.html" },
+            { src: "images/Good_Thoughts.jpg", page: "digital.html" },
             { src: "images/Simulation_II.I.jpg", page: "digital.html" },
             { src: "images/Simulation_II.jpg", page: "digital.html" }
         ];
