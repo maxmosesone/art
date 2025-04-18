@@ -16,11 +16,16 @@ document.addEventListener("DOMContentLoaded", function () {
     if (slideshowImage) {
         // Массив объектов: путь к изображению и целевая страница
         const images = [
+            { src: "images/LemonTree.jpg", page: "paintings.html" },
+            { src: "images/Wave-III.jpg", page: "paintings.html" },
+            { src: "images/DirtyMonk.jpg", page: "paintings.html" },
             { src: "images/art1.jpg", page: "paintings.html" },
             { src: "images/art2.jpg", page: "paintings.html" },
-            { src: "images/WaveV.jpg", page: "paintings.html" },
             { src: "images/Wave_3.jpg", page: "paintings.html" },
+            { src: "images/Simulation_V.jpg", page: "digital.html" },
+            { src: "images/Simulation_IV.jpg", page: "digital.html" },
             { src: "images/Simulation_III.jpg", page: "digital.html" },
+            { src: "images/Simulation.jpg", page: "digital.html" },
             { src: "images/Simulation_II.jpg", page: "digital.html" }
         ];
 

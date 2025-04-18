@@ -654,14 +654,14 @@ body::-webkit-scrollbar-thumb:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
     border-radius: 3px;
     text-decoration: none;
     color: #ccc; /* Устанавливаем цвет ссылки, чтобы иконка не была синей */
 }
 
 .social-links i {
-    font-size: 15px;
+    font-size: 20px;
     color: #ccc;
 }
