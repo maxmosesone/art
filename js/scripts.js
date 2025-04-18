@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
             { src: "images/Simulation_II.jpg", page: "digital.html" }
         ];
 
-        let currentIndexPosition = 0; // Позиция в массиве индексов
+        let currentIndexPosition = 0; // Позиция в массиве индексов 1
         let imageIndices = []; // Массив индексов для текущего цикла
 
         // Функция для перемешивания массива (алгоритм Фишера-Йетса)
