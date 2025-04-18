@@ -677,28 +677,27 @@ body::-webkit-scrollbar-thumb:hover {
     display: block;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%) scaleX(0.8); /* Сжимаем по горизонтали для большей тонкости */
     background: none;
     border: none;
-    font-size: 1.2rem; /* Размер стрелок */
-    color: rgba(200, 200, 200, 0.7); /* Светло-серый с прозрачностью */
+    font-size: 1.3rem; /* Чуть меньше для изящности */
+    color: #000; /* Полностью чёрный цвет */
     cursor: pointer;
     z-index: 20; /* Поверх всех элементов */
-    transition: color 0.3s ease, opacity 0.3s ease;
+    transition: transform 0.2s ease; /* Плавное увеличение при наведении */
 }
 
 .work-item.has-gallery .prev-arrow {
-    left: -15px; /* Ближе к изображению */
+    left: -15px; /* Вплотную к изображению */
 }
 
 .work-item.has-gallery .next-arrow {
-    right: -15px; /* Ближе к изображению */
+    right: -15px; /* Вплотную к изображению */
 }
 
 .work-item.has-gallery .prev-arrow:hover,
 .work-item.has-gallery .next-arrow:hover {
-    color: rgba(200, 200, 200, 1); /* Полная непрозрачность при наведении */
-    opacity: 1;
+    transform: translateY(-50%) scaleX(0.8) scale(1.2); /* Увеличение при наведении с сохранением тонкости */
 }
 
 .work-item.has-gallery {
@@ -706,12 +705,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .work-item.has-gallery .frame {
-    position: relative; /* Делаем рамку контейнером для стрелок */
-}
-
-.work-item.has-gallery .prev-arrow,
-.work-item.has-gallery .next-arrow {
-    top: calc(50% - 1.5rem); /* Учитываем отступ рамки */
+    position: relative; /* Делаем рамку контейнером для точного центрирования */
 }
 
 /* Адаптивность стрелок для галерей */
@@ -726,7 +720,13 @@ body::-webkit-scrollbar-thumb:hover {
 
     .work-item.has-gallery .prev-arrow,
     .work-item.has-gallery .next-arrow {
-        font-size: 1rem; /* Меньший размер стрелок */
+        font-size: 1.1rem; /* Меньший размер для планшетов */
+        transform: translateY(-50%) scaleX(0.8); /* Сохраняем тонкость */
+    }
+
+    .work-item.has-gallery .prev-arrow:hover,
+    .work-item.has-gallery .next-arrow:hover {
+        transform: translateY(-50%) scaleX(0.8) scale(1.2); /* Увеличение при наведении */
     }
 }
 
@@ -741,6 +741,12 @@ body::-webkit-scrollbar-thumb:hover {
 
     .work-item.has-gallery .prev-arrow,
     .work-item.has-gallery .next-arrow {
-        font-size: 0.8rem; /* Ещё меньший размер стрелок */
+        font-size: 0.9rem; /* Меньший размер для телефонов */
+        transform: translateY(-50%) scaleX(0.8); /* Сохраняем тонкость */
+    }
+
+    .work-item.has-gallery .prev-arrow:hover,
+    .work-item.has-gallery .next-arrow:hover {
+        transform: translateY(-50%) scaleX(0.8) scale(1.2); /* Увеличение при наведении */
     }
 }
