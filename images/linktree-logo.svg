@@ -1,1 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 417 512.24"><defs><style>.cls-1{fill:#7f7f7f;}</style></defs><g id="Слой_2" data-name="Слой 2"><g id="Слой_1-2" data-name="Слой 1"><path class="cls-1" d="M171.27,344.94h74.09v167.3H171.27ZM0,173.47H126.07L36.45,88,86,37l85.44,87.83V0h74.08V124.87L331,37.24,380.55,88,291,173.27H417v70.5H290.25l90.18,87.63L331,381.19,208.52,258.11,86,381.19,36.45,331.6,126.66,244H0v-70.5Z"/></g></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 417 512.2" style="enable-background:new 0 0 417 512.2;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#353535;}
+</style>
+<g id="Слой_2_1_">
+	<g id="Слой_1-2">
+		<path class="st0" d="M171.3,344.9h74.1v167.3h-74.1L171.3,344.9L171.3,344.9z M0,173.5h126.1L36.5,88L86,37l85.4,87.8V0h74.1
+			v124.9L331,37.2L380.5,88L291,173.3h126v70.5H290.2l90.2,87.6L331,381.2L208.5,258.1L86,381.2l-49.5-49.6l90.2-87.6H0V173.5
+			L0,173.5z"/>
+	</g>
+</g>
+</svg>
