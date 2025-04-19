@@ -42,8 +42,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const pullDistance = touchCurrentY - touchStartY;
 
         if (pullDistance > 150) {
-            document.body.style.transition = "transform 0.3s ease";
-            document.body.style.transform = `translateY(${pullDistance - 150}px)`;
+            document.body.style.transition = "margin-top 0.3s ease";
+            document.body.style.marginTop = `${pullDistance - 150}px`;
         }
     });
 
@@ -55,24 +55,10 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.reload();
         }
 
-        document.body.style.transform = "translateY(0)";
+        document.body.style.marginTop = "0";
         isPulling = false;
         touchStartY = 0;
         touchCurrentY = 0;
-    });
-
-    // Обновление положения header и social-links после скроллинга
-    window.addEventListener("touchend", function () {
-        const header = document.querySelector("header");
-        const socialLinks = document.querySelector(".social-links");
-        if (header) {
-            header.style.top = "0";
-            header.style.left = "0";
-        }
-        if (socialLinks) {
-            socialLinks.style.bottom = "1rem";
-            socialLinks.style.left = "1rem";
-        }
     });
 
     // Логика слайд-шоу на главной странице
