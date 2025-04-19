@@ -6,7 +6,6 @@ html {
     overflow-x: hidden;
     scrollbar-width: thin;
     scrollbar-color: rgba(0, 0, 0, 0.05) transparent;
-    
 }
 
 body {
@@ -171,7 +170,7 @@ nav#menu ul li a {
 }
 
 nav#menu ul li a:hover {
-    color: var(--accent-color);
+    color: none;
 }
 
 /* Основной контент */
@@ -535,7 +534,7 @@ body::-webkit-scrollbar-thumb:hover {
         font-size: 1rem;
     }
 
-        .about,
+    .about,
     .contact {
         max-width: 450px;
         padding: 0 1rem;
@@ -612,7 +611,7 @@ body::-webkit-scrollbar-thumb:hover {
         font-size: 1.5rem;
     }
 
-        .about,
+    .about,
     .contact {
         max-width: 100%;
         padding: 0 0.5rem;
@@ -635,11 +634,9 @@ body::-webkit-scrollbar-thumb:hover {
     footer small {
         font-size: 0.4rem; /* Уменьшаем размер текста до 0.4rem (примерно 6.4px) */
     }
-
 }
 
-
-    /* Социальные ссылки */
+/* Социальные ссылки */
 .social-links {
     position: fixed;
     bottom: 1rem; /* Отступ от низа */
@@ -749,4 +746,19 @@ body::-webkit-scrollbar-thumb:hover {
     .work-item.has-gallery .next-arrow:hover {
         transform: translateY(-50%) scaleX(0.8) scale(1.2); /* Увеличение при наведении */
     }
+}
+
+/* Отключение голубой подсветки на мобильных устройствах */
+a, button, img[onclick], [role="button"], [id="menu-toggle"] {
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+}
+
+/* Убедимся, что конкретные элементы тоже не подсвечиваются */
+.profile .name a,
+.logo,
+.work-item.has-gallery .prev-arrow,
+.work-item.has-gallery .next-arrow {
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
 }
