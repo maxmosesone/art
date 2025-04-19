@@ -679,6 +679,13 @@ html::-webkit-scrollbar-thumb:hover {
     color: #7F7F7F;
 }
 
+/* Стили для изображения логотипа Linktree */
+.social-links .social-icon {
+    width: 19px; /* Соответствует размеру иконки Instagram */
+    height: 19px;
+    display: block;
+}
+
 /* Стили для галерей с навигацией */
 .work-item .prev-arrow,
 .work-item .next-arrow {
