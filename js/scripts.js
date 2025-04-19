@@ -61,12 +61,18 @@ document.addEventListener("DOMContentLoaded", function () {
         touchCurrentY = 0;
     });
 
-    // Обновление z-index для header и social-links после скроллинга
+    // Обновление положения header и social-links после скроллинга
     window.addEventListener("touchend", function () {
         const header = document.querySelector("header");
         const socialLinks = document.querySelector(".social-links");
-        if (header) header.style.zIndex = "4000";
-        if (socialLinks) socialLinks.style.zIndex = "3000";
+        if (header) {
+            header.style.top = "0";
+            header.style.left = "0";
+        }
+        if (socialLinks) {
+            socialLinks.style.bottom = "1rem";
+            socialLinks.style.left = "1rem";
+        }
     });
 
     // Логика слайд-шоу на главной странице
