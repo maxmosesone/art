@@ -6,7 +6,9 @@ html {
     overflow-x: hidden;
     scrollbar-width: thin;
     scrollbar-color: rgba(0, 0, 0, 0.05) transparent;
-    height: 100%; /* Устанавливаем высоту html для корректной прокрутки */
+    height: 100%;
+    overflow-y: auto; /* Прокрутка на уровне html */
+    -webkit-overflow-scrolling: touch; /* Плавная прокрутка на iOS */
 }
 
 body {
@@ -15,8 +17,7 @@ body {
     box-sizing: border-box;
     min-height: 100vh;
     background-color: var(--background-color);
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden; /* Убираем прокрутку для body */
     font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
     color: var(--primary-color);
@@ -62,8 +63,9 @@ body.home-page::-webkit-scrollbar {
     display: none;
 }
 
+/* Убираем overflow-y: auto для body:not(.home-page), так как прокрутка теперь на html */
 body:not(.home-page) {
-    overflow-y: auto;
+    /* overflow-y: auto; */
 }
 
 /* Шапка */
@@ -80,6 +82,17 @@ header {
     border: none;
     box-shadow: none;
     width: 100%;
+    will-change: transform; /* Оптимизация для мобильных устройств */
+}
+
+/* Специфичное решение для iOS (Safari) */
+@supports (-webkit-overflow-scrolling: touch) {
+    header {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
 }
 
 /* Добавим отступ для main, чтобы контент не перекрывался шапкой */
