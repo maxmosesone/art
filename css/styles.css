@@ -206,7 +206,7 @@ nav#menu ul li a {
 }
 
 nav#menu ul li a:hover {
-    color: var(--primary-color); /* Исправлено с 'none' на исходный цвет */
+    color: var(--primary-color);
 }
 
 /* Слайд-шоу на главной */
@@ -778,7 +778,9 @@ a, button, img[onclick], [role="button"], [id="menu-toggle"] {
 
 /* Класс для блокировки прокрутки страницы и скрытия скроллбара */
 body.no-scroll {
-    overflow: hidden !important;
+    position: fixed; /* Фиксируем страницу в текущем положении */
+    width: 100%; /* Предотвращаем "прыжки" контента */
+    overflow: hidden !important; /* Полностью блокируем прокрутку */
     scrollbar-width: none; /* Скрываем скроллбар в Firefox */
     -ms-overflow-style: none; /* Скрываем скроллбар в IE/Edge */
 }
