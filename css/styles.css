@@ -76,7 +76,7 @@ header {
     border: none;
     box-shadow: none;
     width: 100%;
-    transform: translate3d(0, 0, 0); /* Аппаратное ускорение */
+    will-change: transform; /* Оптимизация рендеринга */
 }
 
 /* Специфичное решение для iOS (Safari) */
@@ -86,7 +86,7 @@ header {
         top: 0;
         left: 0;
         width: 100%;
-        transform: translate3d(0, 0, 0);
+        will-change: transform;
     }
 }
 
@@ -660,7 +660,7 @@ html::-webkit-scrollbar-thumb:hover {
     gap: 0.5rem;
     z-index: 3000; /* Выше контента, ниже шапки */
     pointer-events: auto; /* Разрешаем взаимодействие */
-    transform: translate3d(0, 0, 0); /* Аппаратное ускорение */
+    will-change: transform; /* Оптимизация рендеринга */
 }
 
 .social-links a {
