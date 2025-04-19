@@ -778,6 +778,16 @@ a, button, img[onclick], [role="button"], [id="menu-toggle"] {
 }
 
 /* Класс для блокировки прокрутки страницы и скрытия скроллбара */
+html.no-scroll {
+    overflow: hidden !important; /* Полностью блокируем прокрутку */
+    scrollbar-width: none; /* Скрываем скроллбар в Firefox */
+    -ms-overflow-style: none; /* Скрываем скроллбар в IE/Edge */
+}
+
+html.no-scroll::-webkit-scrollbar {
+    display: none; /* Скрываем скроллбар в Chrome/Safari */
+}
+
 body.no-scroll {
     overflow: hidden !important; /* Полностью блокируем прокрутку */
     scrollbar-width: none; /* Скрываем скроллбар в Firefox */

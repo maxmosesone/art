@@ -2,12 +2,23 @@ document.addEventListener("DOMContentLoaded", function () {
     // Переключение выпадающего меню
     const menuToggle = document.getElementById("menu-toggle");
     const menu = document.getElementById("menu");
+    let scrollPosition = 0;
 
     if (menuToggle && menu) {
         menuToggle.addEventListener("click", function () {
-            menu.classList.toggle("hidden");
-            // Блокируем/разблокируем прокрутку страницы
-            document.body.classList.toggle("no-scroll");
+            if (menu.classList.contains("hidden")) {
+                // Открываем меню: сохраняем позицию прокрутки
+                scrollPosition = window.scrollY;
+                menu.classList.remove("hidden");
+                document.documentElement.classList.add("no-scroll");
+                document.body.classList.add("no-scroll");
+            } else {
+                // Закрываем меню: восстанавливаем позицию прокрутки
+                menu.classList.add("hidden");
+                document.documentElement.classList.remove("no-scroll");
+                document.body.classList.remove("no-scroll");
+                window.scrollTo(0, scrollPosition);
+            }
         });
     } else {
         console.error("Menu or Menu Toggle button not found!");
