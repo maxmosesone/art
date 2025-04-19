@@ -657,7 +657,7 @@ html::-webkit-scrollbar-thumb:hover {
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
-    z-index: 2000;
+    z-index: 2001;
     pointer-events: auto; /* Разрешаем взаимодействие */
 }
 
