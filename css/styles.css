@@ -76,7 +76,6 @@ header {
     border: none;
     box-shadow: none;
     width: 100%;
-    contain: paint; /* Изоляция рендеринга */
 }
 
 /* Специфичное решение для iOS (Safari) */
@@ -658,9 +657,8 @@ html::-webkit-scrollbar-thumb:hover {
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
-    z-index: 3000; /* Выше контента, ниже шапки */
-    pointer-events: auto; /* Разрешаем взаимодействие */
-    contain: paint; /* Изоляция рендеринга */
+    z-index: 3000;
+    pointer-events: auto;
 }
 
 .social-links a {
