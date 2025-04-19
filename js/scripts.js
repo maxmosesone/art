@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if (menuToggle && menu) {
         menuToggle.addEventListener("click", function () {
             menu.classList.toggle("hidden");
+            // Блокируем/разблокируем прокрутку страницы
+            document.body.classList.toggle("no-scroll");
         });
     } else {
         console.error("Menu or Menu Toggle button not found!");
