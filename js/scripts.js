@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let isPulling = false;
 
     window.addEventListener("touchstart", function (e) {
-        if (window.scrollY <= 50) {
+        if (window.scrollY === 0) { // Только если в самом верху страницы
             touchStartY = e.touches[0].clientY;
             isPulling = true;
         }
@@ -28,9 +28,9 @@ document.addEventListener("DOMContentLoaded", function () {
         touchCurrentY = e.touches[0].clientY;
         const pullDistance = touchCurrentY - touchStartY;
 
+        // Убираем transform с body, чтобы не ломать position: fixed
         if (pullDistance > 150) {
-            document.body.style.transition = "transform 0.3s ease";
-            document.body.style.transform = `translateY(${pullDistance - 150}px)`;
+            // Можно добавить визуальный индикатор, если нужно
         }
     });
 
@@ -38,11 +38,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!isPulling) return;
         const pullDistance = touchCurrentY - touchStartY;
 
-        if (pullDistance > 150) {
+        if (pullDistance > 150 && window.scrollY === 0) {
             window.location.reload();
         }
 
-        document.body.style.transform = "translateY(0)";
         isPulling = false;
         touchStartY = 0;
         touchCurrentY = 0;
@@ -128,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
         setInterval(changeImage, 5000);
     }
 
-    // Логика для галерей на странице Digital (с добавлением свайпов)
+    // Логика для галерей на странице Digital
     const galleries = document.querySelectorAll(".work-item.has-gallery");
     galleries.forEach(function (gallery) {
         let images, captions;
@@ -148,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const imgElement = gallery.querySelector("img");
         const captionElement = gallery.querySelector(".info h3");
         let currentIndex = 0;
-        let isThrottled = false; // Для защиты от двойного клика
+        let isThrottled = false;
 
         function updateGallery() {
             imgElement.src = images[currentIndex];
@@ -163,13 +162,12 @@ document.addEventListener("DOMContentLoaded", function () {
             nextArrow.style.display = "none";
         }
 
-        // Обработчики кликов с защитой от двойного срабатывания
         prevArrow.addEventListener("click", function () {
             if (isThrottled) return;
             isThrottled = true;
             currentIndex = (currentIndex - 1 + images.length) % images.length;
             updateGallery();
-            setTimeout(() => { isThrottled = false; }, 300); // Задержка 300 мс
+            setTimeout(() => { isThrottled = false; }, 300);
         });
 
         nextArrow.addEventListener("click", function () {
@@ -177,18 +175,17 @@ document.addEventListener("DOMContentLoaded", function () {
             isThrottled = true;
             currentIndex = (currentIndex + 1) % images.length;
             updateGallery();
-            setTimeout(() => { isThrottled = false; }, 300); // Задержка 300 мс
+            setTimeout(() => { isThrottled = false; }, 300);
         });
 
-        // Добавляем поддержку свайпов (влево/вправо)
         let touchStartX = 0;
         let touchEndX = 0;
-        let touchTarget = null; // Для хранения элемента, на котором началось касание
-        const swipeThreshold = 50; // Минимальная дистанция для свайпа (в пикселях)
+        let touchTarget = null;
+        const swipeThreshold = 50;
 
         gallery.addEventListener("touchstart", function (e) {
             touchStartX = e.touches[0].clientX;
-            touchTarget = e.target; // Сохраняем элемент, на котором началось касание
+            touchTarget = e.target;
         });
 
         gallery.addEventListener("touchmove", function (e) {
@@ -196,10 +193,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         gallery.addEventListener("touchend", function () {
-            // Проверяем, началось ли касание на стрелке
             const isArrowTouch = touchTarget && (touchTarget.closest(".prev-arrow") || touchTarget.closest(".next-arrow"));
             if (isArrowTouch) {
-                // Если касание началось на стрелке, игнорируем свайп
                 touchStartX = 0;
                 touchEndX = 0;
                 touchTarget = null;
@@ -207,23 +202,17 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             const swipeDistance = touchEndX - touchStartX;
-
-            // Если свайп влево (больше 50px) — переключаем на следующее изображение
             if (swipeDistance < -swipeThreshold) {
                 nextArrow.click();
-            }
-            // Если свайп вправо (больше 50px) — переключаем на предыдущее изображение
-            else if (swipeDistance > swipeThreshold) {
+            } else if (swipeDistance > swipeThreshold) {
                 prevArrow.click();
             }
 
-            // Сбрасываем координаты и цель касания
             touchStartX = 0;
             touchEndX = 0;
             touchTarget = null;
         });
 
-        // Инициализация: показываем первое изображение
         updateGallery();
     });
 });
