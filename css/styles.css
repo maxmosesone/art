@@ -6,6 +6,7 @@ html {
     overflow-x: hidden;
     scrollbar-width: thin;
     scrollbar-color: rgba(0, 0, 0, 0.05) transparent;
+    height: 100%; /* Устанавливаем высоту html для корректной прокрутки */
 }
 
 body {
@@ -79,6 +80,28 @@ header {
     border: none;
     box-shadow: none;
     width: 100%;
+}
+
+/* Добавим отступ для main, чтобы контент не перекрывался шапкой */
+main {
+    margin-top: 6rem;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem; /* Дополнительный отступ сверху */
+}
+
+/* На главной странице убираем отступ */
+.home-page main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    padding-top: 0; /* Убираем отступ на главной */
 }
 
 /* Текст в шапке */
@@ -173,25 +196,6 @@ nav#menu ul li a:hover {
     color: none;
 }
 
-/* Основной контент */
-main {
-    margin-top: 6rem;
-    flex: 1;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.home-page main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-}
-
 /* Слайд-шоу на главной */
 .home-page .slideshow-wrapper {
     margin: 0;
@@ -200,9 +204,9 @@ main {
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 80vw; /* Шире на больших экранах (80% ширины экрана) */
-    height: 70vh; /* Высота 60% экрана */
-    overflow: hidden; /* Обрезает содержимое, выходящее за границы */
+    max-width: 80vw;
+    height: 70vh;
+    overflow: hidden;
 }
 
 .home-page .slideshow-container {
@@ -555,7 +559,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
 
     footer small {
-        font-size: 0.4rem; /* Уменьшаем размер текста до 0.4rem (примерно 6.4px) */
+        font-size: 0.4rem;
     }
 }
 
@@ -632,19 +636,19 @@ body::-webkit-scrollbar-thumb:hover {
     }
 
     footer small {
-        font-size: 0.4rem; /* Уменьшаем размер текста до 0.4rem (примерно 6.4px) */
+        font-size: 0.4rem;
     }
 }
 
 /* Социальные ссылки */
 .social-links {
     position: fixed;
-    bottom: 1rem; /* Отступ от низа */
-    left: 1rem; /* Отступ от правого края */
+    bottom: 1rem;
+    left: 1rem;
     display: flex;
-    flex-direction: row; /* Иконки в ряд (горизонтально) */
-    gap: 0.5rem; /* Расстояние между иконками */
-    z-index: 2000; /* Увеличиваем z-index, чтобы быть выше футера */
+    flex-direction: row;
+    gap: 0.5rem;
+    z-index: 2000;
 }
 
 .social-links a {
@@ -655,7 +659,7 @@ body::-webkit-scrollbar-thumb:hover {
     height: 15px;
     border-radius: 3px;
     text-decoration: none;
-    color: #ccc; /* Устанавливаем цвет ссылки, чтобы иконка не была синей */
+    color: #ccc;
 }
 
 .social-links i {
@@ -674,41 +678,41 @@ body::-webkit-scrollbar-thumb:hover {
     display: block;
     position: absolute;
     top: calc(50% - 15px);
-    transform: translateY(-50%) scaleX(0.8); /* Сжимаем по горизонтали для большей тонкости */
+    transform: translateY(-50%) scaleX(0.8);
     background: none;
     border: none;
-    font-size: 1.3rem; /* Чуть меньше для изящности */
-    color: #000; /* Полностью чёрный цвет */
+    font-size: 1.3rem;
+    color: #000;
     cursor: pointer;
-    z-index: 20; /* Поверх всех элементов */
-    transition: transform 0.2s ease; /* Плавное увеличение при наведении */
+    z-index: 20;
+    transition: transform 0.2s ease;
 }
 
 .work-item.has-gallery .prev-arrow {
-    left: -15px; /* Вплотную к изображению */
+    left: -15px;
 }
 
 .work-item.has-gallery .next-arrow {
-    right: -15px; /* Вплотную к изображению */
+    right: -15px;
 }
 
 .work-item.has-gallery .prev-arrow:hover,
 .work-item.has-gallery .next-arrow:hover {
-    transform: translateY(-50%) scaleX(0.8) scale(1.2); /* Увеличение при наведении с сохранением тонкости */
+    transform: translateY(-50%) scaleX(0.8) scale(1.2);
 }
 
 .work-item.has-gallery {
-    position: relative; /* Контейнер для позиционирования стрелок */
+    position: relative;
 }
 
 .work-item.has-gallery .frame {
-    position: relative; /* Делаем рамку контейнером для точного центрирования */
+    position: relative;
 }
 
 /* Адаптивность стрелок для галерей */
 @media (max-width: 768px) {
     .work-item.has-gallery .prev-arrow {
-        left: -10px; /* Ещё ближе на планшетах */
+        left: -10px;
     }
 
     .work-item.has-gallery .next-arrow {
@@ -717,34 +721,34 @@ body::-webkit-scrollbar-thumb:hover {
 
     .work-item.has-gallery .prev-arrow,
     .work-item.has-gallery .next-arrow {
-        font-size: 1.1rem; /* Меньший размер для планшетов */
-        transform: translateY(-50%) scaleX(0.8); /* Сохраняем тонкость */
+        font-size: 1.1rem;
+        transform: translateY(-50%) scaleX(0.8);
     }
 
     .work-item.has-gallery .prev-arrow:hover,
     .work-item.has-gallery .next-arrow:hover {
-        transform: translateY(-50%) scaleX(0.8) scale(1.2); /* Увеличение при наведении */
+        transform: translateY(-50%) scaleX(0.8) scale(1.2);
     }
 }
 
 @media (max-width: 480px) {
     .work-item.has-gallery .prev-arrow {
-        left: -10px; /* Чуть дальше от изображения на смартфонах */
+        left: -10px;
     }
 
     .work-item.has-gallery .next-arrow {
-        right: -10px; /* Чуть дальше от изображения на смартфонах */
+        right: -10px;
     }
 
     .work-item.has-gallery .prev-arrow,
     .work-item.has-gallery .next-arrow {
-        font-size: 0.9rem; /* Меньший размер для телефонов */
-        transform: translateY(-50%) scaleX(0.8); /* Сохраняем тонкость */
+        font-size: 0.9rem;
+        transform: translateY(-50%) scaleX(0.8);
     }
 
     .work-item.has-gallery .prev-arrow:hover,
     .work-item.has-gallery .next-arrow:hover {
-        transform: translateY(-50%) scaleX(0.8) scale(1.2); /* Увеличение при наведении */
+        transform: translateY(-50%) scaleX(0.8) scale(1.2);
     }
 }
 
