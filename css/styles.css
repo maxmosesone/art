@@ -658,6 +658,7 @@ html::-webkit-scrollbar-thumb:hover {
     flex-direction: row;
     gap: 0.5rem;
     z-index: 2000;
+    pointer-events: auto; /* Разрешаем взаимодействие */
 }
 
 .social-links a {
