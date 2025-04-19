@@ -168,7 +168,7 @@ nav#menu {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    z-index: 3000;
+    z-index: 3001;
     overflow: hidden; /* Отключаем прокрутку внутри меню */
     margin: 0;
     padding: 13rem 0 0 0;
