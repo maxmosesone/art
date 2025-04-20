@@ -239,4 +239,18 @@ document.addEventListener("DOMContentLoaded", function () {
         // Инициализация: показываем первое изображение
         updateGallery();
     });
+
+    // Плавное появление изображений
+    const images = document.querySelectorAll('.work-item img');
+    images.forEach(img => {
+        if (img.complete) {
+            // Если изображение уже загружено (например, из кэша)
+            img.classList.add('loaded');
+        } else {
+            // Если изображение ещё загружается
+            img.addEventListener('load', () => {
+                setTimeout(() => img.classList.add('loaded'), 50);
+            });
+        }
+    });
 });
