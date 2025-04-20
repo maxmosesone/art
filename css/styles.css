@@ -7,14 +7,13 @@ html {
     scrollbar-width: thin;
     scrollbar-color: rgba(0, 0, 0, 0.05) transparent;
     height: 100%;
-    overflow-y: auto; /* Прокрутка на уровне html */
-    -webkit-overflow-scrolling: touch; /* Плавная прокрутка на iOS */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     min-height: 100vh;
     background-color: var(--background-color);
     font-family: 'Open Sans', sans-serif;
@@ -67,7 +66,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 4000; /* Высокий приоритет */
+    z-index: 4000;
     background-color: transparent;
     padding: 0.5rem;
     display: flex;
@@ -81,7 +80,7 @@ header {
 /* Специфичное решение для iOS (Safari) */
 @supports (-webkit-overflow-scrolling: touch) {
     header {
-        position: fixed !important;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
@@ -97,7 +96,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 2rem; /* Дополнительный отступ сверху */
+    padding-top: 2rem;
 }
 
 /* На главной странице убираем отступ */
@@ -108,7 +107,7 @@ main {
     align-items: center;
     margin: 0;
     padding: 0;
-    padding-top: 0; /* Убираем отступ на главной */
+    padding-top: 0;
 }
 
 /* Текст в шапке */
@@ -163,20 +162,20 @@ nav#menu {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #fff; /* Непрозрачный белый фон */
+    background-color: #fff;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     z-index: 3001;
-    overflow: hidden; /* Отключаем прокрутку внутри меню */
+    overflow: hidden;
     margin: 0;
     padding: 13rem 0 0 0;
-    scrollbar-width: none; /* Скрываем скроллбар в Firefox */
-    -ms-overflow-style: none; /* Скрываем скроллбар в IE/Edge */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 nav#menu::-webkit-scrollbar {
-    display: none; /* Скрываем скроллбар в Chrome/Safari */
+    display: none;
 }
 
 nav#menu.hidden {
@@ -341,6 +340,7 @@ nav#menu ul li a:hover {
     font-weight: 200;
     font-size: 1.2rem;
     margin: 0.5rem 0;
+    text-align: center;
 }
 
 .contact p,
@@ -358,7 +358,12 @@ nav#menu ul li a:hover {
     max-width: 550px;
     margin: 6rem auto;
     padding: 0 1rem;
-    box-sizing: border-box;
+    text-align: justify; /* Выравнивание текста по обоим краям */
+}
+
+.about h2,
+.contact h2 {
+    text-align: center; /* Заголовки остаются по центру */
 }
 
 .profile-image {
@@ -420,16 +425,19 @@ nav#menu ul li a:hover {
 
 .form-section button {
     padding: 0.5rem 1rem;
-    background-color: var(--accent-color);
-    color: #fff;
-    border: none;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
     border-radius: 4px;
     cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+    font-size: 1rem;
     transition: background-color 0.3s ease;
 }
 
 .form-section button:hover {
-    background-color: #27ae60;
+    background-color: #f0f0f0;
 }
 
 /* Футер */
@@ -479,176 +487,6 @@ html::-webkit-scrollbar-thumb:hover {
     background: rgba(0, 0, 0, 0.1);
 }
 
-/* Медиа-запросы */
-@media (max-width: 768px) {
-    header {
-        padding: 0.5rem;
-    }
-
-    .gallery {
-        margin: 5rem 0 1rem;
-        padding: 0 1rem;
-        width: 100%;
-    }
-
-    .work-item {
-        max-width: 450px;
-        width: 100%;
-    }
-
-    .frame {
-        padding: 0.8rem;
-    }
-
-    .work-item .info {
-        max-width: 100%;
-    }
-
-    .status {
-        width: 8px;
-        height: 8px;
-        left: 0.5rem;
-        top: 0.2rem;
-    }
-
-    .work-item img {
-        max-width: 100%;
-    }
-
-    .home-page .slideshow-wrapper,
-    .slideshow-container {
-        max-width: 450px;
-    }
-
-    .home-page #slideshow-image {
-        max-width: 450px;
-    }
-
-    .slideshow-wrapper {
-        height: 400px;
-    }
-
-    .gallery .info {
-        font-size: 0.8rem;
-    }
-
-    .profile .name .first-name,
-    .profile .name .last-name {
-        font-size: 2rem;
-        line-height: 1;
-    }
-
-    .logo {
-        width: 30px;
-        height: 30px;
-    }
-
-    nav#menu ul li a {
-        font-size: 1rem;
-    }
-
-    .about,
-    .contact {
-        max-width: 450px;
-        padding: 0 1rem;
-    }
-
-    .profile-image {
-        max-width: 150px;
-    }
-
-    .form-section form {
-        max-width: 80%;
-    }
-
-    .social-links {
-        bottom: 0.5rem;
-        left: 0.5rem;
-        gap: 0.3rem;
-    }
-
-    footer small {
-        font-size: 0.4rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .gallery {
-        margin: 4rem 0 0.5rem;
-        padding: 0 0.5rem;
-    }
-
-    .work-item {
-        max-width: 100%;
-    }
-
-    .frame {
-        padding: 0.4rem;
-    }
-
-    .work-item .info {
-        max-width: 100%;
-    }
-
-    .status {
-        width: 6px;
-        height: 6px;
-        left: 0.5rem;
-        top: 0.3rem;
-    }
-
-    .work-item img {
-        max-width: 100%;
-    }
-
-    .home-page .slideshow-wrapper,
-    .slideshow-container {
-        max-width: 100%;
-        padding: 0 0.5rem;
-    }
-
-    .home-page #slideshow-image {
-        max-width: 100%;
-    }
-
-    .slideshow-wrapper {
-        height: 300px;
-    }
-
-    .gallery .info {
-        font-size: 0.7rem;
-    }
-
-    .profile .name .first-name,
-    .profile .name .last-name {
-        font-size: 1.5rem;
-    }
-
-    .about,
-    .contact {
-        max-width: 100%;
-        padding: 0 0.5rem;
-    }
-
-    .profile-image {
-        max-width: 120px;
-    }
-
-    .form-section form {
-        max-width: 70%;
-    }
-
-    .social-links {
-        bottom: 0.5rem;
-        left: 0.5rem;
-        gap: 0.3rem;
-    }
-
-    footer small {
-        font-size: 0.4rem;
-    }
-}
-
 /* Социальные ссылки */
 .social-links {
     position: fixed;
@@ -665,9 +503,9 @@ html::-webkit-scrollbar-thumb:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 20px; /* Уточняем размер */
+    width: 20px;
     height: 20px;
-    min-width: 20px; /* Для стабильности */
+    min-width: 20px;
     min-height: 20px;
     border-radius: 3px;
     text-decoration: none;
@@ -679,9 +517,8 @@ html::-webkit-scrollbar-thumb:hover {
     color: #353535;
 }
 
-/* Стили для изображения логотипа Linktree */
 .social-links .social-icon {
-    width: 19px; /* Соответствует размеру иконки Instagram */
+    width: 19px;
     height: 19px;
     display: block;
 }
@@ -728,8 +565,166 @@ html::-webkit-scrollbar-thumb:hover {
     position: relative;
 }
 
-/* Адаптивность стрелок для галерей */
+/* Отключение голубой подсветки на мобильных устройствах */
+a, button, img[onclick], [role="button"], [id="menu-toggle"],
+.profile .name a, .logo, .work-item.has-gallery .prev-arrow, .work-item.has-gallery .next-arrow {
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+}
+
+/* Класс для блокировки прокрутки страницы и скрытия скроллбара */
+html.no-scroll,
+body.no-scroll {
+    overflow: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+html.no-scroll::-webkit-scrollbar,
+body.no-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+/* Стили для сообщения об успешной отправке */
+#success-message {
+    width: 100%;
+    max-width: 550px;
+    margin: 6rem auto;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+#success-message h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+#success-message p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
+#success-message button {
+    padding: 0.5rem 1rem;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+#success-message button:hover {
+    background-color: #f0f0f0;
+}
+
+/* Медиа-запросы */
 @media (max-width: 768px) {
+    header {
+        padding: 0.5rem;
+    }
+
+    .gallery {
+        margin: 5rem 0 1rem;
+        padding: 0 1rem;
+        width: 100%;
+    }
+
+    .work-item {
+        max-width: 450px;
+        width: 100%;
+    }
+
+    .frame {
+        padding: 0.8rem;
+    }
+
+    .work-item .info {
+        max-width: 100%;
+        font-size: 0.8rem;
+    }
+
+    .status {
+        width: 8px;
+        height: 8px;
+        left: 0.5rem;
+        top: 0.2rem;
+    }
+
+    .work-item img {
+        max-width: 100%;
+    }
+
+    .home-page .slideshow-wrapper,
+    .slideshow-container {
+        max-width: 450px;
+    }
+
+    .home-page #slideshow-image {
+        max-width: 450px;
+    }
+
+    .slideshow-wrapper {
+        height: 400px;
+    }
+
+    .profile .name .first-name,
+    .profile .name .last-name {
+        font-size: 2rem;
+        line-height: 1;
+    }
+
+    .logo {
+        width: 30px;
+        height: 30px;
+    }
+
+    nav#menu ul li a {
+        font-size: 1rem;
+    }
+
+    .about,
+    .contact {
+        max-width: 400px; /* Уменьшено с 450px */
+        padding: 0 1rem;
+    }
+
+    .about h2,
+    .contact h2 {
+        font-size: 1.1rem; /* Уменьшено с 1.2rem */
+    }
+
+    .about p,
+    .contact p,
+    .about ul {
+        font-size: 0.9rem; /* Уменьшено с 1rem */
+    }
+
+    .profile-image {
+        max-width: 150px;
+    }
+
+    .form-section form {
+        max-width: 80%;
+    }
+
+    .social-links {
+        bottom: 0.5rem;
+        left: 0.5rem;
+        gap: 0.3rem;
+    }
+
+    footer small {
+        font-size: 0.4rem;
+    }
+
     .work-item.has-gallery .prev-arrow {
         left: -10px;
     }
@@ -751,58 +746,65 @@ html::-webkit-scrollbar-thumb:hover {
 }
 
 @media (max-width: 480px) {
-    .work-item.has-gallery .prev-arrow {
-        left: -10px;
+    .gallery {
+        margin: 4rem 0 0.5rem;
+        padding: 0 0.5rem;
     }
 
-    .work-item.has-gallery .next-arrow {
-        right: -10px;
+    .work-item {
+        max-width: 100%;
+    }
+
+    .frame {
+        padding: 0.4rem;
+    }
+
+    .work-item .info {
+        font-size: 0.7rem;
+    }
+
+    .status {
+        width: 6px;
+        height: 6px;
+        left: 0.5rem;
+        top: 0.3rem;
+    }
+
+    .home-page .slideshow-wrapper,
+    .slideshow-container {
+        max-width: 100%;
+        padding: 0 0.5rem;
+    }
+
+    .home-page #slideshow-image {
+        max-width: 100%;
+    }
+
+    .slideshow-wrapper {
+        height: 300px;
+    }
+
+    .profile .name .first-name,
+    .profile .name .last-name {
+        font-size: 1.5rem;
+    }
+
+    .about,
+    .contact {
+        max-width: 90%; /* Уменьшено с 100% */
+        padding: 0 0.5rem;
+    }
+
+    .profile-image {
+        max-width: 120px;
+    }
+
+    .form-section form {
+        max-width: 70%;
     }
 
     .work-item.has-gallery .prev-arrow,
     .work-item.has-gallery .next-arrow {
         font-size: 0.9rem;
-        transform: translateY(-50%) scaleX(0.8);
     }
-
-    .work-item.has-gallery .prev-arrow:hover,
-    .work-item.has-gallery .next-arrow:hover {
-        transform: translateY(-50%) scaleX(0.8) scale(1.2);
-    }
-}
-
-/* Отключение голубой подсветки на мобильных устройствах */
-a, button, img[onclick], [role="button"], [id="menu-toggle"] {
-    -webkit-tap-highlight-color: transparent;
-    tap-highlight-color: transparent;
-}
-
-/* Убедимся, что конкретные элементы тоже не подсвечиваются */
-.profile .name a,
-.logo,
-.work-item.has-gallery .prev-arrow,
-.work-item.has-gallery .next-arrow {
-    -webkit-tap-highlight-color: transparent;
-    tap-highlight-color: transparent;
-}
-
-/* Класс для блокировки прокрутки страницы и скрытия скроллбара */
-html.no-scroll {
-    overflow: hidden !important; /* Полностью блокируем прокрутку */
-    scrollbar-width: none; /* Скрываем скроллбар в Firefox */
-    -ms-overflow-style: none; /* Скрываем скроллбар в IE/Edge */
-}
-
-html.no-scroll::-webkit-scrollbar {
-    display: none; /* Скрываем скроллбар в Chrome/Safari */
-}
-
-body.no-scroll {
-    overflow: hidden !important; /* Полностью блокируем прокрутку */
-    scrollbar-width: none; /* Скрываем скроллбар в Firefox */
-    -ms-overflow-style: none; /* Скрываем скроллбар в IE/Edge */
-}
-
-body.no-scroll::-webkit-scrollbar {
-    display: none; /* Скрываем скроллбар в Chrome/Safari */
 }
