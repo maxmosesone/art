@@ -65,21 +65,21 @@ document.addEventListener("DOMContentLoaded", function () {
     const slideshowImage = document.getElementById("slideshow-image");
     if (slideshowImage) {
         const images = [
-            { src: "images/LemonTree.jpg", page: "paintings.html" },
-            { src: "images/Wave-III.jpg", page: "paintings.html" },
-            { src: "images/DirtyMonk.jpg", page: "paintings.html" },
-            { src: "images/art1.jpg", page: "paintings.html" },
-            { src: "images/art2.jpg", page: "paintings.html" },
-            { src: "images/Wave_3.jpg", page: "paintings.html" },
-            { src: "images/Simulation_V.jpg", page: "digital.html" },
-            { src: "images/Simulation_IV.jpg", page: "digital.html" },
-            { src: "images/Simulation_III.jpg", page: "digital.html" },
-            { src: "images/Simulation_III.II.jpg", page: "digital.html" },
-            { src: "images/Simulation_IV.I.jpg", page: "digital.html" },
-            { src: "images/Simulation.jpg", page: "digital.html" },
-            { src: "images/Good_Thoughts.jpg", page: "digital.html" },
-            { src: "images/Simulation_II.I.jpg", page: "digital.html" },
-            { src: "images/Simulation_II.jpg", page: "digital.html" }
+            { src: "images/LemonTree.jpg", page: "/paintings" },
+            { src: "images/Wave-III.jpg", page: "/paintings" },
+            { src: "images/DirtyMonk.jpg", page: "/paintings" },
+            { src: "images/art1.jpg", page: "/paintings" },
+            { src: "images/art2.jpg", page: "/paintings" },
+            { src: "images/Wave_3.jpg", page: "/paintings" },
+            { src: "images/Simulation_V.jpg", page: "/digital" },
+            { src: "images/Simulation_IV.jpg", page: "/digital" },
+            { src: "images/Simulation_III.jpg", page: "/digital" },
+            { src: "images/Simulation_III.II.jpg", page: "/digital" },
+            { src: "images/Simulation_IV.I.jpg", page: "/digital" },
+            { src: "images/Simulation.jpg", page: "/digital" },
+            { src: "images/Good_Thoughts.jpg", page: "/digital" },
+            { src: "images/Simulation_II.I.jpg", page: "/digital" },
+            { src: "images/Simulation_II.jpg", page: "/digital" }
         ];
 
         let currentIndexPosition = 0;
