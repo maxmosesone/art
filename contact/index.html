@@ -11,49 +11,49 @@
     <title>MAX MOISEEV | Contact</title>
     <!-- SEO Метатеги -->
     <meta name="description" content="Contact Max Moiseev for inquiries, collaborations, or to purchase artwork.">
-<meta name="keywords" content="Max Moiseev, contact, contemporary artist, art inquiries">
-<meta name="author" content="Max Moiseev">
-<meta property="og:title" content="Contact">
-<meta property="og:description" content="Get in touch with Max Moiseev for inquiries or collaborations.">
-<meta property="og:image" content="https://maxmoiseev.art/images/logo.png">
-<meta property="og:url" content="https://maxmoiseev.art/contact.html">
-<meta property="og:type" content="website">
+    <meta name="keywords" content="Max Moiseev, contact, contemporary artist, art inquiries">
+    <meta name="author" content="Max Moiseev">
+    <meta property="og:title" content="Contact">
+    <meta property="og:description" content="Get in touch with Max Moiseev for inquiries or collaborations.">
+    <meta property="og:image" content="https://maxmoiseev.art/images/logo.png">
+    <meta property="og:url" content="https://maxmoiseev.art/contact">
+    <meta property="og:type" content="website">
     <!-- Favicon -->
-<link rel="icon" type="image/png" href="images/logo.png" sizes="32x32">
-<!-- Apple Touch Icon (для iOS) -->
-<link rel="apple-touch-icon" href="images/logo.png">
-<!-- Microsoft Windows Tiles -->
-<meta name="msapplication-TileImage" content="images/logo.png">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="../images/logo.png" sizes="32x32">
+    <!-- Apple Touch Icon (для iOS) -->
+    <link rel="apple-touch-icon" href="../images/logo.png">
+    <!-- Microsoft Windows Tiles -->
+    <meta name="msapplication-TileImage" content="../images/logo.png">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
     <!-- Шапка профиля -->
     <header>
         <div class="profile">
             <h1 class="name">
-                <a href="index.html">
+                <a href="/">
                     <span class="first-name">MAX MOISEEV</span><br>
                 </a>
             </h1>
         </div>
         <!-- Кнопка меню (логотип) -->
-        <img id="menu-toggle" src="images/logo.svg" alt="Menu" class="logo">
+        <img id="menu-toggle" src="../images/logo.svg" alt="Menu" class="logo">
     </header>
 
     <!-- Выпадающее меню -->
     <nav id="menu" class="hidden">
         <ul>
-            <li><a href="paintings.html">PAINTINGS</a></li>
-            <li><a href="digital.html">DIGITAL</a></li>
-            <li><a href="about.html">ABOUT</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
+            <li><a href="/paintings">PAINTINGS</a></li>
+            <li><a href="/digital">DIGITAL</a></li>
+            <li><a href="/about">ABOUT</a></li>
+            <li><a href="/contact">CONTACT</a></li>
         </ul>
     </nav>
 
     <!-- Основное содержимое -->
     <main class="contact">
         <section class="contact-info">
-            <img src="images/profile.jpg" alt="Max Moiseev" class="profile-image">
+            <img src="../images/profile.jpg" alt="Max Moiseev" class="profile-image">
             <div class="contact-details">
                 <h2>Email :</h2>
                 <p>maxmoiseevone@gmail.com</p>
@@ -75,7 +75,7 @@
         <section id="success-message" style="display: none; text-align: center;">
             <h2>Success!</h2>
             <p>Thank you for your message. I will get back to you soon.</p>
-            <button onclick="window.location.href='contact.html?reset=true'">Back</button>
+            <button onclick="window.location.href='/contact?reset=true'">Back</button>
         </section>
     </main>
 
@@ -88,11 +88,11 @@
             <i class="fab fa-instagram"></i>
         </a>
         <a href="https://linktr.ee/maxmosesone?fbclid=PAZXh0bgNhZW0CMTEAAad2bTQij4E7bJmJhkWW0l4M9xgKVTh91W9WlkZ6QBvSur4Ix9OWcSX6vDFsxw_aem_GtbD1BEmOCTVh9CmEd-nTA" target="_blank" rel="noopener noreferrer">
-            <img src="images/linktree-logo.svg" alt="Linktree Logo" class="social-icon">
+            <img src="../images/linktree-logo.svg" alt="Linktree Logo" class="social-icon">
         </a>
     </div>
 
-    <script src="js/scripts.js"></script>
+    <script src="../js/scripts.js"></script>
     <script>
         // Очистка полей формы при загрузке страницы с параметром ?reset=true
         document.addEventListener("DOMContentLoaded", function () {
@@ -132,7 +132,7 @@
 
                     // Автоматический возврат через 10 секунд
                     setTimeout(() => {
-                        window.location.href = "contact.html?reset=true";
+                        window.location.href = "/contact?reset=true";
                     }, 10000);
                 } else {
                     alert("Error sending message. Please try again later.");
