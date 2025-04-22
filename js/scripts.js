@@ -63,13 +63,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const slideshowImage = document.getElementById("slideshow-image");
     if (slideshowImage) {
         const images = [
-            { src: "images/LemonTree.jpg", page: "/paintings/2024" },
             { src: "images/Wave-III.jpg", page: "/paintings/2025" },
             { src: "images/Alpha.jpg", page: "/paintings/2025" },
             { src: "images/DirtyMonk.jpg", page: "/paintings/2024" },
             { src: "images/art1.jpg", page: "/paintings/2025" },
             { src: "images/art2.jpg", page: "/paintings/2024" },
-            { src: "images/Wave_3.jpg", page: "/paintings/2024" },
             { src: "images/Simulation_V.jpg", page: "/digital" },
             { src: "images/Simulation_IV.jpg", page: "/digital" },
             { src: "images/Simulation_III.jpg", page: "/digital" },
