@@ -849,3 +849,31 @@ html::-webkit-scrollbar-thumb:hover {
         right: 0.4rem;
     }
 }
+
+.year-nav {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    width: 100%;
+    max-width: 550px;
+    margin: 6rem auto 0;
+}
+
+.year-nav a,
+.year-nav span {
+    font-family: 'Roboto Flex', sans-serif;
+    font-weight: 100;
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.year-nav a:hover {
+    color: var(--primary-color);
+}
+
+.year-nav span.active {
+    text-decoration: underline;
+}
