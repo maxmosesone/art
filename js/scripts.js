@@ -259,7 +259,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (scrollToTopBtn) {
         // Показываем/скрываем кнопку при прокрутке
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 1000) { // Показываем после прокрутки на 1000px (~2-3 картины)
+            if (window.scrollY > 800) { // Показываем после прокрутки на 1000px (~2-3 картины)
                 scrollToTopBtn.classList.remove('hidden');
                 scrollToTopBtn.classList.add('visible');
             } else {
