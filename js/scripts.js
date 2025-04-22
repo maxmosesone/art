@@ -7,13 +7,11 @@ document.addEventListener("DOMContentLoaded", function () {
     if (menuToggle && menu) {
         menuToggle.addEventListener("click", function () {
             if (menu.classList.contains("hidden")) {
-                // Открываем меню: сохраняем позицию прокрутки
                 scrollPosition = window.scrollY;
                 menu.classList.remove("hidden");
                 document.documentElement.classList.add("no-scroll");
                 document.body.classList.add("no-scroll");
             } else {
-                // Закрываем меню: восстанавливаем позицию прокрутки
                 menu.classList.add("hidden");
                 document.documentElement.classList.remove("no-scroll");
                 document.body.classList.remove("no-scroll");
@@ -65,12 +63,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const slideshowImage = document.getElementById("slideshow-image");
     if (slideshowImage) {
         const images = [
-            { src: "images/LemonTree.jpg", page: "/paintings" },
-            { src: "images/Wave-III.jpg", page: "/paintings" },
-            { src: "images/DirtyMonk.jpg", page: "/paintings" },
-            { src: "images/art1.jpg", page: "/paintings" },
-            { src: "images/art2.jpg", page: "/paintings" },
-            { src: "images/Wave_3.jpg", page: "/paintings" },
+            { src: "images/LemonTree.jpg", page: "/paintings/2024" },
+            { src: "images/Wave-III.jpg", page: "/paintings/2025" },
+            { src: "images/DirtyMonk.jpg", page: "/paintings/2024" },
+            { src: "images/art1.jpg", page: "/paintings/2025" },
+            { src: "images/art2.jpg", page: "/paintings/2024" },
+            { src: "images/Wave_3.jpg", page: "/paintings/2024" },
             { src: "images/Simulation_V.jpg", page: "/digital" },
             { src: "images/Simulation_IV.jpg", page: "/digital" },
             { src: "images/Simulation_III.jpg", page: "/digital" },
@@ -121,6 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     slideshowImage.src = images[currentImageIndex].src;
                     slideshowImage.classList.add("active");
                     slideshowImage.onclick = function () {
+                        console.log(`Redirecting to: ${images[currentImageIndex].page}`); // Для отладки
                         window.location.href = images[currentImageIndex].page;
                     };
                     currentIndexPosition++;
@@ -135,13 +134,14 @@ document.addEventListener("DOMContentLoaded", function () {
         slideshowImage.src = images[initialImageIndex].src;
         slideshowImage.classList.add("active");
         slideshowImage.onclick = function () {
+            console.log(`Initial redirect to: ${images[initialImageIndex].page}`); // Для отладки
             window.location.href = images[initialImageIndex].page;
         };
         currentIndexPosition++;
         setInterval(changeImage, 5000);
     }
 
-    // Логика для галерей на странице Digital (с добавлением свайпов)
+    // Логика для галерей на странице Digital
     const galleries = document.querySelectorAll(".work-item.has-gallery");
     galleries.forEach(function (gallery) {
         let images, captions;
@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const imgElement = gallery.querySelector("img");
         const captionElement = gallery.querySelector(".info h3");
         let currentIndex = 0;
-        let isThrottled = false; // Для защиты от двойного клика
+        let isThrottled = false;
 
         function updateGallery() {
             imgElement.src = images[currentIndex];
@@ -176,13 +176,12 @@ document.addEventListener("DOMContentLoaded", function () {
             nextArrow.style.display = "none";
         }
 
-        // Обработчики кликов с защитой от двойного срабатывания
         prevArrow.addEventListener("click", function () {
             if (isThrottled) return;
             isThrottled = true;
             currentIndex = (currentIndex - 1 + images.length) % images.length;
             updateGallery();
-            setTimeout(() => { isThrottled = false; }, 300); // Задержка 300 мс
+            setTimeout(() => { isThrottled = false; }, 300);
         });
 
         nextArrow.addEventListener("click", function () {
@@ -190,18 +189,17 @@ document.addEventListener("DOMContentLoaded", function () {
             isThrottled = true;
             currentIndex = (currentIndex + 1) % images.length;
             updateGallery();
-            setTimeout(() => { isThrottled = false; }, 300); // Задержка 300 мс
+            setTimeout(() => { isThrottled = false; }, 300);
         });
 
-        // Добавляем поддержку свайпов (влево/вправо)
         let touchStartX = 0;
         let touchEndX = 0;
-        let touchTarget = null; // Для хранения элемента, на котором началось касание
-        const swipeThreshold = 50; // Минимальная дистанция для свайпа (в пикселях)
+        let touchTarget = null;
+        const swipeThreshold = 50;
 
         gallery.addEventListener("touchstart", function (e) {
             touchStartX = e.touches[0].clientX;
-            touchTarget = e.target; // Сохраняем элемент, на котором началось касание
+            touchTarget = e.target;
         });
 
         gallery.addEventListener("touchmove", function (e) {
@@ -209,10 +207,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         gallery.addEventListener("touchend", function () {
-            // Проверяем, началось ли касание на стрелке
             const isArrowTouch = touchTarget && (touchTarget.closest(".prev-arrow") || touchTarget.closest(".next-arrow"));
             if (isArrowTouch) {
-                // Если касание началось на стрелке, игнорируем свайп
                 touchStartX = 0;
                 touchEndX = 0;
                 touchTarget = null;
@@ -221,22 +217,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const swipeDistance = touchEndX - touchStartX;
 
-            // Если свайп влево (больше 50px) — переключаем на следующее изображение
             if (swipeDistance < -swipeThreshold) {
                 nextArrow.click();
-            }
-            // Если свайп вправо (больше 50px) — переключаем на предыдущее изображение
-            else if (swipeDistance > swipeThreshold) {
+            } else if (swipeDistance > swipeThreshold) {
                 prevArrow.click();
             }
 
-            // Сбрасываем координаты и цель касания
             touchStartX = 0;
             touchEndX = 0;
             touchTarget = null;
         });
 
-        // Инициализация: показываем первое изображение
         updateGallery();
     });
 
@@ -244,10 +235,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const images = document.querySelectorAll('.work-item img');
     images.forEach(img => {
         if (img.complete) {
-            // Если изображение уже загружено (например, из кэша)
             img.classList.add('loaded');
         } else {
-            // Если изображение ещё загружается
             img.addEventListener('load', () => {
                 setTimeout(() => img.classList.add('loaded'), 50);
             });
@@ -257,9 +246,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Кнопка "Наверх"
     const scrollToTopBtn = document.querySelector('.scroll-to-top');
     if (scrollToTopBtn) {
-        // Показываем/скрываем кнопку при прокрутке
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 800) { // Показываем после прокрутки на 1000px (~2-3 картины)
+            if (window.scrollY > 800) {
                 scrollToTopBtn.classList.remove('hidden');
                 scrollToTopBtn.classList.add('visible');
             } else {
@@ -268,7 +256,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        // Плавная прокрутка наверх при клике
         scrollToTopBtn.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,

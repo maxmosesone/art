@@ -850,30 +850,97 @@ html::-webkit-scrollbar-thumb:hover {
     }
 }
 
+/* Навигация по годам */
 .year-nav {
-    display: flex;
-    justify-content: flex-start;
-    gap: 1rem;
-    padding: 1rem 2rem;
+    position: fixed;
+    top: 4rem; /* Отступ от верха, учитывая высоту header (~2–3rem) */
+    left: 0;
     width: 100%;
-    max-width: 550px;
-    margin: 6rem auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem; /* Расстояние между кнопками */
+    padding: 0.5rem 1rem;
+    background-color: transparent; /* Белый фон, как у nav#menu */
+    z-index: 3500; /* Ниже header (4000), выше контента и social-links (3000) */
+}
+
+.year-nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: 550px; /* Как у .gallery */
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.year-nav li {
+    margin: 0;
 }
 
 .year-nav a,
 .year-nav span {
     font-family: 'Roboto Flex', sans-serif;
     font-weight: 100;
-    font-size: 1.4rem;
-    color: var(--primary-color);
+    font-size: 1.7rem;
+    color: var(--primary-color); /* #000 */
     text-decoration: none;
+    padding: 0.2rem 0;
     transition: color 0.3s ease;
 }
 
 .year-nav a:hover {
-    color: var(--primary-color);
+    color: var(--primary-color); /* Сохраняем цвет при наведении, как в меню */
 }
 
 .year-nav span.active {
-    text-decoration: underline;
+    text-decoration: underline; /* Нижнее подчёркивание для активного года */
+    text-underline-offset: 4px; /* Отступ подчёркивания */
+}
+
+/* Обновление отступа для контента */
+main.gallery {
+    margin-top: 8rem; /* Увеличиваем, чтобы учесть .year-nav */
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .year-nav {
+        top: 3rem; /* Уменьшаем отступ, так как header компактнее */
+        padding: 0.5rem;
+    }
+
+    .year-nav ul {
+        max-width: 400px; /* Как у .gallery на 768px */
+    }
+
+    .year-nav a,
+    .year-nav span {
+        font-size: 1rem; /* Как в меню на 768px */
+    }
+
+    main.gallery {
+        margin-top: 6rem; /* Корректируем отступ для контента */
+    }
+}
+
+@media (max-width: 480px) {
+    .year-nav {
+        top: 2.5rem;
+        padding: 0.3rem;
+    }
+
+    .year-nav ul {
+        max-width: 90%; /* Как у .gallery на 480px */
+    }
+
+    .year-nav a,
+    .year-nav span {
+        font-size: 0.9rem; /* Чуть меньше для компактности */
+    }
+
+    main.gallery {
+        margin-top: 5rem;
+    }
 }
