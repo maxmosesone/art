@@ -853,7 +853,7 @@ html::-webkit-scrollbar-thumb:hover {
 /* Навигация по годам */
 .year-nav {
     position: fixed;
-    top: 4rem; /* Отступ от верха, учитывая высоту header (~2–3rem) */
+    top: 3rem; /* Отступ от верха, учитывая высоту header (~2–3rem) */
     left: 0;
     width: 100%;
     display: flex;
@@ -883,7 +883,7 @@ html::-webkit-scrollbar-thumb:hover {
 .year-nav span {
     font-family: 'Roboto Flex', sans-serif;
     font-weight: 100;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     color: var(--primary-color); /* #000 */
     text-decoration: none;
     padding: 0.2rem 0;
