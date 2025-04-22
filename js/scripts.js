@@ -253,4 +253,27 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     });
+
+    // Кнопка "Наверх"
+    const scrollToTopBtn = document.querySelector('.scroll-to-top');
+    if (scrollToTopBtn) {
+        // Показываем/скрываем кнопку при прокрутке
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 1000) { // Показываем после прокрутки на 1000px (~2-3 картины)
+                scrollToTopBtn.classList.remove('hidden');
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+                scrollToTopBtn.classList.add('hidden');
+            }
+        });
+
+        // Плавная прокрутка наверх при клике
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 });
