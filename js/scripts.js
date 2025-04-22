@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.href = images[initialImageIndex].page;
         };
         currentIndexPosition++;
-        setInterval(changeImage, 5000);
+        setInterval(changeImage, 3000);
     }
 
     // Логика для галерей на странице Digital

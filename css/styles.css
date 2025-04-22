@@ -264,6 +264,11 @@ main.gallery {
     margin-top: 8rem;
 }
 
+main.contact,
+main.about {
+    margin-top: 5rem; /* Отступ от верха для Contact и About */
+}
+
 .gallery {
     display: flex;
     flex-direction: column;
@@ -350,7 +355,7 @@ main.gallery {
 .exhibitions {
     width: 100%;
     max-width: 550px;
-    margin: 6rem auto;
+    margin: 1rem auto;
     padding: 0 1rem;
     text-align: center;
 }
@@ -364,7 +369,7 @@ main.gallery {
     font-family: 'Roboto', sans-serif;
     font-weight: 200;
     font-size: 1.2rem;
-    margin: 0.5rem 0;
+    margin: 0.3rem 0;
 }
 
 .about p,
@@ -376,7 +381,7 @@ main.gallery {
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
     font-size: 1rem;
-    margin: 0.5rem 0;
+    margin: 0.3rem 0;
 }
 
 .profile-image {
@@ -384,7 +389,7 @@ main.gallery {
     width: 100%;
     max-width: 200px;
     height: auto;
-    margin: 0 auto 1rem;
+    margin: 0 auto 0.5rem;
     border-radius: 8px;
 }
 
@@ -435,7 +440,7 @@ main.gallery {
 #success-message {
     width: 100%;
     max-width: 550px;
-    margin: 6rem auto;
+    margin: 8rem auto 2rem;
     padding: 0 1rem;
     text-align: center;
 }
@@ -444,14 +449,14 @@ main.gallery {
     font-family: 'Roboto', sans-serif;
     font-weight: 200;
     font-size: 1.2rem;
-    margin: 0.5rem 0;
+    margin: 0.3rem 0;
 }
 
 #success-message p {
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
     font-size: 1rem;
-    margin: 0.5rem 0;
+    margin: 0.3rem 0;
 }
 
 /* Футер */
