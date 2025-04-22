@@ -1,19 +1,41 @@
-/* Обнуление отступов и глобальные настройки */
-html {
+/* Глобальные настройки */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    overflow-x: hidden;
+}
+
+html {
     height: 100%;
+    overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+}
+
+html::-webkit-scrollbar {
+    width: 6px;
+}
+
+html::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 3px;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.2);
 }
 
 body {
-    margin: 0;
-    padding: 0;
     min-height: 100vh;
-    background-color: var(--background-color);
+    background: var(--background-color);
     font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
     color: var(--primary-color);
@@ -31,26 +53,16 @@ body {
     --border-color: #ddd;
 }
 
-/* Наследование box-sizing */
-*, *::before, *::after {
-    box-sizing: inherit;
-}
-
-/* Главная страница: убрать прокрутку, центрировать */
+/* Главная страница */
 body.home-page {
     overflow: hidden;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0;
-    padding: 0;
 }
 
 html:has(body.home-page) {
     overflow: hidden;
-    height: 100vh;
     scrollbar-width: none;
 }
 
@@ -58,32 +70,6 @@ html:has(body.home-page)::-webkit-scrollbar {
     display: none;
 }
 
-/* Шапка */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 4000;
-    background-color: transparent;
-    padding: 0.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-/* Добавим отступ для main, чтобы контент не перекрывался шапкой */
-main {
-    margin-top: 6rem;
-    flex: 1;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 2rem;
-}
-
-/* На главной странице убираем отступ */
 .home-page main {
     flex: 1;
     display: flex;
@@ -91,22 +77,32 @@ main {
     align-items: center;
     margin: 0;
     padding: 0;
-    padding-top: 0;
 }
 
-/* Текст в шапке */
+/* Шапка */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    z-index: 4000;
+}
+
+/* Профиль */
 .profile .name {
     font-family: 'Roboto Flex', sans-serif;
     font-weight: 100;
     color: var(--primary-color);
     text-transform: uppercase;
-    margin: 0;
     line-height: 1;
     text-align: left;
 }
 
-.profile .name .first-name,
-.profile .name .last-name {
+.profile .name span {
     font-size: 2rem;
     letter-spacing: -0.05em;
 }
@@ -120,14 +116,10 @@ main {
 .logo {
     width: 35px;
     height: 35px;
-    background-image: url('images/logo.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
+    background: url('../images/logo.svg') no-repeat center/contain;
     cursor: pointer;
-    border: none;
-    outline: none;
-    transition: transform 0.3s ease, opacity 0.3s ease;
     opacity: 0.8;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .logo:hover {
@@ -146,14 +138,12 @@ nav#menu {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #fff;
+    background: #fff;
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    padding: 13rem 0 0;
     z-index: 3001;
-    overflow: hidden;
-    margin: 0;
-    padding: 13rem 0 0 0;
     scrollbar-width: none;
 }
 
@@ -167,52 +157,81 @@ nav#menu.hidden {
 
 nav#menu ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
     text-align: center;
 }
 
-nav#menu ul li {
+nav#menu li {
     margin: 1rem 0;
 }
 
-nav#menu ul li a {
+nav#menu a {
     font-family: 'Roboto Flex', sans-serif;
     font-weight: 100;
+    font-size: 1.4rem;
     color: var(--primary-color);
     text-decoration: none;
-    font-size: 1.4rem;
     display: block;
     padding: 0.8rem 0;
     transition: color 0.3s ease;
 }
 
-nav#menu ul li a:hover {
-    color: var(--primary-color);
+/* Навигация по годам */
+.year-nav {
+    position: fixed;
+    top: 3rem;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.5rem 1rem;
+    z-index: 3500;
 }
 
-/* Слайд-шоу на главной */
+.year-nav ul {
+    display: flex;
+    list-style: none;
+    max-width: 550px;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.year-nav a,
+.year-nav span {
+    font-family: 'Roboto Flex', sans-serif;
+    font-weight: 100;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 0.2rem 0;
+    transition: color 0.3s ease;
+}
+
+.year-nav span.active {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* Слайд-шоу */
 .home-page .slideshow-wrapper {
-    margin: 0;
     margin-top: -50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    max-width: 80vw;
+    width: 80vw;
     height: 70vh;
     overflow: hidden;
 }
 
-.home-page .slideshow-container {
-    width: 100%;
+.slideshow-container {
     max-width: 550px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.home-page #slideshow-image {
+#slideshow-image {
     width: 100%;
     max-width: 500px;
     height: auto;
@@ -231,6 +250,20 @@ nav#menu ul li a:hover {
 }
 
 /* Галерея */
+main {
+    margin-top: 6rem;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+}
+
+main.gallery {
+    margin-top: 8rem;
+}
+
 .gallery {
     display: flex;
     flex-direction: column;
@@ -238,7 +271,6 @@ nav#menu ul li a:hover {
     gap: 2rem;
     margin: 6rem auto 2rem;
     width: 100%;
-    max-width: 100%;
 }
 
 .work-item {
@@ -250,7 +282,7 @@ nav#menu ul li a:hover {
 }
 
 .frame {
-    background-color: #fff;
+    background: #fff;
     padding: 1.5rem;
     border-radius: 8px;
     width: 100%;
@@ -269,8 +301,7 @@ nav#menu ul li a:hover {
     opacity: 1;
 }
 
-/* Подписи под картинами */
-.work-item .info {
+.info {
     width: 100%;
     max-width: 500px;
     text-align: right;
@@ -278,25 +309,19 @@ nav#menu ul li a:hover {
     position: relative;
 }
 
-.work-item .info h3 {
+.info h3 {
     font-family: 'Roboto', sans-serif;
     font-weight: 200;
     font-size: 1rem;
     margin: 0.0005rem 0;
 }
 
-.work-item .info p {
+.info p,
+.info span {
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
     font-size: 0.8rem;
     margin: 0.0005rem 0;
-}
-
-.work-item .info span {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100;
-    font-size: 1rem;
-    margin: 0.2rem 0;
 }
 
 .status {
@@ -309,50 +334,49 @@ nav#menu ul li a:hover {
     top: 0.05rem;
 }
 
-.status.available {
-    background-color: #2ecc71;
-}
-
-.status.sold {
-    background-color: #e74c3c;
-}
-
+.status.available { background: #2ecc71; }
+.status.sold { background: #e74c3c; }
 .status.reserved {
-    background-color: #f39c12;
+    background: #f39c12;
     clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
 }
 
-/* Страницы Contact и About */
+/* Страницы About и Contact */
+.about,
+.contact,
+.description,
+.contact-details,
+.form-section,
+.exhibitions {
+    width: 100%;
+    max-width: 550px;
+    margin: 6rem auto;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+.about h2,
 .contact h2,
-.about h2 {
+.description h2,
+.contact-details h2,
+.form-section h2,
+.exhibitions h2 {
     font-family: 'Roboto', sans-serif;
     font-weight: 200;
     font-size: 1.2rem;
     margin: 0.5rem 0;
-    text-align: center;
 }
 
-.contact p,
 .about p,
+.contact p,
+.description p,
+.contact-details p,
+.exhibitions ul,
 .about ul {
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
     font-size: 1rem;
     margin: 0.5rem 0;
-}
-
-.about,
-.contact {
-    width: 100%;
-    max-width: 550px;
-    margin: 6rem auto;
-    padding: 0 1rem;
-    text-align: justify;
-}
-
-.about h2,
-.contact h2 {
-    text-align: center;
 }
 
 .profile-image {
@@ -364,34 +388,10 @@ nav#menu ul li a:hover {
     border-radius: 8px;
 }
 
-.description,
-.contact-details,
-.form-section,
-.exhibitions {
-    width: 100%;
-    max-width: 550px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.description h2,
-.contact-details h2,
-.form-section h2,
-.exhibitions h2 {
-    text-align: center;
-}
-
-.description p,
-.contact-details p,
-.exhibitions ul {
-    text-align: center;
-}
-
 .form-section form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
     max-width: 400px;
     margin: 0 auto;
 }
@@ -412,9 +412,10 @@ nav#menu ul li a:hover {
     resize: vertical;
 }
 
-.form-section button {
+.form-section button,
+#success-message button {
     padding: 0.5rem 1rem;
-    background-color: #fff;
+    background: #fff;
     color: #000;
     border: 1px solid #000;
     border-radius: 4px;
@@ -425,8 +426,32 @@ nav#menu ul li a:hover {
     transition: background-color 0.3s ease;
 }
 
-.form-section button:hover {
-    background-color: #f0f0f0;
+.form-section button:hover,
+#success-message button:hover {
+    background: #f0f0f0;
+}
+
+/* Сообщение об успешной отправке */
+#success-message {
+    width: 100%;
+    max-width: 550px;
+    margin: 6rem auto;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+#success-message h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+#success-message p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 1rem;
+    margin: 0.5rem 0;
 }
 
 /* Футер */
@@ -435,16 +460,13 @@ footer {
     width: 100%;
     text-align: center;
     padding: 0.3rem 0 0.5rem 0.5rem;
-    background-color: transparent;
     color: #d3d3d3;
-    line-height: 1.2;
 }
 
 footer small {
     font-family: 'Roboto Flex', sans-serif;
     font-weight: 100;
     font-size: 0.6rem;
-    margin: 0;
     display: block;
 }
 
@@ -454,7 +476,6 @@ footer small {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: transparent;
 }
 
 /* Социальные ссылки */
@@ -463,10 +484,8 @@ footer small {
     bottom: 1rem;
     left: 1rem;
     display: flex;
-    flex-direction: row;
     gap: 0.5rem;
     z-index: 3000;
-    pointer-events: auto;
 }
 
 .social-links a {
@@ -475,8 +494,6 @@ footer small {
     align-items: center;
     width: 20px;
     height: 20px;
-    min-width: 20px;
-    min-height: 20px;
     border-radius: 3px;
     text-decoration: none;
     color: #ccc;
@@ -490,15 +507,9 @@ footer small {
 .social-links .social-icon {
     width: 19px;
     height: 19px;
-    display: block;
 }
 
-/* Стили для галерей с навигацией */
-.work-item .prev-arrow,
-.work-item .next-arrow {
-    display: none;
-}
-
+/* Галерея с навигацией */
 .work-item.has-gallery {
     position: relative;
 }
@@ -507,7 +518,7 @@ footer small {
 .work-item.has-gallery .next-arrow {
     display: block;
     position: absolute;
-    top: calc(50% - 15px);
+    top: 50%;
     transform: translateY(-50%) scaleX(0.8);
     background: none;
     border: none;
@@ -531,95 +542,12 @@ footer small {
     transform: translateY(-50%) scaleX(0.8) scale(1.2);
 }
 
-.work-item.has-gallery .frame {
-    position: relative;
-}
-
-/* Отключение голубой подсветки на мобильных устройствах */
-a, button, img[onclick], [role="button"], [id="menu-toggle"],
-.profile .name a, .logo, .work-item.has-gallery .prev-arrow, .work-item.has-gallery .next-arrow {
-    -webkit-tap-highlight-color: transparent;
-    tap-highlight-color: transparent;
-}
-
-/* Класс для блокировки прокрутки страницы и скрытия скроллбара */
-html.no-scroll,
-body.no-scroll {
-    overflow: hidden;
-    scrollbar-width: none;
-}
-
-html.no-scroll::-webkit-scrollbar,
-body.no-scroll::-webkit-scrollbar {
-    display: none;
-}
-
-/* Стили для сообщения об успешной отправке */
-#success-message {
-    width: 100%;
-    max-width: 550px;
-    margin: 6rem auto;
-    padding: 0 1rem;
-    text-align: center;
-}
-
-#success-message h2 {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 200;
-    font-size: 1.2rem;
-    margin: 0.5rem 0;
-}
-
-#success-message p {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100;
-    font-size: 1rem;
-    margin: 0.5rem 0;
-}
-
-#success-message button {
-    padding: 0.5rem 1rem;
-    background-color: #fff;
-    color: #000;
-    border: 1px solid #000;
-    border-radius: 4px;
-    cursor: pointer;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 200;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-}
-
-#success-message button:hover {
-    background-color: #f0f0f0;
-}
-
-/* Стили для скроллбара */
-html::-webkit-scrollbar {
-    width: 6px;
-    background: transparent;
-}
-
-html::-webkit-scrollbar-track {
-    background: transparent;
-    border-radius: 3px;
-}
-
-html::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 3px;
-}
-
-html::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.2);
-}
-
 /* Кнопка "Наверх" */
 .scroll-to-top {
     position: fixed;
     bottom: 0.8rem;
     right: 0.7rem;
-    background-color: transparent;
+    background: transparent;
     color: #000;
     border: 1.5px solid #000;
     border-radius: 10px;
@@ -647,31 +575,45 @@ html::-webkit-scrollbar-thumb:hover {
 }
 
 .scroll-to-top:hover {
-    background-color: #f0f0f0;
+    background: #f0f0f0;
+}
+
+/* Отключение подсветки на мобильных */
+a, button, img[onclick], [role="button"], #menu-toggle,
+.profile .name a, .logo, .work-item.has-gallery .prev-arrow, .work-item.has-gallery .next-arrow {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Блокировка прокрутки */
+html.no-scroll,
+body.no-scroll {
+    overflow: hidden;
+    scrollbar-width: none;
+}
+
+html.no-scroll::-webkit-scrollbar,
+body.no-scroll::-webkit-scrollbar {
+    display: none;
 }
 
 /* Медиа-запросы */
 @media (max-width: 768px) {
-    header {
-        padding: 0.5rem;
-    }
+    header { padding: 0.5rem; }
+
+    main.gallery { margin-top: 6rem; }
 
     .gallery {
         margin: 5rem 0 1rem;
         padding: 0 1rem;
-        width: 100%;
     }
 
     .work-item {
         max-width: 450px;
-        width: 100%;
     }
 
-    .frame {
-        padding: 0.8rem;
-    }
+    .frame { padding: 0.8rem; }
 
-    .work-item .info {
+    .info {
         max-width: 100%;
         font-size: 0.8rem;
     }
@@ -679,66 +621,56 @@ html::-webkit-scrollbar-thumb:hover {
     .status {
         width: 8px;
         height: 8px;
-        left: 0.5rem;
         top: 0.2rem;
     }
 
-    .work-item img {
-        max-width: 100%;
-    }
-
     .home-page .slideshow-wrapper,
-    .slideshow-container {
+    .slideshow-container,
+    #slideshow-image {
         max-width: 450px;
     }
 
-    .home-page #slideshow-image {
-        max-width: 450px;
-    }
+    .slideshow-wrapper { height: 400px; }
 
-    .slideshow-wrapper {
-        height: 400px;
-    }
-
-    .profile .name .first-name,
-    .profile .name .last-name {
-        font-size: 2rem;
-        line-height: 1;
-    }
+    .profile .name span { font-size: 2rem; }
 
     .logo {
         width: 25px;
         height: 25px;
     }
 
-    nav#menu ul li a {
-        font-size: 1rem;
+    nav#menu a { font-size: 1rem; }
+
+    .year-nav {
+        top: 3rem;
+        padding: 0.5rem;
     }
 
+    .year-nav ul { max-width: 400px; }
+
+    .year-nav a,
+    .year-nav span { font-size: 1rem; }
+
     .about,
-    .contact {
+    .contact,
+    .description,
+    .contact-details,
+    .form-section,
+    .exhibitions {
         max-width: 400px;
         padding: 0 1rem;
     }
 
     .about h2,
-    .contact h2 {
-        font-size: 1.1rem;
-    }
+    .contact h2 { font-size: 1.1rem; }
 
     .about p,
     .contact p,
-    .about ul {
-        font-size: 0.9rem;
-    }
+    .about ul { font-size: 0.9rem; }
 
-    .profile-image {
-        max-width: 150px;
-    }
+    .profile-image { max-width: 150px; }
 
-    .form-section form {
-        max-width: 80%;
-    }
+    .form-section form { max-width: 80%; }
 
     .social-links {
         bottom: 0.5rem;
@@ -746,27 +678,13 @@ html::-webkit-scrollbar-thumb:hover {
         gap: 0.3rem;
     }
 
-    footer small {
-        font-size: 0.4rem;
-    }
+    footer small { font-size: 0.4rem; }
 
-    .work-item.has-gallery .prev-arrow {
-        left: -10px;
-    }
-
-    .work-item.has-gallery .next-arrow {
-        right: -10px;
-    }
-
+    .work-item.has-gallery .prev-arrow { left: -10px; }
+    .work-item.has-gallery .next-arrow { right: -10px; }
     .work-item.has-gallery .prev-arrow,
     .work-item.has-gallery .next-arrow {
         font-size: 1.1rem;
-        transform: translateY(-50%) scaleX(0.8);
-    }
-
-    .work-item.has-gallery .prev-arrow:hover,
-    .work-item.has-gallery .next-arrow:hover {
-        transform: translateY(-50%) scaleX(0.8) scale(1.2);
     }
 
     .scroll-to-top {
@@ -779,67 +697,62 @@ html::-webkit-scrollbar-thumb:hover {
 }
 
 @media (max-width: 480px) {
+    main.gallery { margin-top: 5rem; }
+
     .gallery {
         margin: 4rem 0 0.5rem;
         padding: 0 0.5rem;
     }
 
-    .work-item {
-        max-width: 100%;
-    }
+    .work-item { max-width: 100%; }
 
-    .frame {
-        padding: 0.4rem;
-    }
+    .frame { padding: 0.4rem; }
 
-    .work-item .info {
-        font-size: 0.7rem;
-    }
+    .info { font-size: 0.7rem; }
 
     .status {
         width: 6px;
         height: 6px;
-        left: 0.5rem;
         top: 0.3rem;
     }
 
     .home-page .slideshow-wrapper,
-    .slideshow-container {
+    .slideshow-container,
+    #slideshow-image {
         max-width: 100%;
         padding: 0 0.5rem;
     }
 
-    .home-page #slideshow-image {
-        max-width: 100%;
-    }
+    .slideshow-wrapper { height: 300px; }
 
-    .slideshow-wrapper {
-        height: 300px;
-    }
-
-    .profile .name .first-name,
-    .profile .name .last-name {
-        font-size: 1.5rem;
-    }
+    .profile .name span { font-size: 1.5rem; }
 
     .about,
-    .contact {
+    .contact,
+    .description,
+    .contact-details,
+    .form-section,
+    .exhibitions {
         max-width: 90%;
         padding: 0 0.5rem;
     }
 
-    .profile-image {
-        max-width: 120px;
+    .profile-image { max-width: 120px; }
+
+    .form-section form { max-width: 70%; }
+
+    .year-nav {
+        top: 2.5rem;
+        padding: 0.3rem;
     }
 
-    .form-section form {
-        max-width: 70%;
-    }
+    .year-nav ul { max-width: 90%; }
+
+    .year-nav a,
+    .year-nav span { font-size: 0.9rem; }
 
     .work-item.has-gallery .prev-arrow,
-    .work-item.has-gallery .next-arrow {
-        font-size: 0.9rem;
-    }
+    .work-item.has-gallery .next-arrow { font-size: 0.9rem; }
 
     .scroll-to-top {
         width: 22px;
@@ -847,100 +760,5 @@ html::-webkit-scrollbar-thumb:hover {
         font-size: 0.9rem;
         bottom: 0.5rem;
         right: 0.4rem;
-    }
-}
-
-/* Навигация по годам */
-.year-nav {
-    position: fixed;
-    top: 3rem; /* Отступ от верха, учитывая высоту header (~2–3rem) */
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem; /* Расстояние между кнопками */
-    padding: 0.5rem 1rem;
-    background-color: transparent; /* Белый фон, как у nav#menu */
-    z-index: 3500; /* Ниже header (4000), выше контента и social-links (3000) */
-}
-
-.year-nav ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    max-width: 550px; /* Как у .gallery */
-    width: 100%;
-    justify-content: flex-start;
-}
-
-.year-nav li {
-    margin: 0;
-}
-
-.year-nav a,
-.year-nav span {
-    font-family: 'Roboto Flex', sans-serif;
-    font-weight: 100;
-    font-size: 1.5rem;
-    color: var(--primary-color); /* #000 */
-    text-decoration: none;
-    padding: 0.2rem 0;
-    transition: color 0.3s ease;
-}
-
-.year-nav a:hover {
-    color: var(--primary-color); /* Сохраняем цвет при наведении, как в меню */
-}
-
-.year-nav span.active {
-    text-decoration: underline; /* Нижнее подчёркивание для активного года */
-    text-underline-offset: 4px; /* Отступ подчёркивания */
-}
-
-/* Обновление отступа для контента */
-main.gallery {
-    margin-top: 8rem; /* Увеличиваем, чтобы учесть .year-nav */
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
-    .year-nav {
-        top: 3rem; /* Уменьшаем отступ, так как header компактнее */
-        padding: 0.5rem;
-    }
-
-    .year-nav ul {
-        max-width: 400px; /* Как у .gallery на 768px */
-    }
-
-    .year-nav a,
-    .year-nav span {
-        font-size: 1rem; /* Как в меню на 768px */
-    }
-
-    main.gallery {
-        margin-top: 6rem; /* Корректируем отступ для контента */
-    }
-}
-
-@media (max-width: 480px) {
-    .year-nav {
-        top: 2.5rem;
-        padding: 0.3rem;
-    }
-
-    .year-nav ul {
-        max-width: 90%; /* Как у .gallery на 480px */
-    }
-
-    .year-nav a,
-    .year-nav span {
-        font-size: 0.9rem; /* Чуть меньше для компактности */
-    }
-
-    main.gallery {
-        margin-top: 5rem;
     }
 }
