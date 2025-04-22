@@ -266,7 +266,7 @@ main.gallery {
 
 main.contact,
 main.about {
-    margin-top: 5rem; /* Отступ от верха для Contact и About */
+    margin-top: 8rem;
 }
 
 .gallery {
@@ -287,9 +287,6 @@ main.about {
 }
 
 .frame {
-    background: #fff;
-    padding: 1.5rem;
-    border-radius: 8px;
     width: 100%;
 }
 
@@ -297,7 +294,6 @@ main.about {
     width: 100%;
     max-width: 500px;
     height: auto;
-    border-radius: 2px;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
@@ -585,7 +581,8 @@ footer small {
 
 /* Отключение подсветки на мобильных */
 a, button, img[onclick], [role="button"], #menu-toggle,
-.profile .name a, .logo, .work-item.has-gallery .prev-arrow, .work-item.has-gallery .next-arrow {
+.profile .name a, .logo, .work-item.has-gallery .prev-arrow, .work-item.has-gallery .next-arrow,
+#slideshow-image, .slideshow-container, .slideshow-wrapper {
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -615,8 +612,6 @@ body.no-scroll::-webkit-scrollbar {
     .work-item {
         max-width: 450px;
     }
-
-    .frame { padding: 0.8rem; }
 
     .info {
         max-width: 100%;
@@ -710,8 +705,6 @@ body.no-scroll::-webkit-scrollbar {
     }
 
     .work-item { max-width: 100%; }
-
-    .frame { padding: 0.4rem; }
 
     .info { font-size: 0.7rem; }
 
