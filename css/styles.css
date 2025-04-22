@@ -288,6 +288,8 @@ main.about {
 
 .frame {
     width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .work-item img {
