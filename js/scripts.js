@@ -68,6 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
             { src: "images/art1.jpg", page: "/paintings/2025" },
             { src: "images/art2.jpg", page: "/paintings/2024" },
             { src: "images/Simulation_V.jpg", page: "/digital" },
+            { src: "images/Simulation_verse.jpg", page: "/digital" },
             { src: "images/Simulation_IV.jpg", page: "/digital" },
             { src: "images/Simulation_III.jpg", page: "/digital" },
             { src: "images/Simulation_III.II.jpg", page: "/digital" },
