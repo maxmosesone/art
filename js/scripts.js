@@ -64,6 +64,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if (slideshowImage) {
         const images = [
             { src: "images/Alpha.jpg", page: "/paintings/2025" },
+            { src: "images/TWILIGHT_JUNGLE.jpg", page: "/paintings/2025" },
+            { src: "images/SEED.jpg", page: "/paintings/2025" },
             { src: "images/DirtyMonk.jpg", page: "/paintings/2024" },
             { src: "images/art1.jpg", page: "/paintings/2025" },
             { src: "images/art2.jpg", page: "/paintings/2024" },
